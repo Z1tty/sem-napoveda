@@ -88,11 +88,10 @@
       <div class="callout danger">
         <span class="callout-icon"></span>
         <div class="callout-body">
-          <strong>Nepoužívejte tlačítko „Zobrazit kód" pro GTM šablonu</strong>
-          Kód zobrazený přes toto tlačítko obsahuje <strong>SUL ID</strong> určené pro přímou
-          implementaci skriptu a pro vlastní HTML tagy v GTM.
-          Do GTM <strong>šablony</strong> toto ID nelze použít – šablona vyžaduje
-          <strong>SEM ID</strong>, které zkopírujete tlačítkem „Zkopírovat".
+          <strong>Nepoužívejte tlačítko „Zobrazit kód"</strong>
+          Kód zobrazený přes toto tlačítko obsahuje SUL ID určené pro přímou implementaci skriptu.
+          Do GTM šablony toto ID <strong>nelze použít</strong> – šablona ho odmítne nebo
+          nebude správně fungovat.
         </div>
       </div>
 
@@ -347,21 +346,10 @@
 
       <h3 id="bez-sablony-kody">Kódy tagů</h3>
 
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Pozor na dva různé identifikátory</strong>
-          Pro implementaci bez šablony potřebujete <strong>SUL ID</strong> – to získáte tlačítkem
-          <em>„Zobrazit SEM kód"</em> v Skliku (je součástí vygenerovaného kódu v parametru <code>?id=</code>).
-          Toto ID je jiné než SEM ID, které se kopíruje tlačítkem <em>„Zkopírovat"</em>
-          a používá se výhradně pro GTM šablonu.
-        </div>
-      </div>
-
-      <p><strong>base SUL</strong> – načte skript, neodesílá žádnou událost. Použijte <strong>SUL ID</strong> z tlačítka „Zobrazit SEM kód":</p>
+      <p><strong>base SUL</strong> – načte skript, neodesílá žádnou událost:</p>
       <div class="code-block">
         <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
-        <pre><code>&lt;script src="https://l.seznam.cz/sul.js?id=VASE_SUL_ID"&gt;&lt;/script&gt;</code></pre>
+        <pre><code>&lt;script src="https://l.seznam.cz/sul.js?id=VASE_SEM_ID"&gt;&lt;/script&gt;</code></pre>
       </div>
 
       <p><strong>pageview event</strong> – odešle PageView (spouštět na All Pages):</p>
