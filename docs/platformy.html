@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-commerce platformy – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link active" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Implementace</span>
+        </div>
+        <h1>E-commerce platformy</h1>
+        <p class="lead">
+          Populární e-commerce platformy nabízejí nativní doplněk pro SEM.
+          Nepotřebujete upravovat kód webu – stačí zadat SEM ID do nastavení pluginu.
+        </p>
+      </div>
+
+      <h2 id="jak-to-funguje">Jak to funguje</h2>
+
+      <p>
+        Pluginy pro e-commerce platformy automaticky odesílají SEM události na správných místech:
+        PageView na každé stránce, ViewContent na detailu produktu, AddToCart při přidání do košíku
+        a Purchase na děkovací stránce po objednávce. Nemusíte psát žádný kód.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>SEM ID pro pluginy</strong>
+          Pro instalaci pluginu potřebujete <strong>SEM ID</strong> z Sklik → Nastavení účtu → Správa měření.
+          Použijte tlačítko <strong>Zkopírovat</strong> (nikoli „Zobrazit SEM kód" – to je pro přímý skript).
+          Pokud máte provozovny Zboží.cz, použijte <strong>kombinované SEM ID</strong> příslušné provozovny.
+        </div>
+      </div>
+
+      <h2 id="shoptet">Shoptet</h2>
+
+      <p>
+        Shoptet nabízí oficiální doplněk Sklik SEM v Doplňkovém obchodě Shoptetu.
+      </p>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Nainstalujte doplněk Sklik SEM</h3>
+            <p>V administraci Shoptetu přejděte do <strong>Doplňky</strong> → vyhledejte <strong>Sklik SEM</strong> → klikněte na Nainstalovat.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Zadejte SEM ID</h3>
+            <p>V nastavení doplňku vložte vaše <strong>SEM ID</strong> zkopírované ze Správy měření v Skliku.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Uložte a ověřte</h3>
+            <p>Uložte nastavení. Doplněk začne automaticky odesílat SEM události. Ověřte implementaci pomocí Sandboxu.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout info" style="border-style:dashed">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>📸 Screenshot – instalace Shoptet doplňku</strong><br>
+          Bude doplněn: nastavení doplňku Sklik SEM v administraci Shoptetu.
+        </div>
+      </div>
+
+      <h2 id="upgates">Upgates</h2>
+
+      <p>
+        Upgates podporuje SEM přes nativní integraci v sekci marketingových nástrojů.
+      </p>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Otevřete nastavení marketingu</h3>
+            <p>V administraci Upgates přejděte do <strong>Marketing</strong> → <strong>Sklik</strong>.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Zadejte SEM ID</h3>
+            <p>Vyplňte pole <strong>SEM ID</strong> hodnotou zkopírovanou ze Správy měření v Skliku.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Aktivujte a ověřte</h3>
+            <p>Aktivujte integraci a ověřte příjem událostí v Sandboxu.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout info" style="border-style:dashed">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>📸 Screenshot – nastavení Upgates integrace</strong><br>
+          Bude doplněn: obrazovka nastavení Sklik SEM v administraci Upgates.
+        </div>
+      </div>
+
+      <h2 id="dalsi-platformy">Ostatní platformy</h2>
+
+      <p>
+        Podporu SEM průběžně přidávají i další platformy. Pokud vaše platforma není v seznamu,
+        použijte jednu z těchto alternativních metod:
+      </p>
+
+      <div class="method-grid">
+        <a class="method-card" href="gtm.html">
+          <span class="method-card-icon">🏷️</span>
+          <span class="method-card-name">Google Tag Manager</span>
+          <span class="method-card-desc">Pokud platforma podporuje GTM, nasaďte SEM přes GTM šablonu bez úpravy kódu webu.</span>
+        </a>
+        <a class="method-card" href="skript.html">
+          <span class="method-card-icon">🖥️</span>
+          <span class="method-card-name">Přímý skript</span>
+          <span class="method-card-desc">Pokud máte přístup do HTML šablon platformy, vložte SEM skript přímo.</span>
+        </a>
+      </div>
+
+      <h2 id="co-plugin-meri">Co plugin automaticky měří</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Událost</th>
+              <th>Kdy se odešle</th>
+              <th>Automaticky předané parametry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>PageView</code></td>
+              <td>Každé načtení stránky</td>
+              <td>URL, consent z platformy</td>
+            </tr>
+            <tr>
+              <td><code>ViewContent</code></td>
+              <td>Detail produktu</td>
+              <td>ID produktu, cena, měna, název</td>
+            </tr>
+            <tr>
+              <td><code>AddToCart</code></td>
+              <td>Přidání do košíku</td>
+              <td>ID produktu, cena, množství, měna</td>
+            </tr>
+            <tr>
+              <td><code>Purchase</code></td>
+              <td>Dokončení objednávky</td>
+              <td>order_id, value, value_tax, contents, měna</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>review_email pro Zboží.cz</strong>
+          Pokud platforma předává e-mail zákazníka do Purchase události, odesílá ho jako
+          <code>review_email</code> v <strong>nehashované</strong> podobě – to je záměrné.
+          Tento e-mail slouží pro dotazník spokojenosti Zboží.cz a nesmí být hashován.
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uživatelská data – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link active" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span> <span>›</span> <span>Uživatelská data</span>
+        </div>
+        <h1>Uživatelská data</h1>
+        <p class="lead">
+          Odesílání uživatelských dat umožňuje přesné párování konverzí a retargetingových publik i
+          v prostředí bez cookies – například na mobilních zařízeních nebo v prohlížečích blokujících
+          sledování třetích stran.
+        </p>
+      </div>
+
+      <h2 id="proc">Proč zasílat uživatelská data?</h2>
+      <p>
+        Klíčovým identifikátorem je <strong>e-mail uživatele</strong> (<code>em</code>). Pokud ho znáte
+        (přihlášený zákazník, dokončená objednávka), propojí SEM událost s konkrétním uživatelem
+        i bez přítomnosti cookie. To zvyšuje přesnost přiřazení konverzí a kvalitu retargetingových
+        publik napříč zařízeními.
+      </p>
+      <p>
+        Ostatní parametry (telefon, jméno, adresa, pohlaví…) jsou volitelné. Lze je využít jako
+        <strong>podmínky při tvorbě retargetingových a konverzních seznamů</strong> – například
+        cílit jen na zákazníky z určitého města nebo filtrovat podle pohlaví.
+      </p>
+
+      <div class="callout success">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Hashování probíhá automaticky</strong>
+          Při frontendové implementaci (skript, GTM šablona) předávejte hodnoty v čitelné podobě.
+          SEM skript je před odesláním automaticky zahashuje algoritmem <strong>SHA-256</strong>.
+          Výjimka platí pouze pro S2S měření – tam hashujete na svém serveru sami.
+        </div>
+      </div>
+
+      <h2 id="kdy">Kdy uživatelská data odesílat?</h2>
+      <ul>
+        <li><strong>Po přihlášení uživatele</strong> – zavolejte <code>updateUserData</code> ihned po přihlášení</li>
+        <li><strong>Po dokončení objednávky</strong> – v události <code>Purchase</code> spolu s daty objednávky</li>
+        <li><strong>Kdykoli jsou data k dispozici</strong> – například po načtení stránky u přihlášeného uživatele</li>
+      </ul>
+
+      <h2 id="parametry">Parametry uživatelských dat</h2>
+      <p>Všechny hodnoty jsou typu <code>string</code>. Při frontendové implementaci je zasílejte v čitelné podobě – hashování zajistí skript.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parametr</th><th>Popis</th><th>Formát / příklad</th><th>Priorita</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>em</code></td>
+              <td>E-mail uživatele</td>
+              <td><code>jan.novak@email.cz</code></td>
+              <td><span class="badge badge-required">Klíčový</span></td>
+            </tr>
+            <tr>
+              <td><code>ph</code></td>
+              <td>Telefonní číslo</td>
+              <td><code>+420606666666</code></td>
+              <td><span class="badge badge-recommended">Doporučený</span></td>
+            </tr>
+            <tr>
+              <td><code>fn</code></td>
+              <td>Jméno</td>
+              <td><code>Jan</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>ln</code></td>
+              <td>Příjmení</td>
+              <td><code>Novák</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>ge</code></td>
+              <td>Pohlaví</td>
+              <td><code>m</code>, <code>f</code> nebo <code>o</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>db</code></td>
+              <td>Datum narození</td>
+              <td><code>19870223</code> (formát YYYYMMDD)</td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>ct</code></td>
+              <td>Město</td>
+              <td><code>Praha</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>zp</code></td>
+              <td>PSČ</td>
+              <td><code>14900</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>sr</code></td>
+              <td>Ulice a číslo popisné</td>
+              <td><code>Ulice 12</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>country</code></td>
+              <td>Kód země (ISO 3166-1 alpha-2)</td>
+              <td><code>cz</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>st</code></td>
+              <td>Stát uvnitř federace (ANSI/ISO 3166-2) – např. spolková země v Německu</td>
+              <td><code>by</code> (Bavorsko)</td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+            <tr>
+              <td><code>subscription_id</code></td>
+              <td>ID předplatného</td>
+              <td><code>subscription123</code></td>
+              <td><span class="badge badge-optional">Volitelný</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="metoda">Metoda updateUserData</h2>
+      <p>
+        Uživatelská data odesílejte metodou <code>SEM('updateUserData', userData)</code>.
+        Zavolejte ji kdykoli jsou data k dispozici – nejlépe ihned po přihlášení uživatele
+        nebo při načtení stránky, kde víte, že je zákazník přihlášen.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">const</span> userData = {
+  <span class="tok-property">em</span>: <span class="tok-string">"jan.novak@email.cz"</span>,   <span class="tok-comment">// hashuje se automaticky</span>
+  <span class="tok-property">ph</span>: <span class="tok-string">"+420606666666"</span>,
+  <span class="tok-property">fn</span>: <span class="tok-string">"Jan"</span>,
+  <span class="tok-property">ln</span>: <span class="tok-string">"Novák"</span>,
+  <span class="tok-property">ge</span>: <span class="tok-string">"m"</span>,
+  <span class="tok-property">db</span>: <span class="tok-string">"19870223"</span>,
+  <span class="tok-property">ct</span>: <span class="tok-string">"Praha"</span>,
+  <span class="tok-property">zp</span>: <span class="tok-string">"14900"</span>,
+  <span class="tok-property">sr</span>: <span class="tok-string">"Ulice 12"</span>,
+  <span class="tok-property">country</span>: <span class="tok-string">"cz"</span>
+};
+
+SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
+      </div>
+
+      <p>
+        Pokud odesíláte pouze e-mail, stačí minimální varianta:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'updateUserData'</span>, { <span class="tok-property">em</span>: <span class="tok-string">"jan.novak@email.cz"</span> });</code></pre>
+      </div>
+
+      <h2 id="spolu-s-udalosti">Odesílání spolu s událostí</h2>
+      <p>
+        Uživatelská data lze nastavit jednou pomocí <code>updateUserData</code> a pak
+        odesílat události normálně – data se přiloží automaticky. Nebo je lze předat
+        přímo v těle události. Obě varianty jsou rovnocenné.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – typické použití při přihlášení</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">// Zavolejte ihned po přihlášení uživatele</span>
+<span class="tok-keyword">if</span> (isLoggedIn) {
+  SEM(<span class="tok-string">'updateUserData'</span>, {
+    <span class="tok-property">em</span>: currentUser.email
+  });
+}
+
+<span class="tok-comment">// Následné události se automaticky propojí s tímto uživatelem</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, { <span class="tok-comment">/* ... */</span> });</code></pre>
+      </div>
+
+      <h2 id="s2s-hashovani">S2S měření – hashujte sami</h2>
+      <p>
+        Při <a href="s2s.html">Server-to-Server měření</a> musíte osobní data hashovat
+        algoritmem <strong>SHA-256</strong> na svém serveru <em>před</em> odesláním do Skliku.
+        Výsledek je hexadecimální řetězec 64 znaků.
+      </p>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Před hashováním normalizujte hodnoty</strong>
+          <ul style="margin-top:6px; margin-bottom:0">
+            <li>E-mail: převeďte na malá písmena, odstraňte mezery na začátku a konci</li>
+            <li>Telefonní číslo: použijte formát E.164 (např. <code>+420606666666</code>)</li>
+            <li>Jméno, příjmení, město: malá písmena, bez diakritiky není nutné</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-tab="node">Node.js</button>
+          <button class="impl-tab" data-tab="php">PHP</button>
+          <button class="impl-tab" data-tab="python">Python</button>
+        </div>
+        <div class="impl-panel active" data-panel="node">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript (Node.js)</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-keyword">const</span> crypto = require(<span class="tok-string">'crypto'</span>);
+
+<span class="tok-keyword">function</span> <span class="tok-function">hashValue</span>(value) {
+  <span class="tok-keyword">return</span> crypto
+    .createHash(<span class="tok-string">'sha256'</span>)
+    .update(value.trim().toLowerCase())
+    .digest(<span class="tok-string">'hex'</span>);
+}
+
+<span class="tok-keyword">const</span> userData = {
+  <span class="tok-property">em</span>: hashValue(<span class="tok-string">'jan.novak@email.cz'</span>),
+  <span class="tok-property">ph</span>: hashValue(<span class="tok-string">'+420606666666'</span>),
+  <span class="tok-property">fn</span>: hashValue(<span class="tok-string">'jan'</span>),
+  <span class="tok-property">ln</span>: hashValue(<span class="tok-string">'novák'</span>),
+};</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="php">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">PHP</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-keyword">function</span> <span class="tok-function">hashValue</span>(<span class="tok-property">$value</span>) {
+    <span class="tok-keyword">return</span> hash(<span class="tok-string">'sha256'</span>, strtolower(trim(<span class="tok-property">$value</span>)));
+}
+
+<span class="tok-property">$userData</span> = [
+    <span class="tok-string">'em'</span> => hashValue(<span class="tok-string">'jan.novak@email.cz'</span>),
+    <span class="tok-string">'ph'</span> => hashValue(<span class="tok-string">'+420606666666'</span>),
+    <span class="tok-string">'fn'</span> => hashValue(<span class="tok-string">'jan'</span>),
+    <span class="tok-string">'ln'</span> => hashValue(<span class="tok-string">'novák'</span>),
+];</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="python">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">Python</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-keyword">import</span> hashlib
+
+<span class="tok-keyword">def</span> <span class="tok-function">hash_value</span>(value):
+    <span class="tok-keyword">return</span> hashlib.sha256(value.strip().lower().encode()).hexdigest()
+
+user_data = {
+    <span class="tok-string">'em'</span>: hash_value(<span class="tok-string">'jan.novak@email.cz'</span>),
+    <span class="tok-string">'ph'</span>: hash_value(<span class="tok-string">'+420606666666'</span>),
+    <span class="tok-string">'fn'</span>: hash_value(<span class="tok-string">'jan'</span>),
+    <span class="tok-string">'ln'</span>: hash_value(<span class="tok-string">'novak'</span>),
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="retargeting">Využití v retargetingu a konverzích</h2>
+      <p>
+        Geografické a demografické parametry (<code>ct</code>, <code>st</code>, <code>ge</code>…)
+        lze použít jako <strong>podmínky při tvorbě retargetingových seznamů a konverzí</strong>
+        v sekci Správa měření. Například:
+      </p>
+      <ul>
+        <li>Retargetingový seznam pouze pro zákazníky z Prahy → podmínka <code>ct = Praha</code></li>
+        <li>Konverze pouze pro ženy → podmínka <code>ge = f</code></li>
+        <li>Kombinace: zákazníci z Brna, kteří si prohlédli kategorii „Televize"</li>
+      </ul>
+      <p>
+        Podmínky v rámci jedné události se vyhodnocují podle objektů v poli <code>contents</code> –
+        kombinace parametrů platí vždy v rámci jednoho objektu (logika AND uvnitř objektu,
+        logika OR napříč objekty). Více v sekci <a href="drtg.html">Dynamický retargeting</a>.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Návod na hashování e-mailu (EID)</strong>
+          Podrobný technický popis správného hashování pro S2S najdete na
+          <a href="https://vyvojari.seznam.cz/identita/eid" target="_blank">vyvojari.seznam.cz/identita/eid</a>.
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

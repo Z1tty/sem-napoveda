@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Přechod na SEM – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#cc0000"/><text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text></svg>Sklik</a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link active" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <div class="content-wrap">
+      <div class="page-header">
+        <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Přechod na SEM</span></div>
+        <h1>Přechod na SEM</h1>
+        <p class="lead">Přechod ze starých měřicích skriptů na SEM probíhá ve třech krocích. Po celou dobu nasazení běží stará i nová měření souběžně – bez výpadku dat.</p>
+      </div>
+
+      <h2 id="faze1">Fáze 1 – Přístup a příprava</h2>
+      <p>V této fázi váš účet stále funguje se stávajícími skripty. Získáte přístup k nástrojům SEM a připravíte implementaci.</p>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Zjistěte své identifikátory</h3>
+            <p>V <strong>Nastavení účtu → Správa měření</strong> najdete SUL ID a SEM ID. Pokud má váš účet provozovny Zboží.cz, uvidíte pro každou provozovnu samostatné kombinované SEM ID – to je to, které budete používat.</p>
+            <div class="callout info" style="border-style:dashed"><span class="callout-icon"></span><div class="callout-body"><strong>📸 Sem přijde screenshot Správy měření</strong></div></div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Zvolte způsob implementace</h3>
+            <ul>
+              <li><a href="skript.html">Přímý skript (SUL ID)</a> – pro jednoduché weby bez e-commerce</li>
+              <li><a href="gtm.html">Google Tag Manager</a> – nejrychlejší cesta, pracuje se SEM ID</li>
+              <li><a href="platformy.html">Doplněk e-commerce platformy</a> – Shoptet, Upgates a další</li>
+              <li><a href="s2s.html">Server-to-Server</a> – pokročilé měření z backendu</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+
+      <h2 id="faze2">Fáze 2 – Nasazení a testování</h2>
+      <p>Nové SEM skripty nasadíte <strong>souběžně se stávajícím měřením</strong>. Stará měření zůstávají aktivní a data se nijak neovlivňují.</p>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Nasaďte SEM skripty na web</h3>
+            <p>Nové i staré měření poběží paralelně – můžete implementaci otestovat i na ostrém webu bez rizika výpadku dat.</p>
+            <div class="callout info"><span class="callout-icon"></span><div class="callout-body"><strong>E-shopy napojené na Zboží.cz</strong> Pro všechny události na webu používejte <strong>kombinované SEM ID provozovny</strong>. Díky tomu správně přiřadíte nákupní konverze ke kampani Seznam Nákupy.</div></div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Ověřte data v Sandboxu</h3>
+            <p>Zkontrolujte, zda se události odesílají správně se všemi povinnými parametry. Viz <a href="sandbox.html">Testování (Sandbox)</a>.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Připravte nové konverze</h3>
+            <p>Ještě před přepnutím si v sekci <strong>Správa měření</strong> nastavte SEM konverze, které nahradí vaše stávající konverzní akce. Přechod bez předem připravených konverzí způsobí mezeru v měření. Více v <a href="konverze.html">Správě konverzí</a>.</p>
+          </div>
+        </li>
+      </ol>
+
+      <h2 id="faze3">Fáze 3 – Přepnutí na SEM</h2>
+      <div class="callout danger"><span class="callout-icon"></span><div class="callout-body"><strong>Přepnutí nelze vrátit zpět</strong> Po potvrzení přechodu se staré měřicí kódy přestanou zpracovávat. Ujistěte se, že máte nastavené SEM konverze a ověřená data v Sandboxu.</div></div>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Klikněte na „Začít používat SEM"</h3>
+            <p>V rozhraní Sklik → Správa měření potvrďte přechod. Od tohoto okamžiku se počítají pouze data ze SEM skriptů.</p>
+            <div class="callout info" style="border-style:dashed"><span class="callout-icon"></span><div class="callout-body"><strong>📸 Sem přijde screenshot tlačítka přepnutí</strong></div></div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Odstraňte staré měřicí kódy</h3>
+            <p>Po přepnutí odstraňte z webu staré retargetingové a konverzní skripty. Jejich ponechání nezpůsobí chybu, ale zbytečně zatěžuje stránku.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Retargetingové seznamy se migrují automaticky</h3>
+            <p>Vaše stávající retargetingové seznamy se po přepnutí automaticky přesunou do nového rozhraní Správy měření.</p>
+            <p>Staré seznamy napojené na původní konverze postupně zanikají – jejich publikum klesá a po 60 dnech přejdou do stavu „smazané". Doporučujeme začít používat nové seznamy vytvořené ze SEM konverzí.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

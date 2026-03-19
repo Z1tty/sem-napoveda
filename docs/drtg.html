@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamický retargeting – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link active" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span>
+        </div>
+        <h1>Dynamický retargeting (DRTG)</h1>
+        <p class="lead">
+          Dynamický retargeting umožňuje automaticky zobrazovat reklamy na konkrétní produkty nebo kategorie,
+          které si uživatel prohlížel. Stačí správně předat parametry v události ViewContent nebo PageView.
+        </p>
+      </div>
+
+      <h2 id="jak-funguje">Jak dynamický retargeting funguje</h2>
+
+      <p>
+        SEM automaticky zařadí uživatele do retargetingového seznamu na základě událostí, které odešlete.
+        Nemusíte vytvářet samostatné retargetingové kódy – stačí správně vyplnit parametr
+        <code>content_type</code> a <code>contents</code> v událostech <strong>ViewContent</strong>
+        nebo <strong>PageView</strong>.
+      </p>
+
+      <p>
+        Sklik pak může automaticky zobrazit reklamu na přesně ten produkt nebo kategorii, kterou uživatel
+        navštívil – bez ručního párování publika s produktovým feedem.
+      </p>
+
+      <h2 id="produkty">DRTG pro produkty</h2>
+
+      <p>
+        Pro dynamický retargeting produktů použijte <code>content_type: 'product'</code> a v poli
+        <code>contents</code> předejte pole s objekty obsahujícími <code>id</code> produktu.
+        ID musí odpovídat ID v produktovém feedu Sklik / Zboží.cz.
+      </p>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-target="drtg-prod-vc">ViewContent (detail produktu)</button>
+          <button class="impl-tab" data-target="drtg-prod-pv">PageView (jednoduchý web)</button>
+        </div>
+
+        <div id="drtg-prod-vc" class="impl-panel active">
+          <pre><code class="language-js">SEM('track', 'ViewContent', {
+  currency: 'CZK',
+  value: 1490,
+  value_tax: 1804.9,
+  content_type: 'product',   // povinné pro DRTG produktů
+  contents: [
+    {
+      id: 'SKU-12345',        // ID produktu z feedu
+      quantity: 1,
+      price: 1490
+    }
+  ]
+});</code></pre>
+        </div>
+
+        <div id="drtg-prod-pv" class="impl-panel">
+          <pre><code class="language-js">// Alternativa pro jednodušší weby bez hodnoty produktu
+SEM('track', 'PageView', {
+  content_type: 'product',
+  contents: [
+    { id: 'SKU-12345' }
+  ]
+});</code></pre>
+        </div>
+      </div>
+
+      <h2 id="kategorie">DRTG pro kategorie</h2>
+
+      <p>
+        Pro dynamický retargeting kategorií použijte <code>content_type: 'product_group'</code>
+        a předejte název kategorie v parametru <code>content_category</code>.
+      </p>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-target="drtg-cat-vc">ViewContent (výpis kategorie)</button>
+          <button class="impl-tab" data-target="drtg-cat-pv">PageView</button>
+        </div>
+
+        <div id="drtg-cat-vc" class="impl-panel active">
+          <pre><code class="language-js">SEM('track', 'ViewContent', {
+  currency: 'CZK',
+  value: 0,
+  value_tax: 0,
+  content_type: 'product_group',   // povinné pro DRTG kategorií
+  content_category: 'Televizory',  // název kategorie
+  contents: []
+});</code></pre>
+        </div>
+
+        <div id="drtg-cat-pv" class="impl-panel">
+          <pre><code class="language-js">SEM('track', 'PageView', {
+  content_type: 'product_group',
+  content_category: 'Televizory'
+});</code></pre>
+        </div>
+      </div>
+
+      <h2 id="srovnani">Přehled – kdy použít který content_type</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Stránka</th>
+              <th>content_type</th>
+              <th>Povinné parametry</th>
+              <th>Volitelné</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Detail produktu</td>
+              <td><code>product</code></td>
+              <td><code>contents[].id</code></td>
+              <td><code>contents[].quantity</code>, <code>contents[].price</code>, <code>value</code></td>
+            </tr>
+            <tr>
+              <td>Výpis kategorie / vyhledávání</td>
+              <td><code>product_group</code></td>
+              <td><code>content_category</code></td>
+              <td><code>contents[]</code> (volitelně ID produktů ze stránky)</td>
+            </tr>
+            <tr>
+              <td>Domovská stránka / ostatní</td>
+              <td>nevyplňovat</td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>ID produktu musí odpovídat feedu</strong>
+          Hodnota <code>contents[].id</code> musí přesně odpovídat ID produktu v produktovém feedu
+          (Zboží.cz / Sklik feed). Jinak nedojde ke správnému párování a dynamická reklama se nezobrazí.
+        </div>
+      </div>
+
+      <h2 id="retargetingovy-seznam">Retargetingový seznam pro DRTG</h2>
+
+      <p>
+        V sekci <strong>Správa měření</strong> → karta <strong>Retargetingové seznamy</strong>
+        si nastavíte publikum pro dynamický retargeting. Podmínky pro zařazení uživatele do seznamu
+        mohou kombinovat více kritérií:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Podmínka</th><th>Příklad hodnoty</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Typ obsahu (<code>content_type</code>)</td><td><code>product</code></td></tr>
+            <tr><td>ID produktu (<code>contents[].id</code>)</td><td><code>SKU-12345</code></td></tr>
+            <tr><td>Kategorie obsahu (<code>content_category</code>)</td><td><code>Televizory</code></td></tr>
+            <tr><td>Název obsahu (<code>content_name</code>)</td><td><code>Samsung QLED 55"</code></td></tr>
+            <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 1000</td></tr>
+            <tr><td>URL stránky</td><td>obsahuje <code>/produkt/</code></td></tr>
+            <tr><td>Pohlaví</td><td>žena</td></tr>
+            <tr><td>Město / stát</td><td>Praha</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Logika AND / OR v podmínkách</strong>
+          Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> se vyhodnocují jako AND
+          (všechny musí platit). Podmínky <em>přes více objektů</em> v poli fungují jako OR
+          (stačí splnit jeden).
+        </div>
+      </div>
+
+      <h2 id="gtm">Implementace přes GTM</h2>
+
+      <p>
+        Při použití GTM šablony stačí v tagu ViewContent vyplnit pole <strong>Content Type</strong>
+        (<code>product</code> nebo <code>product_group</code>) a <strong>Contents</strong>
+        z dataLayer proměnné obsahující pole produktů. Šablona automaticky předá parametry do SEM.
+      </p>
+
+      <p>Viz <a href="gtm.html#viewcontent">GTM implementace → ViewContent</a>.</p>
+
+      <h2 id="s2s">Dynamický retargeting přes S2S</h2>
+
+      <p>
+        Pro S2S měření předejte stejné parametry v sekci <code>event_data</code> payloadu:
+      </p>
+
+      <pre><code class="language-json">"event_data": {
+  "currency": "CZK",
+  "value": 1490,
+  "value_tax": 1804.9,
+  "content_type": "product",
+  "contents": [
+    {
+      "id": "SKU-12345",
+      "quantity": 1,
+      "price": 1490
+    }
+  ]
+}</code></pre>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

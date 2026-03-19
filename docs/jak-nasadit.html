@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jak nasadit SEM – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link active" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Začínáme</span>
+        </div>
+        <h1>Jak nasadit SEM</h1>
+        <p class="lead">
+          Průvodce výběrem správné metody implementace podle vašeho technického zázemí.
+          SEM lze nasadit čtyřmi způsoby – vyberte ten, který nejlépe odpovídá vašemu webu.
+        </p>
+      </div>
+
+      <h2 id="volba-metody">Zvolte metodu implementace</h2>
+
+      <p>
+        Před nasazením SEM si rozmyslete, jak spravujete váš web a jaké nástroje máte k dispozici.
+        Všechny čtyři metody jsou rovnocenné z pohledu nasbíraných dat – liší se pouze způsobem nasazení.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metoda</th>
+              <th>Kdo ji použije</th>
+              <th>Přístup ke kódu webu</th>
+              <th>Technická náročnost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="skript.html"><strong>Přímý skript</strong></a></td>
+              <td>Vývojář s přístupem do HTML šablon</td>
+              <td>Vyžadován</td>
+              <td>Střední – nutné přidat kód na každou stránku</td>
+            </tr>
+            <tr>
+              <td><a href="gtm.html"><strong>Google Tag Manager</strong></a></td>
+              <td>Marketér nebo vývojář s GTM</td>
+              <td>Není potřeba (jen GTM)</td>
+              <td>Nízká – šablona v GTM galerii, bez kódování</td>
+            </tr>
+            <tr>
+              <td><a href="platformy.html"><strong>E-commerce platforma</strong></a></td>
+              <td>Provozovatel Shoptet, Upgates a podobně</td>
+              <td>Není potřeba (doplněk platformy)</td>
+              <td>Velmi nízká – stačí zadat SEM ID</td>
+            </tr>
+            <tr>
+              <td><a href="s2s.html"><strong>Server-to-Server (S2S)</strong></a></td>
+              <td>Vývojář s vlastním backendem</td>
+              <td>Vyžadován (BE + FE)</td>
+              <td>Vysoká – HTTP volání z vašeho serveru</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="pred-nasazenim">Před nasazením: získejte SEM ID</h2>
+
+      <p>
+        Každý způsob implementace potřebuje <strong>SEM ID</strong> vašeho Sklik účtu.
+        Najdete ho v:
+      </p>
+
+      <ol>
+        <li>Přihlaste se do Skliku</li>
+        <li>Klikněte na <strong>Nastavení účtu</strong> → <strong>Správa měření</strong></li>
+        <li>V tabulce uvidíte záznamy s SEM ID</li>
+      </ol>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>E-shopy napojené na Zboží.cz</strong>
+          Pokud máte provozovny Zboží.cz, každá má vlastní <strong>kombinované SEM ID</strong>
+          (účet + provozovna). Pro Purchase konverze vždy použijte kombinované SEM ID
+          příslušné provozovny, ne obecné SEM ID účtu.
+        </div>
+      </div>
+
+      <h2 id="sem-id-typy">Dva typy SEM ID v Správě měření</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Identifikátor</th><th>Tlačítko</th><th>Kde ho použijete</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SEM ID</strong></td>
+              <td>Zobrazit SEM kód · Zkopírovat</td>
+              <td>
+                <strong>Přímý skript</strong> → použijte „Zobrazit SEM kód" a zkopírujte celý <code>&lt;script&gt;</code> tag<br>
+                <strong>GTM šablona / plugin</strong> → použijte „Zkopírovat" (samotné ID)
+              </td>
+            </tr>
+            <tr>
+              <td><strong>SEM ID pro S2S</strong></td>
+              <td>Zkopírovat</td>
+              <td>Server-to-Server měření – parametr <code>sem_id</code> v payloadu</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:.85rem;color:var(--clr-text-muted)">
+        SEM ID pro S2S je viditelné po zapnutí přepínače <strong>Zobrazit pokročilé nastavení</strong>
+        vpravo nahoře v sekci Správa měření.
+      </p>
+
+      <h2 id="metody-detail">Podrobnosti ke každé metodě</h2>
+
+      <div class="method-grid">
+        <a class="method-card" href="skript.html">
+          <span class="method-card-icon">🖥️</span>
+          <span class="method-card-name">Přímý skript</span>
+          <span class="method-card-desc">Vložíte kód přímo do HTML šablony webu. Vhodné pro weby bez e-commerce nebo pro vývojáře s přístupem ke zdrojovému kódu.</span>
+        </a>
+        <a class="method-card" href="gtm.html">
+          <span class="method-card-icon">🏷️</span>
+          <span class="method-card-name">Google Tag Manager</span>
+          <span class="method-card-desc">Nasadíte SEM přes GTM šablonu bez zásahu do kódu webu. Nejrychlejší cesta pro inzerenty s e-shopem a GTM.</span>
+        </a>
+        <a class="method-card" href="platformy.html">
+          <span class="method-card-icon">🛒</span>
+          <span class="method-card-name">E-commerce platforma</span>
+          <span class="method-card-desc">Shoptet, Upgates a další nabízejí hotový doplněk. Stačí zadat SEM ID do nastavení pluginu.</span>
+        </a>
+        <a class="method-card" href="s2s.html">
+          <span class="method-card-icon">⚙️</span>
+          <span class="method-card-name">Server-to-Server</span>
+          <span class="method-card-desc">Pokročilé měření přímo z vašeho serveru. Vyžaduje vlastní backend a FE skript pro cookies.</span>
+        </a>
+      </div>
+
+      <h2 id="po-nasazeni">Po nasazení: otestujte a přepněte</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Ověřte implementaci v Sandboxu</h3>
+            <p>Otevřete testovací nástroj a zkontrolujte, zda přijímáte správné události s platnými parametry.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Nastavte konverze a retargetingové seznamy</h3>
+            <p>V Správě měření vytvořte konverzní akce (Purchase, Lead…) a retargetingová publika <em>před</em> přepnutím.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Přepněte na SEM</h3>
+            <p>V Skliku klikněte na <strong>Začít používat SEM</strong>. Od tohoto okamžiku se počítají pouze nová data. Přepnutí nelze vrátit zpět.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Paralelní provoz</strong>
+          Během testování můžete provozovat starý retargetingový kód i SEM zároveň.
+          Data se sbírají nezávisle – nedochází k duplicitám v účtování konverzí.
+          Přepnutí provedete, až jste s implementací spokojeni.
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

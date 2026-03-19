@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Základní skript – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link active" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <a href="#">Implementace</a> <span>›</span> <span>Základní skript</span>
+        </div>
+        <h1>Implementace pomocí základního skriptu</h1>
+        <p class="lead">
+          Nejuniverzálnější způsob nasazení – kód vložíte přímo do HTML šablony webu.
+          Vhodné pro vývojáře s přímým přístupem ke zdrojovému kódu.
+        </p>
+      </div>
+
+      <h2 id="predpoklady">Před začátkem</h2>
+      <p>Budete potřebovat:</p>
+      <ul>
+        <li><strong>SEM ID</strong> – najdete v Sklik → Nastavení účtu → Správa měření</li>
+        <li>Přístup k HTML šablonám vašeho webu (sekce <code>&lt;head&gt;</code>)</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Pro jaké weby se přímý skript hodí?</strong>
+          Přímá implementace je vhodná zejména pro <strong>jednoduché weby</strong> – prezentace,
+          jednostránkové weby, weby služeb bez e-commerce. Pro e-shopy s GTM doporučujeme
+          <a href="gtm.html">GTM šablonu</a>, která lépe pokryje e-commerce události.
+        </div>
+      </div>
+
+      <h2 id="krok1">Krok 1 – Zkopírujte skript ze Správy měření</h2>
+      <p>
+        V Sklik → <strong>Nastavení účtu</strong> → <strong>Správa měření</strong> klikněte
+        u příslušného SEM ID na tlačítko <strong>Zobrazit SEM kód</strong>.
+        Otevře se dialog s kompletním skriptem – zkopírujte ho a vložte do sekce
+        <code>&lt;head&gt;</code> na <strong>každé stránce</strong> vašeho webu.
+      </p>
+
+      <div class="callout info" style="border-style:dashed">
+        <span class="callout-icon"></span>
+        <div class="callout-body"><strong>📸 Sem přijde screenshot dialogu „Zobrazit SEM kód"</strong></div>
+      </div>
+
+      <p>Skript vypadá takto:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">HTML</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">&lt;!-- Vložte do &lt;head&gt; na každé stránce webu --&gt;</span>
+<span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=VASE_SEM_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span>
+<span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <p>Skript zajistí:</p>
+      <ul>
+        <li>Automatické odeslání <code>PageView</code> při každém načtení stránky</li>
+        <li>Zápis cookies <code>sid</code> a <code>udid</code> pro identifikaci uživatele</li>
+        <li>Automatické načítání souhlasu z IAB TCF API (pokud váš web TCF používá)</li>
+      </ul>
+
+      <h2 id="krok2">Krok 2 – Nastavte consent (pokud nepoužíváte IAB TCF)</h2>
+      <p>
+        Pokud váš web používá standardizované <strong>IAB Transparency and Consent Framework (TCF)</strong>,
+        consent se předává automaticky – tento krok přeskočte.
+      </p>
+      <p>
+        Pokud TCF nepoužíváte, předejte informaci o souhlasu ručně metodou <code>updateConsent</code>:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">const</span> consentData = {
+  <span class="tok-property">consent_mode</span>: {
+    <span class="tok-property">ad_storage</span>: <span class="tok-string">'granted'</span>,          <span class="tok-comment">// ukládání cookie</span>
+    <span class="tok-property">ad_user_data</span>: <span class="tok-string">'granted'</span>,        <span class="tok-comment">// zpracování identifikátorů</span>
+    <span class="tok-property">ad_personalization</span>: <span class="tok-string">'granted'</span>,  <span class="tok-comment">// personalizace reklamy</span>
+    <span class="tok-property">functionality_storage</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">analytics_storage</span>: <span class="tok-string">'denied'</span>
+  }
+};
+
+SEM(<span class="tok-string">'updateConsent'</span>, consentData);</code></pre>
+      </div>
+
+      <h2 id="krok3">Krok 3 – Odešlete uživatelská data (volitelné, doporučené)</h2>
+      <p>
+        Po přihlášení uživatele nebo po dokončení objednávky doporučujeme odeslat e-mail zákazníka.
+        Skript ho automaticky zahashuje (SHA-256) a slouží k přesnému párování konverzí i bez cookies.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">const</span> userData = {
+  <span class="tok-property">em</span>: <span class="tok-string">"jan.novak@email.cz"</span>,   <span class="tok-comment">// klíčový identifikátor – hashuje se automaticky</span>
+  <span class="tok-property">ph</span>: <span class="tok-string">"+420606666666"</span>,
+  <span class="tok-property">fn</span>: <span class="tok-string">"Jan"</span>,
+  <span class="tok-property">ln</span>: <span class="tok-string">"Novák"</span>
+};
+
+SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Hashování probíhá automaticky</strong>
+          Hodnoty předávejte v čitelné podobě. SEM skript je zahashuje algoritmem SHA-256 přímo v prohlížeči před odesláním.
+          Výjimka: parametr <code>review_email</code> v události Purchase – ten se <strong>nesmí hashovat</strong>.
+        </div>
+      </div>
+
+      <h2 id="krok4">Krok 4 – Přidejte události na relevantní stránky</h2>
+      <p>
+        Na stránkách produktů, košíku, pokladny a děkovné stránce přidejte odpovídající události.
+        Kompletní seznam viz <a href="events.html">Reference událostí</a>.
+      </p>
+
+      <p>Příklad komplexního kódu pro stránku produktu:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">HTML – stránka produktu</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">&lt;!-- V &lt;head&gt; --&gt;</span>
+<span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=VASE_SUL_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span>
+
+<span class="tok-comment">&lt;!-- Za tělem stránky, po načtení dat produktu --&gt;</span>
+<span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+  <span class="tok-comment">// 1. PageView (automaticky, nebo explicitně)</span>
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+
+  <span class="tok-comment">// 2. ViewContent – detail produktu (pro DRTG a retargeting)</span>
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+    <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
+    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+    <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
+    <span class="tok-property">value_tax</span>: <span class="tok-number">7033</span>,
+    <span class="tok-property">contents</span>: [{
+      <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+      <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>,
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,
+      <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>
+    }]
+  });
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <h2 id="csp">Content Security Policy (CSP)</h2>
+      <p>Pokud váš web používá CSP hlavičky, přidejte tyto povolené zdroje:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">HTTP Header</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>Content-Security-Policy:
+  script-src l.seznam.cz;
+  connect-src https://*.seznam.cz;</code></pre>
+      </div>
+
+      <h2 id="spa">SPA aplikace (React, Vue, Next.js...)</h2>
+      <p>
+        U jednostránkových aplikací se stránka nenačítá znovu při navigaci. <code>PageView</code> proto volejte
+        manuálně při každé změně routy:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – React Router příklad</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">import</span> { useEffect } <span class="tok-keyword">from</span> <span class="tok-string">'react'</span>;
+<span class="tok-keyword">import</span> { useLocation } <span class="tok-keyword">from</span> <span class="tok-string">'react-router-dom'</span>;
+
+<span class="tok-keyword">function</span> <span class="tok-function">PageViewTracker</span>() {
+  <span class="tok-keyword">const</span> location = useLocation();
+  useEffect(() => {
+    <span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">'function'</span>) {
+      SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+    }
+  }, [location.pathname]);
+  <span class="tok-keyword">return</span> <span class="tok-keyword">null</span>;
+}</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="method-grid">
+        <a class="method-card" href="events.html">
+          <span class="method-card-icon">📋</span>
+          <span class="method-card-name">Reference událostí</span>
+          <span class="method-card-desc">Kompletní seznam událostí a parametrů pro každou stránku webu.</span>
+        </a>
+        <a class="method-card" href="consent.html">
+          <span class="method-card-icon">🔐</span>
+          <span class="method-card-name">Consent a souhlas</span>
+          <span class="method-card-desc">Podrobnosti o předávání souhlasů dle TCF a Google Consent Mode.</span>
+        </a>
+        <a class="method-card" href="sandbox.html">
+          <span class="method-card-icon">🧪</span>
+          <span class="method-card-name">Testování</span>
+          <span class="method-card-desc">Jak ověřit správnost implementace v testovacím prostředí.</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

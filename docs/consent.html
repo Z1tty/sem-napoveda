@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consent a souhlas – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link active" href="consent.html">Consent a souhlas</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="#jak-funguje">Jak SEM pracuje se souhlasem</a>
+        <a class="nav-link" href="#parametry">Parametry consent_mode</a>
+        <a class="nav-link" href="#vzory">Vzory implementace</a>
+        <a class="nav-link" href="#s2s-consent">Consent v S2S payloadu</a>
+      </div>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span> <span>›</span> <span>Consent a souhlas</span>
+        </div>
+        <h1>Consent a správa souhlasů</h1>
+        <p class="lead">
+          SEM respektuje souhlas uživatele se sledováním. Jak přesně se souhlas předává,
+          závisí na tom, jaký consent management váš web používá.
+        </p>
+      </div>
+
+      <h2 id="jak-funguje">Jak SEM pracuje se souhlasem</h2>
+      <p>
+        SEM podporuje dva standardizované způsoby předání souhlasu. Systém vždy upřednostní
+        IAB TCF, pokud je dostupný – Google Consent Mode slouží jako alternativa.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Způsob</th><th>Kdy se použije</th><th>Co je potřeba udělat</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>IAB TCF (automaticky)</strong></td>
+              <td>Web používá CMP kompatibilní s IAB TCF v2</td>
+              <td>Nic – SEM čte TCF consent string automaticky z API</td>
+            </tr>
+            <tr>
+              <td><strong>Google Consent Mode (manuálně)</strong></td>
+              <td>Web nepoužívá TCF, ale má vlastní cookie lištu</td>
+              <td>Zavolat <code>updateConsent</code> při změně souhlasu</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Používáte IAB TCF?</strong>
+          Pokud váš Consent Management Platform (CMP) implementuje IAB Transparency and Consent
+          Framework v2, souhlas se předává Skliku automaticky. Níže popsaný <code>updateConsent</code>
+          není potřeba implementovat.
+        </div>
+      </div>
+
+      <h2 id="gcm">Manuální předání – Google Consent Mode</h2>
+      <p>
+        Pokud váš web TCF nepodporuje, informujte SEM o stavu souhlasu metodou
+        <code>SEM('updateConsent', consentData)</code>. Volejte ji:
+      </p>
+      <ul>
+        <li>při inicializaci stránky – s výchozím stavem souhlasu (obvykle <code>denied</code>)</li>
+        <li>po interakci uživatele s cookie lištou – s aktualizovaným stavem</li>
+      </ul>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">const</span> consentData = {
+  <span class="tok-property">consent_mode</span>: {
+    <span class="tok-property">ad_storage</span>: <span class="tok-string">'granted'</span>,          <span class="tok-comment">// ukládání reklamních cookies</span>
+    <span class="tok-property">ad_user_data</span>: <span class="tok-string">'granted'</span>,        <span class="tok-comment">// zpracování identifikátorů uživatele</span>
+    <span class="tok-property">ad_personalization</span>: <span class="tok-string">'granted'</span>,  <span class="tok-comment">// personalizace reklamy</span>
+    <span class="tok-property">functionality_storage</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">analytics_storage</span>: <span class="tok-string">'denied'</span>
+  }
+};
+
+SEM(<span class="tok-string">'updateConsent'</span>, consentData);</code></pre>
+      </div>
+
+      <h2 id="parametry">Parametry consent_mode</h2>
+      <p>
+        SEM pracuje s pěti klíči dle specifikace Google Consent Mode v2.
+        Povolené hodnoty jsou <code>'granted'</code> a <code>'denied'</code>.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Klíč</th><th>Co ovlivňuje</th><th>Dopad na SEM</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>ad_storage</code></td>
+              <td>Ukládání a čtení reklamních cookies</td>
+              <td>Nutný pro fungování cookies <code>sid</code> a <code>udid</code></td>
+            </tr>
+            <tr>
+              <td><code>ad_user_data</code></td>
+              <td>Odesílání uživatelských dat do reklamních systémů</td>
+              <td>Nutný pro zpracování hashovaných uživatelských identifikátorů</td>
+            </tr>
+            <tr>
+              <td><code>ad_personalization</code></td>
+              <td>Personalizace reklamního obsahu</td>
+              <td>Nutný pro retargeting a personalizované kampaně</td>
+            </tr>
+            <tr>
+              <td><code>functionality_storage</code></td>
+              <td>Ukládání funkčních cookies</td>
+              <td>Volitelný pro SEM</td>
+            </tr>
+            <tr>
+              <td><code>analytics_storage</code></td>
+              <td>Analytické cookies</td>
+              <td>Volitelný pro SEM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="vzory">Typické vzory implementace</h2>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-tab="default-deny">Výchozí denied</button>
+          <button class="impl-tab" data-tab="update">Aktualizace po souhlasu</button>
+          <button class="impl-tab" data-tab="full-init">Kompletní inicializace</button>
+        </div>
+        <div class="impl-panel active" data-panel="default-deny">
+          <p style="padding:16px 0 4px">Nastavte výchozí stav ještě před načtením cookie lišty (stav před interakcí uživatele):</p>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-comment">// Výchozí stav – uživatel zatím nesouhlasil</span>
+SEM(<span class="tok-string">'updateConsent'</span>, {
+  <span class="tok-property">consent_mode</span>: {
+    <span class="tok-property">ad_storage</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">ad_user_data</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">ad_personalization</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">functionality_storage</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">analytics_storage</span>: <span class="tok-string">'denied'</span>
+  }
+});</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="update">
+          <p style="padding:16px 0 4px">Po potvrzení souhlasu uživatelem (callback z vaší cookie lišty):</p>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-comment">// Zavolejte po kliknutí na "Přijmout vše" v cookie liště</span>
+<span class="tok-keyword">function</span> <span class="tok-function">onConsentGranted</span>() {
+  SEM(<span class="tok-string">'updateConsent'</span>, {
+    <span class="tok-property">consent_mode</span>: {
+      <span class="tok-property">ad_storage</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">ad_user_data</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">ad_personalization</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">functionality_storage</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">analytics_storage</span>: <span class="tok-string">'granted'</span>
+    }
+  });
+}</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="full-init">
+          <p style="padding:16px 0 4px">Kompletní inicializace stránky – consent, user data a PageView v správném pořadí:</p>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">HTML</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=VASE_SUL_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span>
+<span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+
+  <span class="tok-comment">// 1. Předejte consent (pokud nepoužíváte IAB TCF)</span>
+  SEM(<span class="tok-string">'updateConsent'</span>, {
+    <span class="tok-property">consent_mode</span>: {
+      <span class="tok-property">ad_storage</span>: userConsentStatus,        <span class="tok-comment">// 'granted' nebo 'denied'</span>
+      <span class="tok-property">ad_user_data</span>: userConsentStatus,
+      <span class="tok-property">ad_personalization</span>: userConsentStatus,
+      <span class="tok-property">functionality_storage</span>: <span class="tok-string">'denied'</span>,
+      <span class="tok-property">analytics_storage</span>: <span class="tok-string">'denied'</span>
+    }
+  });
+
+  <span class="tok-comment">// 2. Předejte uživatelská data (pokud jsou k dispozici)</span>
+  <span class="tok-keyword">if</span> (currentUserEmail) {
+    SEM(<span class="tok-string">'updateUserData'</span>, { <span class="tok-property">em</span>: currentUserEmail });
+  }
+
+  <span class="tok-comment">// 3. Odešlete PageView</span>
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="s2s-consent">S2S měření – předání souhlasu v payloadu</h2>
+      <p>
+        Při Server-to-Server měření předáváte souhlas přímo v JSON payloadu.
+        Pokud je k dispozici TCF consent string, použijte klíč <code>consent_string</code>
+        a bude upřednostněn. Jako alternativu použijte <code>consent_mode</code>.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JSON – S2S payload (výřez)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>{
+  <span class="tok-comment">// Varianta A: IAB TCF consent string (upřednostněno)</span>
+  <span class="tok-property">"consent_string"</span>: <span class="tok-string">"CPCXzW8CPCXzW8AAAENAPCAAQAAAAAAAAA..."</span>,
+
+  <span class="tok-comment">// Varianta B: Google Consent Mode (alternativa)</span>
+  <span class="tok-property">"consent_mode"</span>: {
+    <span class="tok-property">"ad_storage"</span>: <span class="tok-string">"granted"</span>,
+    <span class="tok-property">"ad_user_data"</span>: <span class="tok-string">"granted"</span>,
+    <span class="tok-property">"ad_personalization"</span>: <span class="tok-string">"granted"</span>,
+    <span class="tok-property">"functionality_storage"</span>: <span class="tok-string">"denied"</span>,
+    <span class="tok-property">"analytics_storage"</span>: <span class="tok-string">"denied"</span>
+  }
+}</code></pre>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

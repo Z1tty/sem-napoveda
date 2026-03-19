@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Správa konverzí – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="6" fill="#cc0000"/>
+      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
+    </svg>
+    Sklik
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
+      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link active" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span>
+        </div>
+        <h1>Správa konverzí a retargetingových seznamů</h1>
+        <p class="lead">
+          Sekce <strong>Správa měření</strong> v Skliku je centrálním místem pro nastavení konverzí
+          a retargetingových publik. Nahrazuje původní záložky Konverze a Retargeting.
+        </p>
+      </div>
+
+      <h2 id="sprava-mereni">Správa měření – přehled</h2>
+
+      <p>
+        V sekci Sklik → <strong>Nastavení účtu</strong> → <strong>Správa měření</strong> spravujete:
+      </p>
+
+      <ul>
+        <li><strong>Konverze</strong> – definujete, které události (Purchase, Lead…) se mají počítat jako konverzní akce a jakou mají hodnotu</li>
+        <li><strong>Retargetingové seznamy</strong> – definujete podmínky pro zařazení uživatele do publika</li>
+        <li><strong>SEM ID</strong> – identifikátor implementace (skript, GTM, plugin)</li>
+        <li><strong>SEM ID pro S2S</strong> – identifikátor pro server-to-server měření (v pokročilém nastavení)</li>
+      </ul>
+
+      <div class="callout info" style="border-style:dashed">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>📸 Screenshot Správy měření</strong><br>
+          Bude doplněn: přehledový pohled sekce Správa měření s kartami Konverze / Retargetingové seznamy.
+        </div>
+      </div>
+
+      <h2 id="konverze">Nastavení konverzí</h2>
+
+      <p>
+        Konverze definujete v kartě <strong>Konverze</strong>. Každá konverze je vázána na konkrétní
+        SEM událost (např. Purchase) a určuje:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Nastavení</th><th>Popis</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Název konverze</strong></td>
+              <td>Interní název pro přehlednost (např. „Nákup e-shop")</td>
+            </tr>
+            <tr>
+              <td><strong>Událost</strong></td>
+              <td>SEM událost, na které je konverze postavena (Purchase, Lead, CompleteRegistration…)</td>
+            </tr>
+            <tr>
+              <td><strong>Hodnota konverze</strong></td>
+              <td>Pevná částka, nebo dynamická hodnota z parametru <code>value</code> události</td>
+            </tr>
+            <tr>
+              <td><strong>Počítání konverzí</strong></td>
+              <td>Každá (všechny nákupy) nebo Jedna (první konverze na uživatele)</td>
+            </tr>
+            <tr>
+              <td><strong>Okno konverze</strong></td>
+              <td>Maximální doba od kliknutí na reklamu do konverze (výchozí 30 dní)</td>
+            </tr>
+            <tr>
+              <td><strong>Podmínky</strong></td>
+              <td>Volitelné filtry – konverze se počítá pouze při splnění podmínek (viz níže)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="podminky-konverzi">Podmínky konverzí</h3>
+
+      <p>
+        Ke každé konverzi lze přidat podmínky, které omezí, kdy se konverze započítá.
+        Podporované podmínky:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Podmínka</th><th>Příklad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>URL stránky</td><td>obsahuje <code>/dekujeme/</code></td></tr>
+            <tr><td>Typ obsahu (<code>content_type</code>)</td><td>je <code>product</code></td></tr>
+            <tr><td>Název obsahu (<code>content_name</code>)</td><td>obsahuje <code>Premium</code></td></tr>
+            <tr><td>Kategorie (<code>content_category</code>)</td><td>je <code>Elektronika</code></td></tr>
+            <tr><td>ID produktu (<code>contents[].id</code>)</td><td>je <code>SKU-001</code></td></tr>
+            <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 500 CZK</td></tr>
+            <tr><td>Pohlaví uživatele</td><td>žena</td></tr>
+            <tr><td>Město / stát</td><td>Praha / Česká republika</td></tr>
+            <tr><td>Zdroj hitu</td><td>web / S2S</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Logika AND / OR v podmínkách</strong>
+          Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> platí jako AND.
+          Podmínky <em>přes více objektů</em> v poli fungují jako OR – stačí, aby splnil jeden z nich.
+        </div>
+      </div>
+
+      <h2 id="retargeting">Retargetingové seznamy</h2>
+
+      <p>
+        Retargetingové seznamy definujete v kartě <strong>Retargetingové seznamy</strong>.
+        Na rozdíl od starých retargetingových kódů jsou seznamy nyní centrálně spravovány
+        v Správě měření a automaticky sbírají data ze SEM událostí.
+      </p>
+
+      <h3 id="automaticke-seznamy">Automatické seznamy ke konverzím</h3>
+
+      <p>
+        Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam.
+        Tento seznam obsahuje uživatele, kteří danou konverzi dokončili – můžete ho použít
+        pro remarketing nebo jako vyloučené publikum.
+      </p>
+
+      <h3 id="vlastni-seznamy">Vlastní retargetingové seznamy</h3>
+
+      <p>
+        Vlastní seznam definujete kombinací podmínek na základě SEM událostí.
+        Podmínky jsou stejné jako u konverzí (URL, content_type, hodnota, pohlaví, město…).
+      </p>
+
+      <div class="callout info" style="border-style:dashed">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>📸 Screenshot – tvorba retargetingového seznamu</strong><br>
+          Bude doplněn: dialog pro vytvoření nového seznamu s výběrem podmínek.
+        </div>
+      </div>
+
+      <h2 id="migrace-rtg">Přechod ze starých retargetingových kódů</h2>
+
+      <p>
+        Po přepnutí na SEM (kliknutím na <strong>Začít používat SEM</strong>) platí tato pravidla:
+      </p>
+
+      <ul>
+        <li>Staré retargetingové kódy <strong>přestanou sbírat data okamžitě</strong></li>
+        <li>Stávající retargetingové seznamy naplněné starými kódy fungují ještě <strong>60 dní</strong> – poté zanikají</li>
+        <li>Nové SEM retargetingové seznamy začínají sbírat data ihned po přepnutí</li>
+        <li>Pro navazující kampaně doporučujeme nové RTG seznamy nastavit <strong>před přepnutím</strong>, aby byly k dispozici co nejdříve</li>
+      </ul>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Přepnutí nelze vrátit zpět</strong>
+          Po potvrzení přechodu na SEM nelze pokračovat ve sběru dat přes staré skripty.
+          Doporučujeme mít retargetingové seznamy a konverze v Správě měření nastaveny
+          ještě před samotným přepnutím.
+        </div>
+      </div>
+
+      <h2 id="zbozi">Konverze pro Nákupy (Zboží.cz)</h2>
+
+      <p>
+        Pokud provozujete e-shop napojený na Zboží.cz a chcete měřit konverze pro kampaně
+        <strong>Seznam Nákupy</strong>, musíte použít <strong>kombinované SEM ID</strong>
+        příslušné provozovny – ne obecné SEM ID účtu.
+      </p>
+
+      <p>
+        Kombinované SEM ID obsahuje identifikátor účtu i provozovny a zajišťuje správné přiřazení
+        Purchase konverzí ke konkrétní provozovně. Najdete ho v Správě měření – ke každé provozovně
+        existuje vlastní záznam.
+      </p>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Přesun provozovny do jiného účtu</strong>
+          Při přesunu provozovny do jiného Sklik účtu kombinované SEM ID zaniká.
+          Budete na to upozorněni a budete muset aktualizovat SEM ID ve své implementaci.
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2 id="dalsi">Další kroky</h2>
+
+      <div class="method-grid">
+        <a class="method-card" href="migrace.html">
+          <span class="method-card-icon">🔄</span>
+          <span class="method-card-name">Průvodce migrací</span>
+          <span class="method-card-desc">Podrobný postup přechodu ze starých skriptů na SEM ve třech krocích.</span>
+        </a>
+        <a class="method-card" href="drtg.html">
+          <span class="method-card-icon">🎯</span>
+          <span class="method-card-name">Dynamický retargeting</span>
+          <span class="method-card-desc">Jak implementovat DRTG pro produkty a kategorie.</span>
+        </a>
+        <a class="method-card" href="events.html#purchase">
+          <span class="method-card-icon">🛒</span>
+          <span class="method-card-name">Událost Purchase</span>
+          <span class="method-card-desc">Parametry a kódové příklady pro konverzní událost Purchase.</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
