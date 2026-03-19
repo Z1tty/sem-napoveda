@@ -320,6 +320,68 @@
         </div>
       </div>
 
+      <!-- IMPLEMENTACE BEZ ŠABLONY -->
+      <h2 id="bez-sablony">Implementace bez šablony (Vlastní HTML)</h2>
+
+      <p>
+        Pokud nechcete nebo nemůžete použít GTM šablonu, lze SEM nasadit přes tagy typu
+        <strong>Vlastní HTML</strong>. Oproti šabloně musíte spravovat tagy ručně.
+      </p>
+
+      <h3 id="bez-sablony-struktura">Doporučená struktura tagů</h3>
+      <p>Vytvořte tři typy tagů:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tag</th><th>Obsah</th><th>Spouštěč</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Seznam SEM – base SUL</strong></td><td>Načtení <code>sul.js</code></td><td>All Pages</td></tr>
+            <tr><td><strong>Seznam SEM – pageview event</strong></td><td>Odeslání události PageView</td><td>All Pages</td></tr>
+            <tr><td><strong>Seznam SEM – [název] event</strong></td><td>Odeslání konkrétní události</td><td>Příslušný trigger</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="bez-sablony-kody">Kódy tagů</h3>
+
+      <p><strong>base SUL</strong> – načte skript, neodesílá žádnou událost:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
+        <pre><code>&lt;script src="https://l.seznam.cz/sul.js?id=VASE_SEM_ID"&gt;&lt;/script&gt;</code></pre>
+      </div>
+
+      <p><strong>pageview event</strong> – odešle PageView (spouštět na All Pages):</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
+        <pre><code>&lt;script&gt;
+if (typeof window.SEM === "function") {
+    SEM('track', 'PageView');
+}
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <p><strong>Ostatní události</strong> (Contact, Lead apod.) – stejný vzor:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
+        <pre><code>&lt;script&gt;
+if (typeof window.SEM === "function") {
+    SEM('track', 'Contact');
+}
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Sekvence spouštění tagů</strong>
+          Protože se <code>sul.js</code> načítá asynchronně, ostatní event tagy musí mít nastavenou
+          <strong>sekvenci spouštění</strong> – v nastavení tagu zaškrtněte
+          <em>„Spustit značku před spuštěním této značky"</em> a vyberte tag <strong>base SUL</strong>.
+          Bez tohoto nastavení může být <code>window.SEM</code> při spuštění eventu ještě nedostupné
+          a událost se neodešle. Priorita spuštění tagů v GTM pro asynchronní skripty nestačí.
+        </div>
+      </div>
+
       <!-- PŘEHLED TAGŮ -->
       <h2 id="prehled-tagu">Doporučená sada tagů</h2>
       <p>Vytvořte jeden tag na každý typ stránky/akce:</p>
