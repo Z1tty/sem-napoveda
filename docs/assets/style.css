@@ -136,7 +136,8 @@ body {
 
 .nav-link.active .nav-icon { opacity: 1; }
 
-.nav-sub { padding-left: 12px; }
+.nav-sub { padding-left: 12px; display: none; }
+.nav-sub.open { display: block; }
 
 .nav-sub .nav-link {
   font-size: .825rem;

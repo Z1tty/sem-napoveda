@@ -44,6 +44,11 @@ document.querySelectorAll('.nav-link').forEach(link => {
   }
 });
 
+// Rozbalit nav-sub pouze na events.html
+if (currentPage === 'events.html') {
+  document.querySelectorAll('.nav-sub').forEach(sub => sub.classList.add('open'));
+}
+
 // ===== ON-PAGE TOC HIGHLIGHT =====
 const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
 if (tocLinks.length) {
