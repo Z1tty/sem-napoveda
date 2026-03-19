@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Claude
+.claude/
+
+# Zdrojové soubory (pouze lokálně)
+*.pptx
+*.docx
+osnova-prezentace.md
