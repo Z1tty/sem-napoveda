@@ -182,6 +182,33 @@
         </table>
       </div>
 
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Jméno a příjmení zasílejte odděleně</strong>
+          Parametry <code>fn</code> a <code>ln</code> musí být zvlášť – ne celé jméno v jednom poli.
+          Pokud váš web ukládá celé jméno do jednoho pole, rozdělte ho před odesláním.
+          V GTM to lze přes vlastní JavaScript proměnné:
+          <div class="code-block" style="margin-top:12px">
+            <div class="code-block-header"><span class="code-block-lang">JavaScript – GTM proměnná</span><button class="copy-btn"></button></div>
+            <pre><code>// Proměnná pro fn (křestní jméno)
+function() {
+  var full = {{dlv_full_name}}; // vaše dataLayer proměnná
+  if (!full) return '';
+  return full.trim().split(' ')[0];
+}
+
+// Proměnná pro ln (příjmení)
+function() {
+  var full = {{dlv_full_name}};
+  if (!full) return '';
+  var parts = full.trim().split(' ');
+  return parts.length > 1 ? parts.slice(1).join(' ') : '';
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
       <h2 id="metoda">Metoda updateUserData</h2>
       <p>
         Uživatelská data odesílejte metodou <code>SEM('updateUserData', userData)</code>.
