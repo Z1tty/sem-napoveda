@@ -96,37 +96,39 @@
         ID musí odpovídat ID v produktovém feedu Sklik / Zboží.cz.
       </p>
 
-      <div class="impl-switcher">
-        <div class="impl-tabs">
-          <button class="impl-tab active" data-target="drtg-prod-vc">ViewContent (detail produktu)</button>
-          <button class="impl-tab" data-target="drtg-prod-pv">PageView (jednoduchý web)</button>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – ViewContent (detail produktu)</span>
+          <button class="copy-btn"></button>
         </div>
-
-        <div id="drtg-prod-vc" class="impl-panel active">
-          <pre><code class="language-js">SEM('track', 'ViewContent', {
-  currency: 'CZK',
-  value: 1490,
-  value_tax: 1804.9,
-  content_type: 'product',   // povinné pro DRTG produktů
-  contents: [
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+  <span class="tok-property">value</span>: <span class="tok-number">1490</span>,
+  <span class="tok-property">value_tax</span>: <span class="tok-number">1804.9</span>,
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,   <span class="tok-comment">// povinné pro DRTG produktů</span>
+  <span class="tok-property">contents</span>: [
     {
-      id: 'SKU-12345',        // ID produktu z feedu
-      quantity: 1,
-      price: 1490
+      <span class="tok-property">id</span>: <span class="tok-string">'SKU-12345'</span>,        <span class="tok-comment">// ID produktu z feedu</span>
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">price</span>: <span class="tok-number">1490</span>
     }
   ]
 });</code></pre>
-        </div>
+      </div>
 
-        <div id="drtg-prod-pv" class="impl-panel">
-          <pre><code class="language-js">// Alternativa pro jednodušší weby bez hodnoty produktu
-SEM('track', 'PageView', {
-  content_type: 'product',
-  contents: [
-    { id: 'SKU-12345' }
+      <p>Alternativa pro jednodušší weby bez hodnoty produktu:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – PageView (jednoduchý web)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
+  <span class="tok-property">contents</span>: [
+    { <span class="tok-property">id</span>: <span class="tok-string">'SKU-12345'</span> }
   ]
 });</code></pre>
-        </div>
       </div>
 
       <h2 id="kategorie">DRTG pro kategorie</h2>
@@ -136,29 +138,32 @@ SEM('track', 'PageView', {
         a předejte název kategorie v parametru <code>content_category</code>.
       </p>
 
-      <div class="impl-switcher">
-        <div class="impl-tabs">
-          <button class="impl-tab active" data-target="drtg-cat-vc">ViewContent (výpis kategorie)</button>
-          <button class="impl-tab" data-target="drtg-cat-pv">PageView</button>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – ViewContent (výpis kategorie)</span>
+          <button class="copy-btn"></button>
         </div>
-
-        <div id="drtg-cat-vc" class="impl-panel active">
-          <pre><code class="language-js">SEM('track', 'ViewContent', {
-  currency: 'CZK',
-  value: 0,
-  value_tax: 0,
-  content_type: 'product_group',   // povinné pro DRTG kategorií
-  content_category: 'Televizory',  // název kategorie
-  contents: []
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+  <span class="tok-property">value</span>: <span class="tok-number">0</span>,
+  <span class="tok-property">value_tax</span>: <span class="tok-number">0</span>,
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,   <span class="tok-comment">// povinné pro DRTG kategorií</span>
+  <span class="tok-property">content_category</span>: <span class="tok-string">'Televizory'</span>,  <span class="tok-comment">// název kategorie</span>
+  <span class="tok-property">contents</span>: []
 });</code></pre>
-        </div>
+      </div>
 
-        <div id="drtg-cat-pv" class="impl-panel">
-          <pre><code class="language-js">SEM('track', 'PageView', {
-  content_type: 'product_group',
-  content_category: 'Televizory'
-});</code></pre>
+      <p>Alternativa pomocí PageView:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – PageView</span>
+          <button class="copy-btn"></button>
         </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
+  <span class="tok-property">content_category</span>: <span class="tok-string">'Televizory'</span>
+});</code></pre>
       </div>
 
       <h2 id="srovnani">Přehled – kdy použít který content_type</h2>
@@ -257,19 +262,25 @@ SEM('track', 'PageView', {
         Pro S2S měření předejte stejné parametry v sekci <code>event_data</code> payloadu:
       </p>
 
-      <pre><code class="language-json">"event_data": {
-  "currency": "CZK",
-  "value": 1490,
-  "value_tax": 1804.9,
-  "content_type": "product",
-  "contents": [
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JSON – event_data</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-property">"event_data"</span>: {
+  <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>,
+  <span class="tok-property">"value"</span>: <span class="tok-number">1490</span>,
+  <span class="tok-property">"value_tax"</span>: <span class="tok-number">1804.9</span>,
+  <span class="tok-property">"content_type"</span>: <span class="tok-string">"product"</span>,
+  <span class="tok-property">"contents"</span>: [
     {
-      "id": "SKU-12345",
-      "quantity": 1,
-      "price": 1490
+      <span class="tok-property">"id"</span>: <span class="tok-string">"SKU-12345"</span>,
+      <span class="tok-property">"quantity"</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">"price"</span>: <span class="tok-number">1490</span>
     }
   ]
 }</code></pre>
+      </div>
 
     </div>
   </main>
