@@ -4,6 +4,9 @@
 # Claude
 .claude/
 CLAUDE.md
+review-napovedy.md
+sem-hit-schema-v2.json
+SEM_*.png
 
 # Zdrojové soubory (pouze lokálně)
 *.pptx
