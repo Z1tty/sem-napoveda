@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retargeting – SEM | Sklik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#cc0000"/><text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text></svg>Sklik</a>
+  <div class="header-divider"></div>
+  <span class="header-title">SEM – Event Measurement</span>
+  <span class="header-badge">⚡ Beta dokumentace</span>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="nav-section">
+      <span class="nav-section-label">Začínáme</span>
+      <a class="nav-link" href="index.html">Co je SEM</a>
+      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
+      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
+      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Implementace</span>
+      <a class="nav-link" href="skript.html">Základní skript</a>
+      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
+      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Reference událostí</span>
+      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
+    </div>
+    <div class="nav-section">
+      <span class="nav-section-label">Pokročilé</span>
+      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link active" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="content-wrap">
+
+      <div class="page-header">
+        <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span></div>
+        <h1>Retargeting</h1>
+        <p class="lead">
+          SEM nahrazuje staré retargetingové kódy jednotným systémem retargetingových seznamů
+          spravovaných v <a href="https://www.sklik.cz/event-management?view=retargetings" target="_blank">Správě měření</a>.
+          Seznamy se naplňují automaticky na základě SEM událostí.
+        </p>
+      </div>
+
+      <h2 id="typy">Typy retargetingových seznamů</h2>
+
+      <p>V SEM existuje šest typů retargetingových seznamů:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Typ</th>
+              <th>Popis</th>
+              <th>Podmínky</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Standardní seznam</strong></td>
+              <td>Ručně vytvořený seznam na základě kombinace podmínek (URL, content_type, hodnota nákupu, pohlaví…)</td>
+              <td>Plně konfigurovatelné</td>
+            </tr>
+            <tr>
+              <td><strong>Kombinace</strong></td>
+              <td>Kombinace více existujících retargetingových seznamů pomocí logických operátorů</td>
+              <td>Plně konfigurovatelné</td>
+            </tr>
+            <tr>
+              <td><strong>E-mailový seznam</strong></td>
+              <td>Seznam vytvořený nahráním hashovaných e-mailů zákazníků</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td><strong>Dynamický seznam</strong></td>
+              <td>Automaticky pro každou napojenou provozovnu <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a> – vznikají tři seznamy: <em>Návštěvníci produktů</em>, <em>Návštěvníci produktů na webech Seznamu</em>, <em>Návštěvníci kategorií</em></td>
+              <td>Nelze upravovat – viz <a href="drtg.html">Dynamický retargeting</a></td>
+            </tr>
+            <tr>
+              <td><strong>Lookalike seznam</strong></td>
+              <td>Seznam uživatelů podobných těm v existujícím zdrojovém seznamu</td>
+              <td>Nelze upravovat</td>
+            </tr>
+            <tr>
+              <td><strong>Seznam z konverze</strong></td>
+              <td>Automaticky ke každé konverzní události – obsahuje uživatele, kteří konverzi dokončili</td>
+              <td>Nelze upravovat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="seznam-z-konverze">Seznam z konverze</h2>
+
+      <p>
+        Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam.
+        Tento seznam obsahuje uživatele, kteří danou konverzi dokončili – lze ho využít
+        pro remarketing nebo jako vyloučené publikum v kampaních.
+        Podmínky těchto seznamů nelze ručně upravovat.
+      </p>
+
+      <p>
+        Seznamy z konverzí se zobrazují v kartě <strong>Retargetingové seznamy</strong>
+        ve <a href="https://www.sklik.cz/event-management?view=retargetings" target="_blank">Správě měření</a>.
+      </p>
+
+      <h2 id="vlastni-seznam">Vlastní retargetingový seznam</h2>
+
+      <p>
+        Vlastní seznam definujete v kartě <strong>Retargetingové seznamy</strong> kombinací podmínek
+        na základě SEM událostí. Pomocí podmínek určíte, při jaké události a jakých parametrech
+        se uživatel do seznamu zařadí.
+      </p>
+
+      <img src="img/retargeting-nova-udalost.jpg" alt="Formulář nové RTG události v Správě měření" style="max-width:100%;border-radius:6px;border:1px solid var(--clr-border);margin:0 0 24px">
+
+      <h3 id="podminky">Podporované podmínky</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Podmínka</th><th>Příklad hodnoty</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>URL stránky</td><td>obsahuje <code>/produkt/</code></td></tr>
+            <tr>
+              <td>Typ obsahu</td>
+              <td>
+                Hodnota se odvozuje automaticky z typu události:<br>
+                <strong>Produkt</strong> – ViewContent / PageView + <code>content_type: 'product'</code><br>
+                <strong>Kategorie</strong> – ViewContent / PageView + <code>content_type: 'product_group'</code><br>
+                <strong>Stránka</strong> – PageView bez <code>content_type</code><br>
+                <strong>Vyhledávání</strong> – Search
+              </td>
+            </tr>
+            <tr><td>ID produktu (<code>contents[].id</code>)</td><td><code>SKU-12345</code></td></tr>
+            <tr><td>Název obsahu (<code>content_name</code>)</td><td><code>Samsung QLED 55"</code></td></tr>
+            <tr><td>Kategorie obsahu (<code>content_category</code>)</td><td><code>Televizory</code></td></tr>
+            <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 1000</td></tr>
+            <tr><td>Pohlaví</td><td>žena</td></tr>
+            <tr><td>Město</td><td>Praha</td></tr>
+            <tr><td>Stát</td><td>Česká republika</td></tr>
+            <tr><td>Zdroj události</td><td>Web / App</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <img src="img/retargeting-definice-podminek.png" alt="Definice podmínek RTG události v Správě měření" style="max-width:100%;border-radius:6px;border:1px solid var(--clr-border);margin:0 0 24px">
+
+      <h3 id="parametry-podminek">Parametry SEM skriptu pro podmínky</h3>
+
+      <p>Aby podmínky fungovaly, musí implementace posílat odpovídající parametry v SEM událostech:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Podmínka v rozhraní</th><th>Parametr SEM skriptu</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>URL</td><td><code>event_url</code></td></tr>
+            <tr><td>Typ obsahu</td><td><code>content_type</code></td></tr>
+            <tr><td>ID produktu</td><td><code>id</code> (v objektu v poli <code>contents</code>)</td></tr>
+            <tr><td>Název obsahu</td><td><code>content_name</code></td></tr>
+            <tr><td>Kategorie</td><td><code>content_category</code></td></tr>
+            <tr><td>Hodnota nákupu</td><td><code>value</code></td></tr>
+            <tr><td>Pohlaví</td><td><code>ge</code></td></tr>
+            <tr><td>Město</td><td><code>ct</code></td></tr>
+            <tr><td>Stát</td><td><code>st</code></td></tr>
+            <tr><td>Zdroj události</td><td><code>event_source</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Logika AND / OR v podmínkách</strong>
+          <p>Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> se vyhodnocují jako AND (všechny musí platit). Podmínky <em>přes více objektů</em> v poli fungují jako OR (stačí splnit jeden).</p>
+        </div>
+      </div>
+
+      <h2 id="prechod">Přechod ze starých retargetingových kódů</h2>
+
+      <p>Po přepnutí na SEM (kliknutím na <strong>Začít používat SEM</strong>) platí:</p>
+
+      <ul>
+        <li>Staré retargetingové kódy <strong>přestanou sbírat data okamžitě</strong></li>
+        <li>Stávající retargetingové seznamy naplněné starými kódy fungují ještě <strong>60 dní</strong> – poté zanikají</li>
+        <li>Nové SEM retargetingové seznamy začínají sbírat data ihned po přepnutí</li>
+        <li>Pro navazující kampaně doporučujeme nové RTG seznamy nastavit <strong>před přepnutím</strong>, aby byly k dispozici co nejdříve</li>
+      </ul>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Přepnutí nelze vrátit zpět</strong>
+          <p>Po potvrzení přechodu na SEM nelze pokračovat ve sběru dat přes staré skripty.
+          Doporučujeme mít retargetingové seznamy a konverze v Správě měření nastaveny ještě před samotným přepnutím.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span>Sklik · napoveda.sklik.cz</span>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

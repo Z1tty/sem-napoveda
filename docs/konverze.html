@@ -55,6 +55,7 @@
       <span class="nav-section-label">Pokročilé</span>
       <a class="nav-link" href="consent.html">Consent a souhlas</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
       <a class="nav-link active" href="konverze.html">Správa konverzí</a>
     </div>
@@ -85,7 +86,7 @@
         <li><strong>Retargetingové seznamy</strong> – definujete podmínky pro zařazení uživatele do publika</li>
       </ul>
       <p>
-        <strong>SEM ID</strong> a <strong>SEM ID pro S2S</strong> (identifikátory implementace) najdete v <a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a>, ne zde.
+        <strong>SEM ID</strong> a <strong>SEM ID pro S2S</strong> (identifikátory implementace) najdete na stránce <a href="sem-id.html">Kde najdu SEM ID?</a>.
       </p>
 
       <div class="callout info" style="border-style:dashed">
@@ -102,9 +103,9 @@
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>SEM konverze se nastavují v Správě měření, ne ve Sledování konverzí</strong>
-          Záložka <em>„Sledování konverzí"</em> v Skliku je staré rozhraní pro původní konverzní kód.
-          SEM konverze musíte zakládat výhradně v <strong>Nástroje → <a href="https://www.sklik.cz/event-management" target="_blank">Správa měření</a></strong>.
-          Konverze vytvořené ve starém rozhraní SEM data nezpracovávají.
+          <p>Záložka <em>„Sledování konverzí"</em> v Skliku je staré rozhraní pro původní konverzní kód.
+          SEM konverze musíte zakládat výhradně v <strong>Nástroje → <a href="https://www.sklik.cz/event-management?view=conversions" target="_blank">Správa měření</a></strong>.
+          Konverze vytvořené ve starém rozhraní SEM data nezpracovávají.</p>
         </div>
       </div>
 
@@ -129,7 +130,7 @@
             </tr>
             <tr>
               <td><strong>Hodnota konverze</strong></td>
-              <td>Pevná částka, nebo dynamická hodnota z parametru <code>value</code> události</td>
+              <td>Pevná částka <strong>bez DPH</strong>, nebo dynamická hodnota z parametru <code>value</code> události (vždy bez DPH)</td>
             </tr>
             <tr>
               <td><strong>Počítání konverzí</strong></td>
@@ -167,8 +168,9 @@
             <tr><td>ID produktu (<code>contents[].id</code>)</td><td>je <code>SKU-001</code></td></tr>
             <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 500 CZK</td></tr>
             <tr><td>Pohlaví uživatele</td><td>žena</td></tr>
-            <tr><td>Město / stát</td><td>Praha / Česká republika</td></tr>
-            <tr><td>Zdroj hitu</td><td>web / S2S</td></tr>
+            <tr><td>Město</td><td>Praha</td></tr>
+            <tr><td>Stát</td><td>Česká republika</td></tr>
+            <tr><td>Zdroj události</td><td>Web / App</td></tr>
           </tbody>
         </table>
       </div>
@@ -177,64 +179,25 @@
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Logika AND / OR v podmínkách</strong>
-          Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> platí jako AND.
-          Podmínky <em>přes více objektů</em> v poli fungují jako OR – stačí, aby splnil jeden z nich.
+          <p>Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> platí jako AND.
+          Podmínky <em>přes více objektů</em> v poli fungují jako OR – stačí, aby splnil jeden z nich.</p>
         </div>
       </div>
+
+      <p>Přehled parametrů SEM skriptu, které odpovídají jednotlivým podmínkám, najdete v sekci <a href="retargeting.html#parametry-podminek">Retargeting – parametry podmínek</a>.</p>
 
       <h2 id="retargeting">Retargetingové seznamy</h2>
 
       <p>
-        Retargetingové seznamy definujete v kartě <strong>Retargetingové seznamy</strong>.
-        Na rozdíl od starých retargetingových kódů jsou seznamy nyní centrálně spravovány
-        v Správě měření a automaticky sbírají data ze SEM událostí.
+        Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam
+        (tzv. <strong>seznam z konverze</strong>) obsahující uživatele, kteří konverzi dokončili.
+        Lze ho využít pro remarketing nebo jako vyloučené publikum.
       </p>
-
-      <h3 id="automaticke-seznamy">Automatické seznamy ke konverzím</h3>
 
       <p>
-        Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam.
-        Tento seznam obsahuje uživatele, kteří danou konverzi dokončili – můžete ho použít
-        pro remarketing nebo jako vyloučené publikum.
+        Pro tvorbu vlastních seznamů s podmínkami, přehled typů RTG seznamů a informace
+        o přechodu ze starých retargetingových kódů viz <a href="retargeting.html">Retargeting</a>.
       </p>
-
-      <h3 id="vlastni-seznamy">Vlastní retargetingové seznamy</h3>
-
-      <p>
-        Vlastní seznam definujete kombinací podmínek na základě SEM událostí.
-        Podmínky jsou stejné jako u konverzí (URL, content_type, hodnota, pohlaví, město…).
-      </p>
-
-      <div class="callout info" style="border-style:dashed">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>📸 Screenshot – tvorba retargetingového seznamu</strong><br>
-          Bude doplněn: dialog pro vytvoření nového seznamu s výběrem podmínek.
-        </div>
-      </div>
-
-      <h2 id="migrace-rtg">Přechod ze starých retargetingových kódů</h2>
-
-      <p>
-        Po přepnutí na SEM (kliknutím na <strong>Začít používat SEM</strong>) platí tato pravidla:
-      </p>
-
-      <ul>
-        <li>Staré retargetingové kódy <strong>přestanou sbírat data okamžitě</strong></li>
-        <li>Stávající retargetingové seznamy naplněné starými kódy fungují ještě <strong>60 dní</strong> – poté zanikají</li>
-        <li>Nové SEM retargetingové seznamy začínají sbírat data ihned po přepnutí</li>
-        <li>Pro navazující kampaně doporučujeme nové RTG seznamy nastavit <strong>před přepnutím</strong>, aby byly k dispozici co nejdříve</li>
-      </ul>
-
-      <div class="callout warning">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Přepnutí nelze vrátit zpět</strong>
-          Po potvrzení přechodu na SEM nelze pokračovat ve sběru dat přes staré skripty.
-          Doporučujeme mít retargetingové seznamy a konverze v Správě měření nastaveny
-          ještě před samotným přepnutím.
-        </div>
-      </div>
 
       <h2 id="zbozi">Konverze pro Nákupy (Zboží.cz)</h2>
 

@@ -47,6 +47,7 @@
       <span class="nav-section-label">Pokročilé</span>
       <a class="nav-link" href="consent.html">Consent a souhlas</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
@@ -59,13 +60,20 @@
         <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Začínáme</span></div>
         <h1>Kde najdu SEM ID?</h1>
         <p class="lead">
-          Každý Sklik účet má přiřazeno <strong>SEM ID</strong> – unikátní identifikátor pro měření.
-          Pokud máte v Sklik účtu napojeny provozovny pro <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>, své SEM ID má i každá z těchto provozoven.
-          SEM ID najdete v Sklik → <strong><a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a></strong>.
+          SEM ID je unikátní identifikátor vašeho Sklik účtu potřebný pro implementaci SEM.
+          Najdete ho v Sklik → <strong><a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a></strong>.
         </p>
       </div>
 
-      <img src="img/settings-sem-id.png" alt="Nastavení účtu Sklik – SEM ID" style="max-width:100%;border-radius:6px;border:1px solid var(--clr-border);margin:0 0 24px">
+      <p>
+        Každý Sklik účet má přiřazeno jedno SEM ID. Pokud máte v účtu napojeny provozovny pro
+        <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>,
+        své SEM ID má i každá z těchto provozoven. Implementace SEM ID konkrétní provozovny
+        zajistí, že konverze budou připočítány správné provozovně a dotazníky pro recenze
+        budou správně napárovány.
+      </p>
+
+      <img src="img/settings-sem-id.jpg" alt="Nastavení účtu Sklik – SEM ID" style="max-width:100%;border-radius:6px;border:1px solid var(--clr-border);margin:0 0 24px">
 
       <div class="callout info">
         <span class="callout-icon"></span>
@@ -85,6 +93,46 @@
           <p>Pokud provozovnu přesunete do jiného Sklik účtu, kombinované SEM ID přestane platit.
           Budete na tuto změnu upozorněni a bude nutné aktualizovat SEM ID ve vaší implementaci.</p>
         </div>
+      </div>
+
+      <h2 id="s2s">SEM ID pro Server-to-Server (S2S)</h2>
+
+      <p>
+        Pokud implementujete SEM pomocí <a href="s2s.html">Server-to-Server měření</a>, budete potřebovat
+        samostatný identifikátor – <strong>SEM ID pro S2S</strong>. Zobrazí se po zapnutí přepínače
+        <strong>Zobrazit pokročilé nastavení</strong> vpravo nahoře v
+        <a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a> – Správa měření.
+      </p>
+
+      <div class="callout info" style="border-style:dashed">
+        <span class="callout-icon"></span>
+        <div class="callout-body"><strong>📸 Sem přijde screenshot pokročilého nastavení (SEM ID pro S2S)</strong></div>
+      </div>
+
+      <h2 id="prehled">Přehled identifikátorů</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Identifikátor</th>
+              <th>Kde ho najdete</th>
+              <th>Kde ho použijete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SEM ID</strong></td>
+              <td>Nastavení účtu – základní zobrazení</td>
+              <td>Přímý skript, GTM šablona, e-commerce plugin</td>
+            </tr>
+            <tr>
+              <td><strong>SEM ID pro S2S</strong></td>
+              <td>Nastavení účtu → přepínač <em>Zobrazit pokročilé nastavení</em></td>
+              <td><a href="s2s.html">Server-to-Server měření</a> – parametr <code>sem_id</code> v payloadu</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </div>

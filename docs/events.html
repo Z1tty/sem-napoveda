@@ -56,6 +56,7 @@
       <span class="nav-section-label">Pokročilé</span>
       <a class="nav-link" href="consent.html">Consent a souhlas</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
@@ -79,8 +80,8 @@
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Základní pravidla</strong>
-          Měna musí být vždy <code>CZK</code>. Ostatní měny přepočítejte před odesláním.
-          Hodnoty <code>value</code> a <code>unit_price</code> jsou vždy <strong>bez DPH</strong>. DPH zasílejte v samostatných polích (<code>value_tax</code>, <code>unit_price_tax</code>).
+          <p>Měna musí být vždy <code>CZK</code>. Ostatní měny přepočítejte před odesláním.
+          Hodnoty <code>value</code> a <code>unit_price</code> jsou vždy <strong>bez DPH</strong>. DPH zasílejte v samostatných polích (<code>value_tax</code>, <code>unit_price_tax</code>).</p>
         </div>
       </div>
 
@@ -91,130 +92,112 @@
         <table>
           <thead>
             <tr>
+              <th>Název v rozhraní</th>
               <th>Událost</th>
-              <th>Kdy odesílat</th>
               <th>Povinné</th>
               <th>Doporučené</th>
-              <th>DRTG</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Zobrazení stránky</td>
               <td><a href="#pageview"><code>PageView</code></a></td>
-              <td>Každá načtená stránka</td>
               <td>–</td>
               <td>–</td>
-              <td>✓ (produkty)</td>
             </tr>
             <tr>
+              <td>Zobrazení obsahu</td>
               <td><a href="#viewcontent"><code>ViewContent</code></a></td>
-              <td>Detail produktu nebo kategorie</td>
               <td>–</td>
               <td><code>content_type</code>, <code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
-              <td>✓ (produkty i kategorie)</td>
             </tr>
             <tr>
-              <td><a href="#addtocart"><code>AddToCart</code></a></td>
               <td>Přidání do košíku</td>
+              <td><a href="#addtocart"><code>AddToCart</code></a></td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Přidání do wishlistu</td>
               <td><a href="#addtocart"><code>AddToWishlist</code></a></td>
-              <td>Přidání do oblíbených</td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Zahájení objednávky</td>
               <td><a href="#checkout"><code>InitiateCheckout</code></a></td>
-              <td>Vstup do procesu placení</td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Přidání platebních údajů</td>
               <td><a href="#checkout"><code>AddPaymentInfo</code></a></td>
-              <td>Zadání platebních údajů</td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Nákup</td>
               <td><a href="#purchase"><code>Purchase</code></a></td>
-              <td>Dokončení objednávky</td>
               <td><code>order_id</code>, <code>currency</code>, <code>value</code>, <code>value_tax</code></td>
               <td><code>content_type</code>, <code>contents</code>, <code>review_email</code>, <code>delivery_type</code>, <code>delivery_price</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Vyhledání</td>
               <td><a href="#search"><code>Search</code></a></td>
-              <td>Vyhledávání na webu</td>
               <td>–</td>
               <td><code>search_string</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Získání kontaktu</td>
               <td><a href="#lead"><code>Lead</code></a></td>
-              <td>Odeslání formuláře / kontakt</td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code></td>
-              <td>–</td>
             </tr>
             <tr>
-              <td><a href="#lead"><code>CompleteRegistration</code></a></td>
               <td>Dokončení registrace</td>
+              <td><a href="#lead"><code>CompleteRegistration</code></a></td>
               <td>–</td>
               <td><code>status</code>, <code>currency</code>, <code>value</code>, <code>value_tax</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Přihlášení k odběru</td>
               <td><a href="#lead"><code>Subscribe</code></a></td>
-              <td>Přihlášení k předplatnému</td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>predicted_ltv</code></td>
-              <td>–</td>
             </tr>
             <tr>
-              <td><a href="#lead"><code>StartTrial</code></a></td>
               <td>Zahájení zkušební verze</td>
+              <td><a href="#lead"><code>StartTrial</code></a></td>
               <td>–</td>
               <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>predicted_ltv</code></td>
-              <td>–</td>
             </tr>
             <tr>
+              <td>Kontakt</td>
               <td><a href="#ostatni"><code>Contact</code></a></td>
-              <td>Kontaktní formulář</td>
-              <td>–</td>
               <td>–</td>
               <td>–</td>
             </tr>
             <tr>
+              <td>Naplánování události</td>
               <td><a href="#ostatni"><code>Schedule</code></a></td>
-              <td>Rezervace termínu / schůzky</td>
-              <td>–</td>
               <td>–</td>
               <td>–</td>
             </tr>
             <tr>
+              <td>Darování</td>
               <td><a href="#ostatni"><code>Donate</code></a></td>
-              <td>Dar / příspěvek</td>
-              <td>–</td>
               <td>–</td>
               <td>–</td>
             </tr>
             <tr>
+              <td>Přizpůsobení produktu</td>
               <td><a href="#ostatni"><code>CustomizeProduct</code></a></td>
-              <td>Konfigurace produktu</td>
-              <td>–</td>
               <td>–</td>
               <td>–</td>
             </tr>
             <tr>
+              <td>Odeslání žádosti/přihlášky</td>
               <td><a href="#ostatni"><code>SubmitApplication</code></a></td>
-              <td>Odeslání žádosti / přihlášky</td>
-              <td>–</td>
               <td>–</td>
               <td>–</td>
             </tr>
@@ -442,8 +425,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>review_email musí být nehashovaný</strong>
-          Parametr <code>review_email</code> slouží pro odesílání dotazníku spokojenosti Zboží.cz.
-          Na rozdíl od ostatních e-mailových údajů jej <strong>nehashujte</strong>. Zasílejte jej jen pokud uživatel nevyjádřil nesouhlas se zasíláním dotazníků.
+          <p>Parametr <code>review_email</code> slouží pro odesílání dotazníku spokojenosti Zboží.cz.
+          Na rozdíl od ostatních e-mailových údajů jej <strong>nehashujte</strong>. Zasílejte jej jen pokud uživatel nevyjádřil nesouhlas se zasíláním dotazníků.</p>
         </div>
       </div>
 
@@ -675,21 +658,21 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
           <span class="code-block-lang">Příklad – contents[]</span>
           <button class="copy-btn"></button>
         </div>
-        <pre><code>contents: [
+        <pre><code><span class="tok-property">contents</span>: [
   {
-    id: 'ABC12345',               // ITEM_ID z XML feedu
-    quantity: 1,
-    unit_price: 33490,            // bez DPH
-    unit_price_tax: 7033,         // pouze DPH
-    content_name: 'iPhone 15 Pro Max',
-    content_category: 'Mobilní telefony'
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,               <span class="tok-comment">// ITEM_ID z XML feedu</span>
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,            <span class="tok-comment">// bez DPH</span>
+    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>,         <span class="tok-comment">// pouze DPH</span>
+    <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>
   },
   {
-    id: 'KRYT999',
-    quantity: 2,
-    unit_price: 500,
-    unit_price_tax: 105,
-    content_name: 'Ochranný kryt'
+    <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">2</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,
+    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">105</span>,
+    <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>
   }
 ]</code></pre>
       </div>

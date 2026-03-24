@@ -55,6 +55,7 @@
       <span class="nav-section-label">Pokročilé</span>
       <a class="nav-link" href="consent.html">Consent a souhlas</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link active" href="drtg.html">Dynamický retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
@@ -91,10 +92,19 @@
       <h2 id="produkty">DRTG pro produkty</h2>
 
       <p>
-        Pro dynamický retargeting produktů použijte <code>content_type: 'product'</code> a v poli
-        <code>contents</code> předejte pole s objekty obsahujícími <code>id</code> produktu.
-        ID musí odpovídat ID v produktovém feedu Sklik / Zboží.cz.
+        Pro dynamický retargeting produktů odesílejte události <strong>ViewContent</strong> nebo <strong>PageView</strong>.
+        Parametr <code>content_type</code> může být nastaven na <code>'product'</code> nebo zůstat nevyplněný.
+        Pro přesnější párování s produktovým feedem předejte v poli <code>contents</code> objekt s <code>id</code> produktu –
+        hodnota musí odpovídat ID v produktovém feedu Sklik / Zboží.cz.
       </p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Zpracovává se jen první objekt v <code>contents</code></strong>
+          <p>Pokud v události zasíláte více objektů v poli <code>contents</code>, pro účely DRTG produktů se zpracuje pouze první z nich. Ostatní objekty jsou ignorovány.</p>
+        </div>
+      </div>
 
       <div class="code-block">
         <div class="code-block-header">
@@ -105,28 +115,13 @@
   <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
   <span class="tok-property">value</span>: <span class="tok-number">1490</span>,
   <span class="tok-property">value_tax</span>: <span class="tok-number">1804.9</span>,
-  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,   <span class="tok-comment">// povinné pro DRTG produktů</span>
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,   <span class="tok-comment">// volitelné – lze vynechat</span>
   <span class="tok-property">contents</span>: [
     {
       <span class="tok-property">id</span>: <span class="tok-string">'SKU-12345'</span>,        <span class="tok-comment">// ID produktu z feedu</span>
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">price</span>: <span class="tok-number">1490</span>
     }
-  ]
-});</code></pre>
-      </div>
-
-      <p>Alternativa pro jednodušší weby bez hodnoty produktu:</p>
-
-      <div class="code-block">
-        <div class="code-block-header">
-          <span class="code-block-lang">JavaScript – PageView (jednoduchý web)</span>
-          <button class="copy-btn"></button>
-        </div>
-        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
-  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
-  <span class="tok-property">contents</span>: [
-    { <span class="tok-property">id</span>: <span class="tok-string">'SKU-12345'</span> }
   ]
 });</code></pre>
       </div>
@@ -205,44 +200,35 @@
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>ID produktu musí odpovídat feedu</strong>
-          Hodnota <code>contents[].id</code> musí přesně odpovídat ID produktu v produktovém feedu
-          (Zboží.cz / Sklik feed). Jinak nedojde ke správnému párování a dynamická reklama se nezobrazí.
+          <p>Hodnota <code>contents[].id</code> musí přesně odpovídat ID produktu v produktovém feedu provozovny <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>. Jinak nedojde ke správnému párování a dynamická reklama se nezobrazí.</p>
         </div>
       </div>
 
-      <h2 id="retargetingovy-seznam">Retargetingový seznam pro DRTG</h2>
+      <h2 id="dynamicke-seznamy">Dynamické retargetingové seznamy</h2>
 
       <p>
-        V sekci <strong><a href="https://www.sklik.cz/event-management" target="_blank">Správa měření</a></strong> → karta <strong>Retargetingové seznamy</strong>
-        si nastavíte publikum pro dynamický retargeting. Podmínky pro zařazení uživatele do seznamu
-        mohou kombinovat více kritérií:
+        Dynamické retargetingové seznamy vznikají <strong>automaticky</strong> – pro každou
+        napojenou provozovnu <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>
+        se při jejím vytvoření automaticky vytvoří tři dynamické seznamy:
       </p>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Podmínka</th><th>Příklad hodnoty</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Typ obsahu (<code>content_type</code>)</td><td><code>product</code></td></tr>
-            <tr><td>ID produktu (<code>contents[].id</code>)</td><td><code>SKU-12345</code></td></tr>
-            <tr><td>Kategorie obsahu (<code>content_category</code>)</td><td><code>Televizory</code></td></tr>
-            <tr><td>Název obsahu (<code>content_name</code>)</td><td><code>Samsung QLED 55"</code></td></tr>
-            <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 1000</td></tr>
-            <tr><td>URL stránky</td><td>obsahuje <code>/produkt/</code></td></tr>
-            <tr><td>Pohlaví</td><td>žena</td></tr>
-            <tr><td>Město / stát</td><td>Praha</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <ul>
+        <li><strong>DRTG – Návštěvníci produktů</strong></li>
+        <li><strong>DRTG – Návštěvníci produktů na webech Seznamu</strong></li>
+        <li><strong>DRTG – Návštěvníci kategorií</strong></li>
+      </ul>
+
+      <p>
+        Podmínky pro sběr dat v těchto seznamech nelze ručně definovat. Stačí správně implementovat
+        události <strong>ViewContent</strong> nebo <strong>PageView</strong> s parametry
+        <code>content_type</code> a <code>contents[]</code> – SEM data do dynamických seznamů přiřadí automaticky.
+      </p>
 
       <div class="callout info">
         <span class="callout-icon"></span>
         <div class="callout-body">
-          <strong>Logika AND / OR v podmínkách</strong>
-          Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> se vyhodnocují jako AND
-          (všechny musí platit). Podmínky <em>přes více objektů</em> v poli fungují jako OR
-          (stačí splnit jeden).
+          <strong>Vlastní RTG seznamy a podmínky</strong>
+          <p>Pokud chcete vytvořit vlastní retargetingové publikum s podmínkami (URL, kategorie, hodnota nákupu, pohlaví…), přejděte do sekce <a href="retargeting.html">Retargeting</a>.</p>
         </div>
       </div>
 
@@ -280,6 +266,21 @@
     }
   ]
 }</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="method-grid">
+        <a class="method-card" href="events.html#viewcontent">
+          <span class="method-card-icon">📋</span>
+          <span class="method-card-name">ViewContent – parametry</span>
+          <span class="method-card-desc">Kompletní přehled parametrů události ViewContent včetně kódových příkladů.</span>
+        </a>
+        <a class="method-card" href="retargeting.html">
+          <span class="method-card-icon">🎯</span>
+          <span class="method-card-name">Retargeting</span>
+          <span class="method-card-desc">Vlastní RTG seznamy, podmínky a přehled všech typů retargetingových publik.</span>
+        </a>
       </div>
 
     </div>

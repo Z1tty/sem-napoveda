@@ -47,6 +47,7 @@
       <span class="nav-section-label">Pokročilé</span>
       <a class="nav-link" href="consent.html">Consent a souhlas</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
@@ -80,18 +81,16 @@
       <h2 id="krok1">Krok 1 – Najděte SEM ID</h2>
 
       <p>
-        GTM šablona vyžaduje <strong>SEM ID</strong> – to je jiný identifikátor než SUL ID,
-        které se používá u přímého skriptu. Obě ID najdete ve stejné sekci Sklik, ale získáte
-        je různým způsobem.
+        GTM šablona vyžaduje <strong>SEM ID</strong> – viz <a href="sem-id.html">Kde najdu SEM ID?</a>.
       </p>
 
       <div class="callout danger">
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Nepoužívejte tlačítko „Zobrazit kód"</strong>
-          Kód zobrazený přes toto tlačítko obsahuje SUL ID určené pro přímou implementaci skriptu.
+          <p>Kód zobrazený přes toto tlačítko obsahuje SUL ID určené pro přímou implementaci skriptu.
           Do GTM šablony toto ID <strong>nelze použít</strong> – šablona ho odmítne nebo
-          nebude správně fungovat.
+          nebude správně fungovat.</p>
         </div>
       </div>
 
@@ -349,38 +348,38 @@
       <p><strong>base SUL</strong> – načte skript, neodesílá žádnou událost:</p>
       <div class="code-block">
         <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
-        <pre><code>&lt;script src="https://l.seznam.cz/sul.js?id=VASE_SEM_ID"&gt;&lt;/script&gt;</code></pre>
+        <pre><code><span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=VASE_SEM_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span></code></pre>
       </div>
 
       <p><strong>pageview event</strong> – odešle PageView (spouštět na All Pages):</p>
       <div class="code-block">
         <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
-        <pre><code>&lt;script&gt;
-if (typeof window.SEM === "function") {
-    SEM('track', 'PageView');
+        <pre><code><span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+    SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
 }
-&lt;/script&gt;</code></pre>
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
       </div>
 
       <p><strong>Ostatní události</strong> (Contact, Lead apod.) – stejný vzor:</p>
       <div class="code-block">
         <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
-        <pre><code>&lt;script&gt;
-if (typeof window.SEM === "function") {
-    SEM('track', 'Contact');
+        <pre><code><span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+    SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Contact'</span>);
 }
-&lt;/script&gt;</code></pre>
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
       </div>
 
       <div class="callout warning">
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Sekvence spouštění tagů</strong>
-          Protože se <code>sul.js</code> načítá asynchronně, ostatní event tagy musí mít nastavenou
+          <p>Protože se <code>sul.js</code> načítá asynchronně, ostatní event tagy musí mít nastavenou
           <strong>sekvenci spouštění</strong> – v nastavení tagu zaškrtněte
           <em>„Spustit značku před spuštěním této značky"</em> a vyberte tag <strong>base SUL</strong>.
           Bez tohoto nastavení může být <code>window.SEM</code> při spuštění eventu ještě nedostupné
-          a událost se neodešle. Priorita spuštění tagů v GTM pro asynchronní skripty nestačí.
+          a událost se neodešle. Priorita spuštění tagů v GTM pro asynchronní skripty nestačí.</p>
         </div>
       </div>
 

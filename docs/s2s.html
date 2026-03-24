@@ -55,6 +55,7 @@
       <span class="nav-section-label">Pokročilé</span>
       <a class="nav-link" href="consent.html">Consent a souhlas</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
@@ -70,18 +71,22 @@
         <h1>Server-to-Server (S2S) měření</h1>
         <p class="lead">
           Pokročilé měření, kdy data odesíláte přímo z vašeho serveru na Sklik endpoint.
-          Vhodné pro weby, kde potřebujete maximální přesnost bez závislosti na cookies třetích stran.
         </p>
       </div>
+
+      <p>
+        S2S je vhodné pro weby, kde potřebujete maximální přesnost bez závislosti na cookies třetích stran.
+        Lze jej využít také pro měření konverzí z mobilních aplikací nebo pro zasílání offline konverzí.
+      </p>
 
       <div class="callout warning">
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Frontendový skript (sul.js) je povinný i pro S2S</strong>
-          I při S2S měření musí být na webu nasazen frontendový skript sul.js s vaším <strong>SUL ID</strong>.
+          <p>I při S2S měření musí být na webu nasazen frontendový skript sul.js s vaším <strong>SUL ID</strong>.
           Ten vytvoří cookies <code>sid</code> a <code>udid</code>, které musíte přečíst a předat v každém S2S requestu.
           Samotný S2S payload pak obsahuje <strong>SEM ID</strong> (parametr <code>sem_id</code>) – to je jiný identifikátor.
-          Bez cookies ze sul.js nelze správně spárovat uživatelskou identitu.
+          Bez cookies ze sul.js nelze správně spárovat uživatelskou identitu.</p>
         </div>
       </div>
 
@@ -92,8 +97,7 @@
         <li>Schopnost hashovat osobní data SHA-256 na serveru</li>
         <li>
           <strong>SEM ID pro S2S</strong> – speciální identifikátor určený výhradně pro S2S měření.
-          Liší se od běžného SEM ID (pro skript a GTM). Najdete ho v Sklik → <a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a> →
-          Správa měření po zapnutí přepínače <strong>Zobrazit pokročilé nastavení</strong>.
+          Liší se od běžného SEM ID (pro skript a GTM). Viz <a href="sem-id.html#s2s">Kde najdu SEM ID?</a>
           Pokud máte provozovny Zboží.cz, každá provozovna má vlastní SEM ID pro S2S.
         </li>
       </ul>
@@ -113,8 +117,22 @@ Content-Type: application/json</code></pre>
       <h2 id="identita">Identifikace uživatele</h2>
       <p>
         S2S payload musí obsahovat cookies <code>sid</code> a <code>udid</code> vygenerované frontendovým skriptem.
-        Tyto hodnoty přečtěte ze serveru a předejte v objektu <code>user_ids.user_data</code>.
+        Přečtěte je na frontendu a předejte na server, odkud je zařadíte do objektu <code>user_ids.user_data</code>.
       </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – čtení cookies sid a udid</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">function</span> <span class="tok-function">getCookie</span>(name) {
+  <span class="tok-keyword">const</span> match = document.cookie.match(<span class="tok-keyword">new</span> RegExp(<span class="tok-string">'(?:^|; )'</span> + name + <span class="tok-string">'=([^;]*)'</span>));
+  <span class="tok-keyword">return</span> match ? decodeURIComponent(match[<span class="tok-number">1</span>]) : <span class="tok-keyword">null</span>;
+}
+
+<span class="tok-keyword">const</span> sid  = getCookie(<span class="tok-string">'sid'</span>);   <span class="tok-comment">// předat na server jako user_ids.user_data.sid</span>
+<span class="tok-keyword">const</span> udid = getCookie(<span class="tok-string">'udid'</span>);  <span class="tok-comment">// předat na server jako user_ids.user_data.udid</span></code></pre>
+      </div>
       <p>
         Dalším klíčovým identifikátorem je <code>sznaiid</code> – proklikové ID ze Skliku.
         Tato hodnota se nachází v URL parametru po prokliku z inzerátu a slouží pro anonymní modelování konverzí.
@@ -125,10 +143,10 @@ Content-Type: application/json</code></pre>
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Hashujte osobní data před odesláním</strong>
-          Na rozdíl od frontendového skriptu, který hashuje automaticky, při S2S musíte
+          <p>Na rozdíl od frontendového skriptu, který hashuje automaticky, při S2S musíte
           <strong>vy sami zahashovat</strong> algoritmem SHA-256 všechna osobní data:
-          em, ph, fn, ln, ge, db, ct, zp, sr, country. <br>
-          Výjimka: <code>review_email</code> se <strong>nesmí hashovat</strong> ani při S2S.
+          em, ph, fn, ln, ge, db, ct, zp, sr, country.
+          Výjimka: <code>review_email</code> se <strong>nesmí hashovat</strong> ani při S2S.</p>
         </div>
       </div>
 
@@ -143,7 +161,7 @@ Content-Type: application/json</code></pre>
             <tr><td><code>schema_version</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td>Vždy <code>"v2"</code></td></tr>
             <tr><td><code>event_name</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td>Název události, např. <code>"Purchase"</code></td></tr>
             <tr><td><code>event_type</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td>Vždy <code>"rtgconv"</code></td></tr>
-            <tr><td><code>event_time</code></td><td>integer</td><td><span class="badge badge-required">Povinný</span></td><td>UTC Unix timestamp v ms</td></tr>
+            <tr><td><code>event_time</code></td><td>integer</td><td><span class="badge badge-required">Povinný</span></td><td>Unix timestamp v <strong>milisekundách</strong> (UTC)</td></tr>
             <tr><td><code>event_url</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td>URL stránky, kde událost nastala</td></tr>
             <tr><td><code>event_source</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>"web"</code> nebo <code>"app"</code></td></tr>
             <tr><td><code>event_id</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td>Unikátní ID eventu (ideálně UUID-7) pro deduplikaci</td></tr>
@@ -270,6 +288,78 @@ Content-Type: application/json</code></pre>
     ]
   }
 }</code></pre>
+      </div>
+
+      <h2 id="odeslani">Odeslání requestu</h2>
+
+      <p>Payload odešlete HTTP POST requestem na endpoint <code>https://sem.seznam.cz/rtgconv</code> s hlavičkou <code>Content-Type: application/json</code>.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">cURL</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>curl -X POST https://sem.seznam.cz/rtgconv \
+  -H <span class="tok-string">"Content-Type: application/json"</span> \
+  -d <span class="tok-string">'{ ... váš payload ... }'</span></code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript (Node.js – fetch)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">await</span> fetch(<span class="tok-string">'https://sem.seznam.cz/rtgconv'</span>, {
+  <span class="tok-property">method</span>: <span class="tok-string">'POST'</span>,
+  <span class="tok-property">headers</span>: { <span class="tok-string">'Content-Type'</span>: <span class="tok-string">'application/json'</span> },
+  <span class="tok-property">body</span>: JSON.stringify(payload)
+});</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">Python (requests)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">import</span> requests
+
+response = requests.post(
+    <span class="tok-string">'https://sem.seznam.cz/rtgconv'</span>,
+    json=payload
+)
+response.raise_for_status()</code></pre>
+      </div>
+
+      <h2 id="chyby">Ošetření chyb a doporučení</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>HTTP status</th><th>Význam</th><th>Doporučená reakce</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>200 OK</code></td><td>Event přijat a zpracován</td><td>–</td></tr>
+            <tr><td><code>400 Bad Request</code></td><td>Neplatný payload – chybí povinné pole nebo špatný formát</td><td>Opravit payload, neopakovat automaticky</td></tr>
+            <tr><td><code>401 / 403</code></td><td>Neplatné SEM ID nebo nepřístupný endpoint</td><td>Zkontrolovat SEM ID pro S2S</td></tr>
+            <tr><td><code>5xx</code></td><td>Chyba na straně serveru</td><td>Opakovat s exponenciálním backoffem (viz níže)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Retry strategie</strong>
+          <p>Při chybách <code>5xx</code> nebo síťovém timeoutu doporučujeme opakovat request s exponenciálním backoffem: 1 s → 2 s → 4 s, maximálně 3 pokusy. Chyby <code>4xx</code> neopakujte – signalizují problém v payloadu, ne přechodný výpadek.</p>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Timeout</strong>
+          <p>Nastavte timeout requestu na <strong>3–5 sekund</strong>. S2S volání nesmí blokovat zpracování objednávky na vašem serveru – odesílejte eventy asynchronně (např. ve frontě na pozadí).</p>
+        </div>
       </div>
 
     </div>
