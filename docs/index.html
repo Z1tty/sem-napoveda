@@ -31,8 +31,8 @@
     <div class="nav-section">
       <span class="nav-section-label">Začínáme</span>
       <a class="nav-link active" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="jak-nasadit.html">Jak nasadit SEM</a>
-      <a class="nav-link" href="migrace.html">Přechod na SEM</a>
+      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
+      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
       <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
     </div>
     <div class="nav-section">
@@ -80,14 +80,6 @@
         </p>
       </div>
 
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Plánované spuštění: konec března 2026</strong>
-          Přechod na SEM je dobrovolný a probíhá ve třech krocích. Stará měření fungují paralelně po celou dobu testování.
-        </div>
-      </div>
-
       <h2 id="co-je-sem">Co je SEM a proč přecházet?</h2>
 
       <p>
@@ -102,7 +94,7 @@
 
       <ul>
         <li><strong>Měření konverzí</strong> – víte, které kampaně přinášejí objednávky, registrace nebo leady</li>
-        <li><strong>Retargeting</strong> – oslovujete uživatele, kteří navštívili konkrétní produkty nebo kategorie</li>
+        <li><strong>Retargeting</strong> – oslovujete uživatele, kteří navštívili konkrétní stránky, produkty, kategorie nebo splnili definované podmínky událostí podle <a href="https://www.sklik.cz/event-management?view=retargetings" target="_blank">vaší definice</a></li>
         <li><strong>Dynamický retargeting (DRTG)</strong> – automaticky zobrazujete reklamy na konkrétní prohlížené produkty</li>
         <li><strong>Optimalizace kampaní</strong> – systém využívá nasbíraná data k lepšímu cílení</li>
       </ul>
@@ -125,75 +117,13 @@
         <a class="method-card" href="platformy.html">
           <span class="method-card-icon">🛒</span>
           <span class="method-card-name">E-commerce platforma</span>
-          <span class="method-card-desc">Shoptet, Upgates a další platformy nabízejí hotový doplněk. Stačí zadat SEM ID.</span>
+          <span class="method-card-desc">Mnoho e-commerce platforem nabízí hotový SEM doplněk – stačí zadat SEM ID.</span>
         </a>
         <a class="method-card" href="s2s.html">
           <span class="method-card-icon">⚙️</span>
           <span class="method-card-name">Server-to-Server</span>
           <span class="method-card-desc">Pokročilé měření z vašeho serveru přímo na Sklik endpoint. Pro vývojáře s vlastním backendem.</span>
         </a>
-      </div>
-
-      <h2 id="sem-id">Kde najdu SEM ID?</h2>
-
-      <p>
-        Každý Sklik účet má přiřazeno <strong>SEM ID</strong> – unikátní identifikátor pro měření.
-        Najdete ho v Sklik → <strong><a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a></strong>.
-      </p>
-      <p>
-        U každého záznamu jsou dvě tlačítka podle toho, jak SEM implementujete:
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Pole v Nastavení účtu</th><th>Tlačítka</th><th>Kde to použiji</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>SEM ID</strong></td>
-              <td>Zobrazit SEM kód · Zkopírovat</td>
-              <td>Přímý skript (HTML), GTM šablona, e-commerce plugin</td>
-            </tr>
-            <tr>
-              <td><strong>SEM ID pro S2S</strong></td>
-              <td>Zkopírovat</td>
-              <td>Server-to-Server měření – parametr <code>sem_id</code> v payloadu</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="font-size:.85rem;color:var(--clr-text-muted);margin-top:-8px">
-        SEM ID pro S2S je viditelné po zapnutí přepínače <strong>Zobrazit pokročilé nastavení</strong> vpravo nahoře v Nastavení účtu.
-      </p>
-
-      <div class="callout info" style="border-style:dashed">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>📸 Sem přijdou dva screenshoty Správy měření</strong><br>
-          1) Základní zobrazení – SEM ID s tlačítky „Zobrazit SEM kód" a „Zkopírovat"<br>
-          2) Po zapnutí pokročilého nastavení – navíc SEM ID pro S2S
-        </div>
-      </div>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>E-shopy napojené na Zboží.cz (provozovny)</strong>
-          Pokud má váš Sklik účet přiřazené provozovny Zboží.cz, pro každou z nich existuje
-          <strong>samostatné kombinované SEM ID</strong> (obsahuje identifikátor účtu i provozovny).
-          Toto kombinované SEM ID zajistí správné přiřazení nákupních konverzí ke kampani
-          Seznam Nákupy dané provozovny. Samostatné SEM ID účtu se v takovém případě v rozhraní nezobrazí.
-        </div>
-      </div>
-
-      <div class="callout warning">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Přesun provozovny do jiného účtu</strong>
-          Pokud provozovnu přesunete do jiného Sklik účtu, kombinované SEM ID přestane platit.
-          Budete na tuto změnu upozorněni a bude nutné aktualizovat SEM ID ve vaší implementaci.
-        </div>
       </div>
 
       <h2 id="proc-migrovat">Co se změní po přechodu?</h2>
@@ -211,12 +141,17 @@
             <tr>
               <td>Počet skriptů</td>
               <td>Retargetingový + konverzní kód zvlášť</td>
-              <td>Jeden skript (sul.js)</td>
+              <td>Jeden SEM skript (sul.js)</td>
+            </tr>
+            <tr>
+              <td>Konverze</td>
+              <td>Jeden typ konverze na konverzní kód</td>
+              <td>Více typů konverzních i mikrokonverzních událostí, podrobnější reporting</td>
             </tr>
             <tr>
               <td>Retargetingové seznamy</td>
               <td>Ruční nastavení v záložce Retargeting</td>
-              <td>Správa měření – automaticky ke každé konverzi</td>
+              <td>Správa měření – automaticky ke každé konverzi, pokročilé možnosti definice událostí</td>
             </tr>
             <tr>
               <td>Podmínky retargetingu</td>
@@ -227,11 +162,6 @@
               <td>Consent</td>
               <td>Vlastní řešení</td>
               <td>Automaticky z IAB TCF nebo manuální předání</td>
-            </tr>
-            <tr>
-              <td>Párování přes e-mail</td>
-              <td>Nepodporováno</td>
-              <td>Hashovaný e-mail pro přesné propojení identit</td>
             </tr>
             <tr>
               <td>Server-to-Server</td>
@@ -248,21 +178,21 @@
         <li class="step">
           <div class="step-number"></div>
           <div class="step-body">
-            <h3>Zjistěte SEM ID a zvolte metodu implementace</h3>
+            <h3><a href="sem-id.html">Zjistěte SEM ID</a> a zvolte metodu implementace</h3>
             <p>SEM ID najdete v <a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a> Sklik. Zvolte způsob nasazení podle vašeho technického zázemí.</p>
           </div>
         </li>
         <li class="step">
           <div class="step-number"></div>
           <div class="step-body">
-            <h3>Nasaďte nové skripty paralelně se starými</h3>
+            <h3><a href="jak-nasadit.html">Nasaďte nové skripty paralelně se starými</a></h3>
             <p>Stará měření i nadále fungují. Nové skripty sbírají data souběžně – bez rizika výpadku.</p>
           </div>
         </li>
         <li class="step">
           <div class="step-number"></div>
           <div class="step-body">
-            <h3>Ověřte data v Sandboxu</h3>
+            <h3><a href="sandbox.html">Ověřte data v Sandboxu</a></h3>
             <p>Pomocí testovacího nástroje zkontrolujte, zda posíláte správné události a parametry.</p>
           </div>
         </li>
@@ -288,7 +218,7 @@
       <h2 id="dalsi">Další kroky</h2>
 
       <div class="method-grid">
-        <a class="method-card" href="migrace.html">
+        <a class="method-card" href="jak-nasadit.html">
           <span class="method-card-icon">🔄</span>
           <span class="method-card-name">Průvodce migrací</span>
           <span class="method-card-desc">Podrobný postup přechodu ze starých skriptů na SEM ve třech krocích.</span>

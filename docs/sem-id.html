@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Testování (Sandbox) – SEM | Sklik</title>
+  <title>Kde najdu SEM ID? – SEM | Sklik</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
@@ -20,7 +20,7 @@
     <div class="nav-section">
       <span class="nav-section-label">Začínáme</span>
       <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
+      <a class="nav-link active" href="sem-id.html">Kde najdu SEM ID?</a>
       <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
       <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
     </div>
@@ -34,6 +34,14 @@
     <div class="nav-section">
       <span class="nav-section-label">Reference událostí</span>
       <a class="nav-link" href="events.html">Přehled událostí</a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
+        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+      </div>
     </div>
     <div class="nav-section">
       <span class="nav-section-label">Pokročilé</span>
@@ -43,17 +51,42 @@
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
+
   <main class="main-content">
     <div class="content-wrap">
+
       <div class="page-header">
         <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Začínáme</span></div>
-        <h1>Testování (Sandbox)</h1>
-        <p class="lead">Tato sekce se připravuje. Obsah bude doplněn.</p>
+        <h1>Kde najdu SEM ID?</h1>
+        <p class="lead">
+          Každý Sklik účet má přiřazeno <strong>SEM ID</strong> – unikátní identifikátor pro měření.
+          Pokud máte v Sklik účtu napojeny provozovny pro <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>, své SEM ID má i každá z těchto provozoven.
+          SEM ID najdete v Sklik → <strong><a href="https://www.sklik.cz/settings" target="_blank">Nastavení účtu</a></strong>.
+        </p>
       </div>
+
+      <img src="img/settings-sem-id.png" alt="Nastavení účtu Sklik – SEM ID" style="max-width:100%;border-radius:6px;border:1px solid var(--clr-border);margin:0 0 24px">
+
       <div class="callout info">
         <span class="callout-icon"></span>
-        <div class="callout-body"><strong>Připravujeme</strong> Obsah této stránky se právě finalizuje.</div>
+        <div class="callout-body">
+          <strong>E-shopy napojené na Zboží.cz (provozovny)</strong>
+          <p>Pokud má váš Sklik účet přiřazené provozovny pro inzerci <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>, pro každou z nich existuje
+          <strong>samostatné kombinované SEM ID</strong> (obsahuje identifikátor účtu i provozovny).
+          Toto kombinované SEM ID zajistí správné přiřazení nákupních konverzí ke kampani
+          Seznam Nákupy dané provozovny i ostatních kampaní Skliku. Samostatné SEM ID účtu v takovém případě neimplementujte.</p>
+        </div>
       </div>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Přesun provozovny do jiného účtu</strong>
+          <p>Pokud provozovnu přesunete do jiného Sklik účtu, kombinované SEM ID přestane platit.
+          Budete na tuto změnu upozorněni a bude nutné aktualizovat SEM ID ve vaší implementaci.</p>
+        </div>
+      </div>
+
     </div>
   </main>
 </div>
