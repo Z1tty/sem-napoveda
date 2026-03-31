@@ -350,7 +350,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           <tbody>
             <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'CZK'</code></td><td>Vždy CZK</td></tr>
             <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>33490</code></td><td>Celková hodnota bez DPH</td></tr>
-            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>7033</code></td><td>DPH celkem</td></tr>
+            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>7033</code></td><td>Výše DPH celkem v CZK</td></tr>
             <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Přidané produkty. Viz <a href="#contents-object">Contents[]</a>.</td></tr>
           </tbody>
         </table>
@@ -439,13 +439,13 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
             <tr><td><code>order_id</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>'OBJ-987654'</code></td><td>Unikátní číslo objednávky. Slouží k deduplikaci.</td></tr>
             <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>'CZK'</code></td><td>Vždy CZK</td></tr>
             <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>33990</code></td><td>Celková cena produktů bez DPH</td></tr>
-            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>7138</code></td><td>Celkové DPH za produkty</td></tr>
+            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>7138</code></td><td>Celkové DPH za produkty v CZK</td></tr>
             <tr><td><code>content_type</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'product'</code></td><td>Vždy <code>product</code> u nákupu produktů</td></tr>
             <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Zakoupené produkty. Viz <a href="#contents-object">Contents[]</a>.</td></tr>
             <tr><td><code>review_email</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'jan@email.cz'</code></td><td>⚠️ NEHASHOVAT. E-mail pro dotazník Zboží.cz.</td></tr>
             <tr><td><code>delivery_type</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'CESKA_POSTA'</code></td><td>Způsob dopravy dle DELIVERY_ID z XML feedu</td></tr>
             <tr><td><code>delivery_price</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>120</code></td><td>Cena dopravy bez DPH v CZK</td></tr>
-            <tr><td><code>delivery_price_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>25.20</code></td><td>DPH z dopravy</td></tr>
+            <tr><td><code>delivery_price_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>25.20</code></td><td>Výše DPH z dopravy v CZK</td></tr>
             <tr><td><code>payment_type</code></td><td>string</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>'karta'</code></td><td>Způsob platby – libovolný řetězec</td></tr>
             <tr><td><code>other_costs</code></td><td>number</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>-50</code></td><td>Další náklady/slevy bez DPH. Slevy = záporné číslo.</td></tr>
             <tr><td><code>other_costs_tax</code></td><td>number</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>-10.5</code></td><td>DPH z dalších nákladů/slev</td></tr>

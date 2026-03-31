@@ -83,7 +83,7 @@
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Frontendový skript (sul.js) je povinný i pro S2S</strong>
-          <p>I při S2S měření musí být na webu nasazen frontendový skript sul.js s vaším <strong>SUL ID</strong>.
+          <p>I při S2S měření musí být na webu nasazen frontendový skript sul.js s vaším <strong>SEM ID</strong>.
           Ten vytvoří cookies <code>sid</code> a <code>udid</code>, které musíte přečíst a předat v každém S2S requestu.
           Samotný S2S payload pak obsahuje <strong>SEM ID</strong> (parametr <code>sem_id</code>) – to je jiný identifikátor.
           Bez cookies ze sul.js nelze správně spárovat uživatelskou identitu.</p>
@@ -112,6 +112,29 @@
         </div>
         <pre><code>POST https://sem.seznam.cz/rtgconv
 Content-Type: application/json</code></pre>
+      </div>
+
+      <h3 id="hlavicky">HTTP hlavičky</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Hlavička</th><th>Povinnost</th><th>Popis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>Content-Type</code></td><td><span class="badge badge-required">Povinná</span></td><td>Vždy <code>application/json</code></td></tr>
+            <tr><td><code>X-Client-Id</code></td><td><span class="badge badge-recommended">Doporučená</span></td><td>Název vaší aplikace nebo knihovny, která data odesílá (např. <code>muj-eshop-plugin</code>, <code>shoptet-sem</code>)</td></tr>
+            <tr><td><code>X-Client-Version</code></td><td><span class="badge badge-recommended">Doporučená</span></td><td>Verze aplikace (např. <code>1.4.2</code>)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Proč uvádět X-Client-Id a X-Client-Version?</strong>
+          <p>Tyto hlavičky nám pomáhají při debugování problémů na vaší straně – rychle dohledáme, z jaké aplikace a verze data přišla. Nemají vliv na zpracování eventů, ale výrazně zrychlují diagnostiku.</p>
+        </div>
       </div>
 
       <h2 id="identita">Identifikace uživatele</h2>
@@ -301,6 +324,8 @@ Content-Type: application/json</code></pre>
         </div>
         <pre><code>curl -X POST https://sem.seznam.cz/rtgconv \
   -H <span class="tok-string">"Content-Type: application/json"</span> \
+  -H <span class="tok-string">"X-Client-Id: vas-eshop-plugin"</span> \
+  -H <span class="tok-string">"X-Client-Version: 1.0.0"</span> \
   -d <span class="tok-string">'{ ... váš payload ... }'</span></code></pre>
       </div>
 
@@ -311,7 +336,11 @@ Content-Type: application/json</code></pre>
         </div>
         <pre><code><span class="tok-keyword">await</span> fetch(<span class="tok-string">'https://sem.seznam.cz/rtgconv'</span>, {
   <span class="tok-property">method</span>: <span class="tok-string">'POST'</span>,
-  <span class="tok-property">headers</span>: { <span class="tok-string">'Content-Type'</span>: <span class="tok-string">'application/json'</span> },
+  <span class="tok-property">headers</span>: {
+    <span class="tok-string">'Content-Type'</span>: <span class="tok-string">'application/json'</span>,
+    <span class="tok-string">'X-Client-Id'</span>: <span class="tok-string">'vas-eshop-plugin'</span>,
+    <span class="tok-string">'X-Client-Version'</span>: <span class="tok-string">'1.0.0'</span>,
+  },
   <span class="tok-property">body</span>: JSON.stringify(payload)
 });</code></pre>
       </div>
@@ -325,7 +354,11 @@ Content-Type: application/json</code></pre>
 
 response = requests.post(
     <span class="tok-string">'https://sem.seznam.cz/rtgconv'</span>,
-    json=payload
+    json=payload,
+    headers={
+        <span class="tok-string">'X-Client-Id'</span>: <span class="tok-string">'vas-eshop-plugin'</span>,
+        <span class="tok-string">'X-Client-Version'</span>: <span class="tok-string">'1.0.0'</span>,
+    }
 )
 response.raise_for_status()</code></pre>
       </div>
