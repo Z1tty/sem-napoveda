@@ -292,19 +292,18 @@ Content-Type: application/json</code></pre>
     <span class="tok-property">"sznaiid"</span>: <span class="tok-string">"2627214859780792651"</span>,
     <span class="tok-property">"order_id"</span>: <span class="tok-string">"OBJ-987654"</span>,
     <span class="tok-property">"content_type"</span>: <span class="tok-string">"product"</span>,
-    <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>,
-    <span class="tok-property">"value"</span>: <span class="tok-number">33990</span>,
-    <span class="tok-property">"value_tax"</span>: <span class="tok-number">7138</span>,
+    <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+    <span class="tok-property">"value"</span>: <span class="tok-number">27364</span>,          <span class="tok-comment">// celková hodnota bez DPH (v CZK)</span>
+    <span class="tok-property">"value_tax"</span>: <span class="tok-number">5746</span>,
     <span class="tok-property">"delivery_type"</span>: <span class="tok-string">"CESKA_POSTA"</span>,
-    <span class="tok-property">"delivery_price"</span>: <span class="tok-number">120</span>,
-    <span class="tok-property">"delivery_price_tax"</span>: <span class="tok-number">25.20</span>,
+    <span class="tok-property">"delivery_price"</span>: <span class="tok-number">121</span>,       <span class="tok-comment">// s DPH</span>
+    <span class="tok-property">"other_costs"</span>: <span class="tok-number">-500</span>,         <span class="tok-comment">// sleva s DPH</span>
     <span class="tok-property">"payment_type"</span>: <span class="tok-string">"karta"</span>,
     <span class="tok-property">"contents"</span>: [
       {
         <span class="tok-property">"id"</span>: <span class="tok-string">"ABC12345"</span>,
         <span class="tok-property">"quantity"</span>: <span class="tok-number">1</span>,
-        <span class="tok-property">"unit_price"</span>: <span class="tok-number">33490</span>,
-        <span class="tok-property">"unit_price_tax"</span>: <span class="tok-number">7033</span>,
+        <span class="tok-property">"unit_price"</span>: <span class="tok-number">33490</span>,       <span class="tok-comment">// s DPH</span>
         <span class="tok-property">"content_name"</span>: <span class="tok-string">"iPhone 15 Pro Max"</span>,
         <span class="tok-property">"content_category"</span>: <span class="tok-string">"telefony"</span>
       }

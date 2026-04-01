@@ -210,15 +210,13 @@ SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
   <span class="tok-comment">// 2. ViewContent – detail produktu (pro DRTG a retargeting)</span>
   SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
     <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
-    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-    <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
-    <span class="tok-property">value_tax</span>: <span class="tok-number">7033</span>,
+    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+    <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// bez DPH</span>
     <span class="tok-property">contents</span>: [{
       <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
       <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>,
-      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,
-      <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
     }]
   });
 }
@@ -281,6 +279,39 @@ SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
           <span class="method-card-name">Testování</span>
           <span class="method-card-desc">Jak ověřit správnost implementace v testovacím prostředí.</span>
         </a>
+      </div>
+
+      <h2 id="vice-sem-id">Více SEM ID na jedné stránce</h2>
+
+      <p>
+        Pokud provozujete web, kde potřebujete měřit pro více různých účtů Skliku zároveň
+        (např. marketplace s více prodejci, nebo web kombinující vlastní měření a měření pro klienta),
+        nastavte <code>sem_id</code> přímo v každém volání <code>track</code>.
+        SEM ID zadané v <code>track</code> má přednost před globálně nastaveným ID v konfiguraci.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">// Měření pro první účet</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">sem_id</span>: <span class="tok-string">'VASE_SEM_ID_1'</span>
+});
+
+<span class="tok-comment">// Měření pro druhý účet (stejná událost, jiné SEM ID)</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">sem_id</span>: <span class="tok-string">'VASE_SEM_ID_2'</span>
+});</code></pre>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>sem_id v track vs. v konfiguraci</strong>
+          <p>Globální <code>sem_id</code> nastavený přes <code>SEM('config', ...)</code> se použije pro všechna volání, kde <code>sem_id</code> není explicitně uvedeno. Jakmile <code>sem_id</code> zadáte přímo v <code>track</code>, přepíše globální hodnotu pouze pro toto jedno volání.</p>
+        </div>
       </div>
 
     </div>

@@ -81,7 +81,8 @@
         <div class="callout-body">
           <strong>Základní pravidla</strong>
           <p>Měna musí být vždy <code>CZK</code>. Ostatní měny přepočítejte před odesláním.
-          Hodnoty <code>value</code> a <code>unit_price</code> jsou vždy <strong>bez DPH</strong>. DPH zasílejte v samostatných polích (<code>value_tax</code>, <code>unit_price_tax</code>).</p>
+          Parametr <code>value</code> je vždy <strong>bez DPH</strong> (cena produktů celkem).
+          Ceny dopravy (<code>delivery_price</code>), dalších nákladů (<code>other_costs</code>) a cena za kus (<code>unit_price</code>) jsou <strong>včetně DPH</strong>.</p>
         </div>
       </div>
 
@@ -109,37 +110,37 @@
               <td>Zobrazení obsahu</td>
               <td><a href="#viewcontent"><code>ViewContent</code></a></td>
               <td>–</td>
-              <td><code>content_type</code>, <code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
+              <td><code>content_type</code>, <code>currency</code>, <code>value</code>, <code>contents</code></td>
             </tr>
             <tr>
               <td>Přidání do košíku</td>
               <td><a href="#addtocart"><code>AddToCart</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
             </tr>
             <tr>
               <td>Přidání do wishlistu</td>
               <td><a href="#addtocart"><code>AddToWishlist</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
             </tr>
             <tr>
               <td>Zahájení objednávky</td>
               <td><a href="#checkout"><code>InitiateCheckout</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
             </tr>
             <tr>
               <td>Přidání platebních údajů</td>
               <td><a href="#checkout"><code>AddPaymentInfo</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>contents</code></td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
             </tr>
             <tr>
               <td>Nákup</td>
               <td><a href="#purchase"><code>Purchase</code></a></td>
-              <td><code>order_id</code>, <code>currency</code>, <code>value</code>, <code>value_tax</code></td>
-              <td><code>content_type</code>, <code>contents</code>, <code>review_email</code>, <code>delivery_type</code>, <code>delivery_price</code></td>
+              <td><code>order_id</code>, <code>currency</code>, <code>value</code></td>
+              <td><code>value_tax</code>, <code>content_type</code>, <code>contents</code>, <code>review_email</code>, <code>delivery_type</code>, <code>delivery_price</code></td>
             </tr>
             <tr>
               <td>Vyhledání</td>
@@ -151,25 +152,25 @@
               <td>Získání kontaktu</td>
               <td><a href="#lead"><code>Lead</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code></td>
+              <td><code>currency</code>, <code>value</code></td>
             </tr>
             <tr>
               <td>Dokončení registrace</td>
               <td><a href="#lead"><code>CompleteRegistration</code></a></td>
               <td>–</td>
-              <td><code>status</code>, <code>currency</code>, <code>value</code>, <code>value_tax</code></td>
+              <td><code>status</code>, <code>currency</code>, <code>value</code></td>
             </tr>
             <tr>
               <td>Přihlášení k odběru</td>
               <td><a href="#lead"><code>Subscribe</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>predicted_ltv</code></td>
+              <td><code>currency</code>, <code>value</code>, <code>predicted_ltv</code></td>
             </tr>
             <tr>
               <td>Zahájení zkušební verze</td>
               <td><a href="#lead"><code>StartTrial</code></a></td>
               <td>–</td>
-              <td><code>currency</code>, <code>value</code>, <code>value_tax</code>, <code>predicted_ltv</code></td>
+              <td><code>currency</code>, <code>value</code>, <code>predicted_ltv</code></td>
             </tr>
             <tr>
               <td>Kontakt</td>
@@ -229,14 +230,12 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
 <span class="tok-comment">// PageView s daty produktu (pro DRTG)</span>
 SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
   <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">7033</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27677</span>,         <span class="tok-comment">// bez DPH</span>
   <span class="tok-property">contents</span>: [{
-    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,        <span class="tok-comment">// ITEM_ID z XML feedu</span>
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,
-    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>    <span class="tok-comment">// s DPH</span>
   }]
 });</code></pre>
       </div>
@@ -250,7 +249,16 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
         <strong>dynamický retargeting</strong> – pomocí <code>content_type</code> rozlišujete, zda jde o produkt nebo kategorii.
       </p>
 
-      <div class="table-wrap">
+      
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Párové parametry</strong>
+          <p><code>value</code> a <code>currency</code> musí být vždy zasílány společně. Stejně tak <code>contents</code> a <code>content_type</code> – jedno bez druhého nestačí.</p>
+        </div>
+      </div>
+
+<div class="table-wrap">
         <table>
           <thead>
             <tr><th>Parametr</th><th>Typ</th><th>Povinnost</th><th>Příklad</th><th>Popis</th></tr>
@@ -275,12 +283,6 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
               <td>Celková hodnota v CZK <strong>bez DPH</strong></td>
             </tr>
             <tr>
-              <td><code>value_tax</code></td><td>number</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
-              <td><code>7033</code></td>
-              <td>Hodnota DPH v CZK</td>
-            </tr>
-            <tr>
               <td><code>contents</code></td><td>array</td>
               <td><span class="badge badge-recommended">Doporučený</span></td>
               <td>viz ukázka</td>
@@ -303,15 +305,13 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
             </div>
             <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
   <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">7033</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// bez DPH</span>
   <span class="tok-property">contents</span>: [{
-    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,          <span class="tok-comment">// musí odpovídat ITEM_ID v XML feedu</span>
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
     <span class="tok-property">content_category</span>: <span class="tok-string">'Mobily, chytré hodinky, tablety | Mobilní telefony'</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,      <span class="tok-comment">// cena bez DPH</span>
-    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>  <span class="tok-comment">// DPH</span>
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
   }]
 });</code></pre>
           </div>
@@ -325,9 +325,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
             <pre><code><span class="tok-comment">// Pro stránku kategorie – content_type musí být 'product_group'</span>
 SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
   <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
   <span class="tok-property">value</span>: <span class="tok-number">0</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">0</span>,
   <span class="tok-property">contents</span>: [{
     <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>  <span class="tok-comment">// kategorie pro DRTG</span>
   }]
@@ -350,7 +349,6 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           <tbody>
             <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'CZK'</code></td><td>Vždy CZK</td></tr>
             <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>33490</code></td><td>Celková hodnota bez DPH</td></tr>
-            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>7033</code></td><td>Výše DPH celkem v CZK</td></tr>
             <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Přidané produkty. Viz <a href="#contents-object">Contents[]</a>.</td></tr>
           </tbody>
         </table>
@@ -362,16 +360,14 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           <button class="copy-btn"></button>
         </div>
         <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'AddToCart'</span>, {  <span class="tok-comment">// nebo 'AddToWishlist'</span>
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">7033</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// bez DPH</span>
   <span class="tok-property">contents</span>: [{
     <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
     <span class="tok-property">content_category</span>: <span class="tok-string">'telefony'</span>,
     <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,
-    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
   }]
 });</code></pre>
       </div>
@@ -388,25 +384,22 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           <button class="copy-btn"></button>
         </div>
         <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'InitiateCheckout'</span>, {  <span class="tok-comment">// nebo 'AddPaymentInfo'</span>
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">33990</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">7138</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">28090</span>,          <span class="tok-comment">// bez DPH (27677 + 413)</span>
   <span class="tok-property">contents</span>: [
     {
       <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
       <span class="tok-property">content_category</span>: <span class="tok-string">'telefony'</span>,
-      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,
-      <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
     },
     {
       <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>,
       <span class="tok-property">content_category</span>: <span class="tok-string">'příslušenství'</span>,
-      <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,
-      <span class="tok-property">unit_price_tax</span>: <span class="tok-number">105</span>
+      <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>        <span class="tok-comment">// s DPH</span>
     }
   ]
 });</code></pre>
@@ -438,17 +431,15 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           <tbody>
             <tr><td><code>order_id</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>'OBJ-987654'</code></td><td>Unikátní číslo objednávky. Slouží k deduplikaci.</td></tr>
             <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>'CZK'</code></td><td>Vždy CZK</td></tr>
-            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>33990</code></td><td>Celková cena produktů bez DPH</td></tr>
-            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>7138</code></td><td>Celkové DPH za produkty v CZK</td></tr>
+            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>27364</code></td><td>Celková cena produktů bez DPH</td></tr>
+            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>5746</code></td><td>DPH z hodnoty <code>value</code></td></tr>
             <tr><td><code>content_type</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'product'</code></td><td>Vždy <code>product</code> u nákupu produktů</td></tr>
             <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Zakoupené produkty. Viz <a href="#contents-object">Contents[]</a>.</td></tr>
             <tr><td><code>review_email</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'jan@email.cz'</code></td><td>⚠️ NEHASHOVAT. E-mail pro dotazník Zboží.cz.</td></tr>
             <tr><td><code>delivery_type</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'CESKA_POSTA'</code></td><td>Způsob dopravy dle DELIVERY_ID z XML feedu</td></tr>
-            <tr><td><code>delivery_price</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>120</code></td><td>Cena dopravy bez DPH v CZK</td></tr>
-            <tr><td><code>delivery_price_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>25.20</code></td><td>Výše DPH z dopravy v CZK</td></tr>
+            <tr><td><code>delivery_price</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>121</code></td><td>Cena dopravy <strong>včetně DPH</strong> v CZK</td></tr>
             <tr><td><code>payment_type</code></td><td>string</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>'karta'</code></td><td>Způsob platby – libovolný řetězec</td></tr>
-            <tr><td><code>other_costs</code></td><td>number</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>-50</code></td><td>Další náklady/slevy bez DPH. Slevy = záporné číslo.</td></tr>
-            <tr><td><code>other_costs_tax</code></td><td>number</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>-10.5</code></td><td>DPH z dalších nákladů/slev</td></tr>
+            <tr><td><code>other_costs</code></td><td>number</td><td><span class="badge badge-optional">Volitelný</span></td><td><code>-500</code></td><td>Další náklady/slevy <strong>včetně DPH</strong>. Slevy = záporné číslo.</td></tr>
           </tbody>
         </table>
       </div>
@@ -460,14 +451,14 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
         </div>
         <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Purchase'</span>, {
   <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
   <span class="tok-property">order_id</span>: <span class="tok-string">'OBJ-987654'</span>,
   <span class="tok-property">review_email</span>: <span class="tok-string">'zakaznik@email.cz'</span>,  <span class="tok-comment">// ⚠️ NEHASHOVAT</span>
-  <span class="tok-property">value</span>: <span class="tok-number">33990</span>,          <span class="tok-comment">// celková cena produktů bez DPH</span>
-  <span class="tok-property">value_tax</span>: <span class="tok-number">7138</span>,       <span class="tok-comment">// celkové DPH za produkty</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27364</span>,          <span class="tok-comment">// celková hodnota bez DPH (v CZK)</span>
+  <span class="tok-property">value_tax</span>: <span class="tok-number">5746</span>,       <span class="tok-comment">// hodnota DPH (v CZK)</span>
   <span class="tok-property">delivery_type</span>: <span class="tok-string">'CESKA_POSTA'</span>,
-  <span class="tok-property">delivery_price</span>: <span class="tok-number">120</span>,
-  <span class="tok-property">delivery_price_tax</span>: <span class="tok-number">25.20</span>,
+  <span class="tok-property">delivery_price</span>: <span class="tok-number">121</span>,    <span class="tok-comment">// doprava včetně DPH</span>
+  <span class="tok-property">other_costs</span>: <span class="tok-number">-500</span>,     <span class="tok-comment">// sleva včetně DPH (záporné číslo)</span>
   <span class="tok-property">payment_type</span>: <span class="tok-string">'karta'</span>,
   <span class="tok-property">contents</span>: [
     {
@@ -475,16 +466,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
       <span class="tok-property">content_category</span>: <span class="tok-string">'telefony'</span>,
-      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,
-      <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>
-    },
-    {
-      <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
-      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
-      <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>,
-      <span class="tok-property">content_category</span>: <span class="tok-string">'příslušenství'</span>,
-      <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,
-      <span class="tok-property">unit_price_tax</span>: <span class="tok-number">105</span>
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
     }
   ]
 });</code></pre>
@@ -525,9 +507,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
               <button class="copy-btn"></button>
             </div>
             <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Lead'</span>, {
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">500</span>,      <span class="tok-comment">// odhadovaná hodnota leadu</span>
-  <span class="tok-property">value_tax</span>: <span class="tok-number">105</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">500</span>       <span class="tok-comment">// odhadovaná hodnota leadu</span>
 });</code></pre>
           </div>
         </div>
@@ -539,9 +520,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
             </div>
             <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'CompleteRegistration'</span>, {
   <span class="tok-property">status</span>: <span class="tok-keyword">true</span>,    <span class="tok-comment">// true = úspěšná registrace</span>
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">0</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">0</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">0</span>
 });</code></pre>
           </div>
         </div>
@@ -552,9 +532,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
               <button class="copy-btn"></button>
             </div>
             <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Subscribe'</span>, {  <span class="tok-comment">// nebo 'StartTrial'</span>
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
   <span class="tok-property">value</span>: <span class="tok-number">199</span>,           <span class="tok-comment">// cena předplatného (bez DPH)</span>
-  <span class="tok-property">value_tax</span>: <span class="tok-number">41.79</span>,
   <span class="tok-property">predicted_ltv</span>: <span class="tok-number">2400</span>  <span class="tok-comment">// odhadovaná celoživotní hodnota zákazníka</span>
 });</code></pre>
           </div>
@@ -592,9 +571,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Contact'<
 
 <span class="tok-comment">// S volitelnou hodnotou</span>
 SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'</span>, {
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
-  <span class="tok-property">value</span>: <span class="tok-number">1000</span>,
-  <span class="tok-property">value_tax</span>: <span class="tok-number">210</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">value</span>: <span class="tok-number">1000</span>
 });</code></pre>
       </div>
 
@@ -617,7 +595,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
               <td><code>id</code></td><td>string</td>
               <td><span class="badge badge-recommended">Doporučený</span></td>
               <td><code>'ABC12345'</code></td>
-              <td>ID produktu – musí přesně odpovídat hodnotě <code>ITEM_ID</code> v XML feedu (Zboží.cz). Nutné pro dynamický retargeting.</td>
+              <td>Unikátní identifikátor položky v e-shopu.</td>
             </tr>
             <tr>
               <td><code>quantity</code></td><td>number</td>
@@ -629,19 +607,13 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
               <td><code>unit_price</code></td><td>number</td>
               <td><span class="badge badge-recommended">Doporučený</span></td>
               <td><code>33490</code></td>
-              <td>Cena za jeden kus v CZK <strong>bez DPH</strong>.</td>
-            </tr>
-            <tr>
-              <td><code>unit_price_tax</code></td><td>number</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
-              <td><code>7033</code></td>
-              <td>Výše DPH za jeden kus v CZK.</td>
+              <td>Cena za jeden kus v CZK <strong>včetně DPH</strong>.</td>
             </tr>
             <tr>
               <td><code>content_name</code></td><td>string</td>
-              <td><span class="badge badge-optional">Volitelný</span></td>
+              <td><span class="badge badge-required">Povinný u Purchase</span></td>
               <td><code>'iPhone 15 Pro Max'</code></td>
-              <td>Název produktu. Lze použít jako podmínku retargetingu.</td>
+              <td>Název produktu. Povinné u události Purchase. Lze použít jako podmínku retargetingu.</td>
             </tr>
             <tr>
               <td><code>content_category</code></td><td>string</td>
@@ -660,18 +632,16 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
         </div>
         <pre><code><span class="tok-property">contents</span>: [
   {
-    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,               <span class="tok-comment">// ITEM_ID z XML feedu</span>
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
     <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,            <span class="tok-comment">// bez DPH</span>
-    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">7033</span>,         <span class="tok-comment">// pouze DPH</span>
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,            <span class="tok-comment">// s DPH</span>
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
     <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>
   },
   {
     <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
     <span class="tok-property">quantity</span>: <span class="tok-number">2</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,
-    <span class="tok-property">unit_price_tax</span>: <span class="tok-number">105</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,              <span class="tok-comment">// s DPH</span>
     <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>
   }
 ]</code></pre>
@@ -681,9 +651,10 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Hodnota value vs. součet contents</strong>
-          Parametr <code>value</code> na úrovni události je celková hodnota transakce <strong>bez DPH</strong>
-          a nemusí nutně odpovídat součtu <code>unit_price × quantity</code> ze všech položek –
-          může zahrnovat slevy nebo jiné úpravy. Detailní rozpad je v <code>contents[]</code>.
+          Parametr <code>value</code> na úrovni události je celková hodnota produktů <strong>bez DPH</strong>.
+          Parametry <code>unit_price</code> v <code>contents[]</code>, <code>delivery_price</code> a <code>other_costs</code> jsou <strong>včetně DPH</strong>.
+          <code>value</code> nemusí nutně odpovídat součtu <code>unit_price × quantity</code> přepočítanému na základ daně –
+          může zahrnovat slevy nebo jiné úpravy. Detailní rozpad košíku je v <code>contents[]</code>.
         </div>
       </div>
 
