@@ -245,6 +245,18 @@ strong { font-weight: 650; }
 /* ===== STEP TAG ===== */
 .step-tag { display:inline-block; font-size:.72rem; font-weight:600; padding:2px 8px; border-radius:99px; background:#eff6ff; color:#3b82f6; border:1px solid #bfdbfe; margin-left:8px; vertical-align:middle; }
 
+/* ===== FEATURE LIST ===== */
+.feature-list { list-style: none; padding: 0; margin: 20px 0 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+.feature-list li { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 500; }
+.feature-list li::before { content: "✓"; color: var(--clr-brand); font-weight: 700; flex-shrink: 0; }
+
+/* ===== HIGHLIGHT GRID ===== */
+.highlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0 32px; }
+.highlight-card { background: var(--clr-brand-light); border: 1px solid #fcd4d4; border-radius: var(--radius); padding: 20px 18px; display: flex; flex-direction: column; gap: 8px; }
+.highlight-card-icon { font-size: 1.4rem; line-height: 1; }
+.highlight-card-text { font-size: 0.9rem; font-weight: 600; color: var(--clr-text); line-height: 1.4; }
+@media (max-width: 700px) { .highlight-grid { grid-template-columns: 1fr; } }
+
 /* ===== STEPS ===== */
 .steps { list-style: none; padding: 0; counter-reset: step; margin: 24px 0; }
 
