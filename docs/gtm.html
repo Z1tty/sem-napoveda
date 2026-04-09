@@ -44,11 +44,12 @@
       <a class="nav-link" href="events.html">Přehled událostí</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -91,11 +92,6 @@
         <li>Pokud máte provozovny Zboží.cz, použijte <strong>kombinované SEM ID</strong> příslušné provozovny</li>
       </ol>
 
-      <div class="callout info" style="border-style:dashed">
-        <span class="callout-icon"></span>
-        <div class="callout-body"><strong>📸 Sem přijde screenshot – Správa měření s vyznačeným tlačítkem kopírovat (ne Zobrazit kód)</strong></div>
-      </div>
-
       <!-- KROK 2 -->
       <h2 id="krok2">Krok 2 – Nainstalujte šablonu do GTM</h2>
 
@@ -111,11 +107,7 @@
           <div class="step-number"></div>
           <div class="step-body">
             <h3>Přidejte šablonu z Galerie</h3>
-            <p>V levém menu klikněte na <strong>Šablony</strong> → <strong>Galerie šablon</strong>. Vyhledejte <em>„Seznam SEM"</em> nebo <em>„Sabatka"</em> a šablonu přidejte do kontejneru.</p>
-            <div class="callout info" style="border-style:dashed">
-              <span class="callout-icon"></span>
-              <div class="callout-body"><strong>📸 Sem přijde screenshot – vyhledání šablony v GTM Gallery</strong></div>
-            </div>
+            <p>V levém menu klikněte na <strong>Šablony</strong> → <strong>Galerie šablon</strong>. Vyhledejte <em>„Seznam SEM"</em> nebo <em>„Sabatka"</em> a šablonu přidejte do kontejneru, nebo použijte <a href="https://tagmanager.google.com/gallery/#/owners/pavelsabatka/templates/gtm-seznam-sem" target="_blank">přímý odkaz do GTM Gallery</a>.</p>
           </div>
         </li>
       </ol>
@@ -168,7 +160,7 @@
             </p>
             <p>
               Pokud Consent Mode v2 nepoužíváte, odškrtněte volbu a vyplňte stav souhlasů
-              ručně. Více v sekci <a href="consent.html">Consent a souhlas</a>.
+              ručně. Více v sekci <a href="consent.html">Správa souhlasů</a>.
             </p>
           </div>
         </li>
@@ -209,7 +201,7 @@
     <span class="tok-property">items</span>: [{
       <span class="tok-property">item_id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">item_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-      <span class="tok-property">item_category</span>: <span class="tok-string">'Mobilní telefony'</span>,
+      <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
       <span class="tok-property">price</span>: <span class="tok-number">33490</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
     }]
@@ -243,7 +235,7 @@
     <span class="tok-property">items</span>: [{
       <span class="tok-property">item_id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">item_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-      <span class="tok-property">item_category</span>: <span class="tok-string">'telefony'</span>,
+      <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
       <span class="tok-property">price</span>: <span class="tok-number">33490</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
     }]
@@ -269,14 +261,14 @@
       {
         <span class="tok-property">item_id</span>: <span class="tok-string">'ABC12345'</span>,
         <span class="tok-property">item_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-        <span class="tok-property">item_category</span>: <span class="tok-string">'telefony'</span>,
+        <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
         <span class="tok-property">price</span>: <span class="tok-number">33490</span>,
         <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
       },
       {
         <span class="tok-property">item_id</span>: <span class="tok-string">'KRYT999'</span>,
         <span class="tok-property">item_name</span>: <span class="tok-string">'Ochranný kryt'</span>,
-        <span class="tok-property">item_category</span>: <span class="tok-string">'příslušenství'</span>,
+        <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Příslušenství | Kryty na telefon'</span>,
         <span class="tok-property">price</span>: <span class="tok-number">500</span>,
         <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
       }

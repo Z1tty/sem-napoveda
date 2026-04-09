@@ -55,11 +55,12 @@
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -85,7 +86,7 @@
 
       <p>
         SEM (Sklik Event Measurement) je moderní systém měření událostí na vašem webu, který nahrazuje dosavadní
-        retargetingové kódy a měřicí skripty konverzí. Místo několika oddělených skriptů stačí jeden – <strong>Seznam Universal Loader (sul.js)</strong>.
+        retargetingové kódy a měřicí skripty konverzí pro Sklik i Seznam Nákupy. Místo několika oddělených skriptů stačí jeden <strong>SEM script sul.js</strong>.
       </p>
 
       <p>
@@ -134,15 +135,15 @@
           <thead>
             <tr>
               <th>Funkce</th>
-              <th>Před SEM (stará měření)</th>
-              <th>Po přechodu na SEM</th>
+              <th>Dosavadní měření rc.js</th>
+              <th>SEM měření sul.js</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Počet skriptů</td>
               <td>Retargetingový + konverzní kód zvlášť</td>
-              <td>Jeden SEM skript (sul.js)</td>
+              <td>Jeden SEM skript pro všechny události</td>
             </tr>
             <tr>
               <td>Konverze</td>
@@ -157,12 +158,12 @@
             <tr>
               <td>Podmínky retargetingu</td>
               <td>Omezené možnosti</td>
-              <td>URL, kategorie, hodnota nákupu, produkt ID, město, pohlaví, čas strávený na webu, klik na tlačítko…</td>
+              <td>URL, kategorie, hodnota nákupu, produkt ID, město, pohlaví, přidání do košíku…</td>
             </tr>
             <tr>
               <td>Consent</td>
               <td>Vlastní řešení</td>
-              <td>Automaticky z IAB TCF nebo manuální předání</td>
+              <td>Automaticky z IAB TCF nebo pomocí Google Consent Mode</td>
             </tr>
             <tr>
               <td>Měření konverzí Seznam Nákupy</td>
@@ -176,47 +177,6 @@
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <h2 id="postup">Doporučený postup přechodu</h2>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3><a href="sem-id.html">Zjistěte SEM ID</a> a zvolte metodu implementace</h3>
-            <p>Zvolte způsob nasazení podle vašeho technického zázemí.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3><a href="jak-nasadit.html">Nasaďte nové skripty paralelně se starými</a></h3>
-            <p>Stará měření i nadále fungují. Nové skripty sbírají data souběžně – bez rizika výpadku.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3><a href="sandbox.html">Ověřte data v Sandboxu</a></h3>
-            <p>Pomocí testovacího nástroje zkontrolujte, zda posíláte správné události a parametry.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Přepněte na SEM a odstraňte staré kódy</h3>
-            <p>V Skliku klikněte na <strong>Začít používat SEM</strong>. Od tohoto okamžiku se počítají pouze nová data.</p>
-          </div>
-        </li>
-      </ol>
-
-      <div class="callout danger">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Po přepnutí nelze vrátit zpět</strong>
-          <p>Jakmile potvrdíte přechod na SEM, staré měřicí kódy přestanou fungovat. Před přepnutím si proto nastavte konverze v sekci <a href="https://www.sklik.cz/event-management" target="_blank">Správa měření</a>. Přejít zpět na staré skripty <strong>není možné</strong>.</p>
-        </div>
       </div>
 
       <hr class="section-divider">

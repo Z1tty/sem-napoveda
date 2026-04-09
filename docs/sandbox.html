@@ -36,11 +36,12 @@
       <a class="nav-link" href="events.html">Přehled událostí</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -49,11 +50,75 @@
       <div class="page-header">
         <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Začínáme</span></div>
         <h1>Testování (Sandbox)</h1>
-        <p class="lead">Tato sekce se připravuje. Obsah bude doplněn.</p>
+        <p class="lead">
+          Sandbox je testovací nástroj ve Správě měření, který vám umožní ověřit správnost
+          nasazení SEM kódu ještě před ostrým provozem – bez ovlivnění reálných dat.
+        </p>
       </div>
+
+      <h2 id="co-je-sandbox">Co je Sandbox</h2>
+      <p>
+        Po spuštění testu vás Sandbox přesměruje na váš web a začne zachytávat SEM události
+        odesílané z dané relace. Na webu pak můžete simulovat jednotlivé akce – zobrazení
+        produktu, přidání do košíku, dokončení objednávky – a v reálném čase sledovat,
+        zda jsou události správně odesílány a zda obsahují očekávané parametry.
+      </p>
+
+      <div class="callout success">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Testovací data neovlivní váš účet</strong>
+          <p>Události zachycené během testu v Sandboxu nejsou započítávány do reálných dat Sklik účtu.
+          Nedochází tak ke zkreslení konverzí, retargetingových publik ani statistik kampaní.</p>
+        </div>
+      </div>
+
+      <h2 id="jak-spustit">Jak spustit test</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Otevřete Sandbox ve Správě měření</h3>
+            <p>Přejděte přímo do <a href="https://www.sklik.cz/event-management/sandbox" target="_blank">Sandboxu ve Správě měření</a>.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Přidejte zdroj testování</h3>
+            <p>Klikněte na <strong>Přidat zdroj</strong>, vyberte SEM ID, které chcete testovat,
+            a zadejte URL stránky s nasazeným SEM kódem.</p>
+            <img src="img/sandbox.png" alt="Dialog Přidat zdroj testování v Sandboxu" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-top:12px;">
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Spusťte test a simulujte události</h3>
+            <p>Po kliknutí na <strong>Testovat</strong> vás Sandbox přesměruje na zadanou URL.
+            Na webu proveďte akce, které chcete ověřit – procházení produktů, přidání do košíku,
+            objednávku. Události se budou v reálném čase zobrazovat v Sandboxu.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Zkontrolujte zachycené události</h3>
+            <p>V tabulce Sandboxu uvidíte typ události, její stav (<strong>Zpracováno</strong>
+            / chyba) a zdrojovou URL. Kliknutím na řádek zobrazíte detailní parametry události
+            a ověříte, zda odpovídají očekávaným hodnotám.</p>
+          </div>
+        </li>
+      </ol>
+
       <div class="callout info">
         <span class="callout-icon"></span>
-        <div class="callout-body"><strong>Připravujeme</strong><p>Obsah této stránky se právě finalizuje.</p></div>
+        <div class="callout-body">
+          <strong>Test je aktivní 24 hodin</strong>
+          <p>Testovací relace vyprší automaticky po 24 hodinách od spuštění.
+          Po skončení testu se události opět odesílají standardně do ostrého měření.</p>
+        </div>
       </div>
     </div>
   </main>

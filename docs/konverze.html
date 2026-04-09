@@ -52,11 +52,12 @@
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link active" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -66,48 +67,16 @@
 
       <div class="page-header">
         <div class="breadcrumb">
-          <a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span>
+          <a href="index.html">SEM</a> <span>›</span> <span>Konfigurace</span>
         </div>
-        <h1>Správa konverzí a retargetingových seznamů</h1>
+        <h1>Správa konverzí</h1>
         <p class="lead">
-          Sekce <strong>Správa měření</strong> v Skliku je centrálním místem pro nastavení konverzí
-          a retargetingových publik. Nahrazuje původní záložky Konverze a Retargeting.
+          V sekci <a href="https://nas.sklik.cz/event-management?view=conversions" target="_blank">Správa měření → Konverze</a>
+          definujete, které SEM události se mají počítat jako konverzní akce, jakou mají hodnotu a za jakých podmínek.
         </p>
       </div>
 
-      <h2 id="sprava-mereni">Správa měření – přehled</h2>
-
-      <p>
-        V sekci Sklik → <strong>Nástroje</strong> → <strong><a href="https://www.sklik.cz/event-management" target="_blank">Správa měření</a></strong> spravujete:
-      </p>
-
-      <ul>
-        <li><strong>Konverze</strong> – definujete, které události (Purchase, Lead…) se mají počítat jako konverzní akce a jakou mají hodnotu</li>
-        <li><strong>Retargetingové seznamy</strong> – definujete podmínky pro zařazení uživatele do publika</li>
-      </ul>
-      <p>
-        <strong>SEM ID</strong> a <strong>SEM ID pro S2S</strong> (identifikátory implementace) najdete na stránce <a href="sem-id.html">Kde najdu SEM ID?</a>.
-      </p>
-
-      <div class="callout info" style="border-style:dashed">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>📸 Screenshot Správy měření</strong><br>
-          Bude doplněn: přehledový pohled sekce Správa měření s kartami Konverze / Retargetingové seznamy.
-        </div>
-      </div>
-
       <h2 id="konverze">Nastavení konverzí</h2>
-
-      <div class="callout danger">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>SEM konverze se nastavují v Správě měření, ne ve Sledování konverzí</strong>
-          <p>Záložka <em>„Sledování konverzí"</em> v Skliku je staré rozhraní pro původní konverzní kód.
-          SEM konverze musíte zakládat výhradně v <strong>Nástroje → <a href="https://www.sklik.cz/event-management?view=conversions" target="_blank">Správa měření</a></strong>.
-          Konverze vytvořené ve starém rozhraní SEM data nezpracovávají.</p>
-        </div>
-      </div>
 
       <p>
         Konverze definujete v kartě <strong>Konverze</strong>. Každá konverze je vázána na konkrétní
@@ -148,6 +117,8 @@
         </table>
       </div>
 
+      <img src="img/sprava-mereni-konverze.png" alt="Správa měření – karta Konverze" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-bottom:32px;">
+
       <h3 id="podminky-konverzi">Podmínky konverzí</h3>
 
       <p>
@@ -164,7 +135,7 @@
             <tr><td>URL stránky</td><td>obsahuje <code>/dekujeme/</code></td></tr>
             <tr><td>Typ obsahu (<code>content_type</code>)</td><td>je <code>product</code></td></tr>
             <tr><td>Název obsahu (<code>content_name</code>)</td><td>obsahuje <code>Premium</code></td></tr>
-            <tr><td>Kategorie (<code>content_category</code>)</td><td>je <code>Elektronika</code></td></tr>
+            <tr><td>Kategorie (<code>content_category</code>)</td><td>je <code>Elektronika | Mobilní telefony | Apple</code></td></tr>
             <tr><td>ID produktu (<code>contents[].id</code>)</td><td>je <code>SKU-001</code></td></tr>
             <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 500 CZK</td></tr>
             <tr><td>Pohlaví uživatele</td><td>žena</td></tr>
@@ -186,18 +157,13 @@
 
       <p>Přehled parametrů SEM skriptu, které odpovídají jednotlivým podmínkám, najdete v sekci <a href="retargeting.html#parametry-podminek">Retargeting – parametry podmínek</a>.</p>
 
-      <h2 id="retargeting">Retargetingové seznamy</h2>
-
-      <p>
-        Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam
-        (tzv. <strong>seznam z konverze</strong>) obsahující uživatele, kteří konverzi dokončili.
-        Lze ho využít pro remarketing nebo jako vyloučené publikum.
-      </p>
-
-      <p>
-        Pro tvorbu vlastních seznamů s podmínkami, přehled typů RTG seznamů a informace
-        o přechodu ze starých retargetingových kódů viz <a href="retargeting.html">Retargeting</a>.
-      </p>
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Retargetingové seznamy</strong>
+          <p>Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam obsahující uživatele, kteří konverzi dokončili. Přehled typů RTG seznamů a tvorba vlastních viz <a href="retargeting.html">Retargeting</a>.</p>
+        </div>
+      </div>
 
       <h2 id="zbozi">Konverze pro Nákupy (Zboží.cz)</h2>
 

@@ -52,11 +52,12 @@
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link active" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -66,7 +67,7 @@
 
       <div class="page-header">
         <div class="breadcrumb">
-          <a href="index.html">SEM</a> <span>›</span> <span>Pokročilé</span>
+          <a href="index.html">SEM</a> <span>›</span> <span>Konfigurace</span>
         </div>
         <h1>Dynamický retargeting (DRTG)</h1>
         <p class="lead">
@@ -129,7 +130,7 @@
 
       <p>
         Pro dynamický retargeting kategorií použijte <code>content_type: 'product_group'</code>
-        a předejte název kategorie v parametru <code>content_category</code>.
+        a předejte název kategorie v parametru <code>content_category</code> uvnitř pole <code>contents[]</code>.
       </p>
 
       <div class="code-block">
@@ -138,11 +139,12 @@
           <button class="copy-btn"></button>
         </div>
         <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
-  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
   <span class="tok-property">value</span>: <span class="tok-number">0</span>,
-  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,   <span class="tok-comment">// povinné pro DRTG kategorií</span>
-  <span class="tok-property">content_category</span>: <span class="tok-string">'Televizory'</span>,  <span class="tok-comment">// název kategorie</span>
-  <span class="tok-property">contents</span>: []
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Televize | LCD televizory'</span>  <span class="tok-comment">// kategorie pro DRTG</span>
+  }]
 });</code></pre>
       </div>
 
@@ -155,7 +157,9 @@
         </div>
         <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
   <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
-  <span class="tok-property">content_category</span>: <span class="tok-string">'Televizory'</span>
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Televize | LCD televizory'</span>
+  }]
 });</code></pre>
       </div>
 

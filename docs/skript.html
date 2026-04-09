@@ -52,11 +52,12 @@
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -100,10 +101,6 @@
         <code>&lt;head&gt;</code> na <strong>každé stránce</strong> vašeho webu.
       </p>
 
-      <div class="callout info" style="border-style:dashed">
-        <span class="callout-icon"></span>
-        <div class="callout-body"><strong>📸 Sem přijde screenshot dialogu „Zobrazit SEM kód"</strong></div>
-      </div>
 
       <p>Skript vypadá takto:</p>
 
@@ -128,7 +125,7 @@
         <li>Automatické načítání souhlasu z IAB TCF API (pokud váš web TCF používá)</li>
       </ul>
 
-      <h2 id="krok2">Krok 2 – Nastavte consent (pokud nepoužíváte IAB TCF)</h2>
+      <h2 id="krok2">Krok 2 – Nastavte <a href="consent.html">consent</a> (pokud nepoužíváte IAB TCF)</h2>
       <p>
         Pokud váš web používá standardizované <strong>IAB Transparency and Consent Framework (TCF)</strong>,
         consent se předává automaticky – tento krok přeskočte.
@@ -155,7 +152,7 @@
 SEM(<span class="tok-string">'updateConsent'</span>, consentData);</code></pre>
       </div>
 
-      <h2 id="krok3">Krok 3 – Odešlete uživatelská data (volitelné, doporučené)</h2>
+      <h2 id="krok3">Krok 3 – Odešlete <a href="user-data.html">uživatelská data</a> (volitelné, doporučené)</h2>
       <p>
         Po přihlášení uživatele nebo po dokončení objednávky doporučujeme odeslat e-mail zákazníka.
         Skript ho automaticky zahashuje (SHA-256) a slouží k přesnému párování konverzí i bez cookies.
@@ -180,8 +177,8 @@ SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
         <span class="callout-icon"></span>
         <div class="callout-body">
           <strong>Hashování probíhá automaticky</strong>
-          Hodnoty předávejte v čitelné podobě. SEM skript je zahashuje algoritmem SHA-256 přímo v prohlížeči před odesláním.
-          Výjimka: parametr <code>review_email</code> v události Purchase – ten se <strong>nesmí hashovat</strong>.
+          <p>Hodnoty můžete předávat v čitelné podobě. SEM skript je normalizuje a zahashuje algoritmem SHA-256 přímo v prohlížeči před odesláním.
+          Výjimka: parametr <code>review_email</code> v události Purchase – ten se nesmí hashovat, aby mohlo dojít k odeslání dotazníku spokojenosti k uskutečněnému nákupu.</p>
         </div>
       </div>
 
@@ -204,10 +201,27 @@ SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
 <span class="tok-comment">&lt;!-- Za tělem stránky, po načtení dat produktu --&gt;</span>
 <span class="tok-tag">&lt;script&gt;</span>
 <span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
-  <span class="tok-comment">// 1. PageView (automaticky, nebo explicitně)</span>
+
+  <span class="tok-comment">// 1. Consent – pokud nepoužíváte IAB TCF, předejte souhlas ručně</span>
+  SEM(<span class="tok-string">'updateConsent'</span>, {
+    <span class="tok-property">consent_mode</span>: {
+      <span class="tok-property">ad_storage</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">ad_user_data</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">ad_personalization</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">analytics_storage</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">functionality_storage</span>: <span class="tok-string">'granted'</span>
+    }
+  });
+
+  <span class="tok-comment">// 2. Uživatelská data – volitelné, doporučené u přihlášených uživatelů</span>
+  SEM(<span class="tok-string">'updateUserData'</span>, {
+    <span class="tok-property">em</span>: <span class="tok-string">'jan.novak@email.cz'</span>  <span class="tok-comment">// hashuje se automaticky</span>
+  });
+
+  <span class="tok-comment">// 3. PageView</span>
   SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
 
-  <span class="tok-comment">// 2. ViewContent – detail produktu (pro DRTG a retargeting)</span>
+  <span class="tok-comment">// 4. ViewContent – detail produktu (pro DRTG a retargeting)</span>
   SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
     <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
     <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
@@ -215,7 +229,7 @@ SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
     <span class="tok-property">contents</span>: [{
       <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-      <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
       <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
     }]
   });
@@ -271,7 +285,7 @@ SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
         </a>
         <a class="method-card" href="consent.html">
           <span class="method-card-icon">🔐</span>
-          <span class="method-card-name">Consent a souhlas</span>
+          <span class="method-card-name">Správa souhlasů</span>
           <span class="method-card-desc">Podrobnosti o předávání souhlasů dle TCF a Google Consent Mode.</span>
         </a>
         <a class="method-card" href="sandbox.html">

@@ -53,11 +53,12 @@
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Pokročilé</span>
-      <a class="nav-link" href="consent.html">Consent a souhlas</a>
+      <span class="nav-section-label">Konfigurace</span>
+      <a class="nav-link" href="consent.html">Správa souhlasů</a>
       <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="retargeting.html">Retargeting</a>
+      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
       <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
+      <a class="nav-link" href="retargeting.html">Retargeting</a>
       <a class="nav-link" href="konverze.html">Správa konverzí</a>
     </div>
   </nav>
@@ -234,8 +235,10 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
   <span class="tok-property">value</span>: <span class="tok-number">27677</span>,         <span class="tok-comment">// bez DPH</span>
   <span class="tok-property">contents</span>: [{
     <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,    <span class="tok-comment">// s DPH</span>
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>    <span class="tok-comment">// s DPH</span>
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>
   }]
 });</code></pre>
       </div>
@@ -280,13 +283,13 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
               <td><code>value</code></td><td>number</td>
               <td><span class="badge badge-recommended">Doporučený</span></td>
               <td><code>33490</code></td>
-              <td>Celková hodnota v CZK <strong>bez DPH</strong></td>
+              <td>Celková hodnota košíku v CZK bez DPH</td>
             </tr>
             <tr>
               <td><code>contents</code></td><td>array</td>
               <td><span class="badge badge-recommended">Doporučený</span></td>
               <td>viz ukázka</td>
-              <td>Pole produktů. Viz popis objektu <a href="#contents-object">Contents[]</a> níže.</td>
+              <td>Pole produktů. Viz popis objektu <a href="contents.html">Contents[]</a> níže.</td>
             </tr>
           </tbody>
         </table>
@@ -309,9 +312,10 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
   <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// bez DPH</span>
   <span class="tok-property">contents</span>: [{
     <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,      <span class="tok-comment">// s DPH</span>
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-    <span class="tok-property">content_category</span>: <span class="tok-string">'Mobily, chytré hodinky, tablety | Mobilní telefony'</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>
   }]
 });</code></pre>
           </div>
@@ -328,7 +332,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
   <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
   <span class="tok-property">value</span>: <span class="tok-number">0</span>,
   <span class="tok-property">contents</span>: [{
-    <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>  <span class="tok-comment">// kategorie pro DRTG</span>
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>  <span class="tok-comment">// kategorie pro DRTG</span>
   }]
 });</code></pre>
           </div>
@@ -348,8 +352,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           </thead>
           <tbody>
             <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'CZK'</code></td><td>Vždy CZK</td></tr>
-            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>33490</code></td><td>Celková hodnota bez DPH</td></tr>
-            <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Přidané produkty. Viz <a href="#contents-object">Contents[]</a>.</td></tr>
+            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>33490</code></td><td>Celková hodnota košíku v CZK bez DPH</td></tr>
+            <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Přidané produkty. Viz <a href="contents.html">Contents[]</a>.</td></tr>
           </tbody>
         </table>
       </div>
@@ -365,7 +369,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
   <span class="tok-property">contents</span>: [{
     <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
     <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-    <span class="tok-property">content_category</span>: <span class="tok-string">'telefony'</span>,
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
     <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
     <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
   }]
@@ -385,20 +389,20 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
         </div>
         <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'InitiateCheckout'</span>, {  <span class="tok-comment">// nebo 'AddPaymentInfo'</span>
   <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// podporováno pouze CZK</span>
-  <span class="tok-property">value</span>: <span class="tok-number">28090</span>,          <span class="tok-comment">// bez DPH (27677 + 413)</span>
+  <span class="tok-property">value</span>: <span class="tok-number">28090</span>,          <span class="tok-comment">// bez DPH</span>
   <span class="tok-property">contents</span>: [
     {
       <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-      <span class="tok-property">content_category</span>: <span class="tok-string">'telefony'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
       <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
     },
     {
       <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>,
-      <span class="tok-property">content_category</span>: <span class="tok-string">'příslušenství'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Příslušenství | Kryty na telefon'</span>,
       <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>        <span class="tok-comment">// s DPH</span>
     }
   ]
@@ -431,10 +435,10 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
           <tbody>
             <tr><td><code>order_id</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>'OBJ-987654'</code></td><td>Unikátní číslo objednávky. Slouží k deduplikaci.</td></tr>
             <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>'CZK'</code></td><td>Vždy CZK</td></tr>
-            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>27364</code></td><td>Celková cena produktů bez DPH</td></tr>
+            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-required">Povinný</span></td><td><code>27364</code></td><td>Celková hodnota košíku v CZK bez DPH</td></tr>
             <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>5746</code></td><td>DPH z hodnoty <code>value</code></td></tr>
             <tr><td><code>content_type</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'product'</code></td><td>Vždy <code>product</code> u nákupu produktů</td></tr>
-            <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Zakoupené produkty. Viz <a href="#contents-object">Contents[]</a>.</td></tr>
+            <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Doporučený</span></td><td>viz ukázka</td><td>Zakoupené produkty. Viz <a href="contents.html">Contents[]</a>.</td></tr>
             <tr><td><code>review_email</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'jan@email.cz'</code></td><td>⚠️ NEHASHOVAT. E-mail pro dotazník Zboží.cz.</td></tr>
             <tr><td><code>delivery_type</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>'CESKA_POSTA'</code></td><td>Způsob dopravy dle DELIVERY_ID z XML feedu</td></tr>
             <tr><td><code>delivery_price</code></td><td>number</td><td><span class="badge badge-recommended">Doporučený</span></td><td><code>121</code></td><td>Cena dopravy <strong>včetně DPH</strong> v CZK</td></tr>
@@ -465,7 +469,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewConte
       <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
       <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
       <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-      <span class="tok-property">content_category</span>: <span class="tok-string">'telefony'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
       <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// s DPH</span>
     }
   ]
@@ -578,83 +582,12 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
 
       <hr class="section-divider">
 
-      <!-- OBJECT CONTENTS -->
-      <h2 id="contents-object">Objekt produktu (contents[])</h2>
-      <p>
-        Pole <code>contents</code> se předává v událostech ViewContent, AddToCart, AddToWishlist,
-        InitiateCheckout, AddPaymentInfo a Purchase. Každý objekt v poli popisuje jeden produkt v transakci.
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Parametr</th><th>Typ</th><th>Doporučenost</th><th>Příklad hodnoty</th><th>Popis</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>id</code></td><td>string</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
-              <td><code>'ABC12345'</code></td>
-              <td>Unikátní identifikátor položky v e-shopu.</td>
-            </tr>
-            <tr>
-              <td><code>quantity</code></td><td>number</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
-              <td><code>2</code></td>
-              <td>Počet kusů daného produktu v košíku / objednávce.</td>
-            </tr>
-            <tr>
-              <td><code>unit_price</code></td><td>number</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
-              <td><code>33490</code></td>
-              <td>Cena za jeden kus v CZK <strong>včetně DPH</strong>.</td>
-            </tr>
-            <tr>
-              <td><code>content_name</code></td><td>string</td>
-              <td><span class="badge badge-required">Povinný u Purchase</span></td>
-              <td><code>'iPhone 15 Pro Max'</code></td>
-              <td>Název produktu. Povinné u události Purchase. Lze použít jako podmínku retargetingu.</td>
-            </tr>
-            <tr>
-              <td><code>content_category</code></td><td>string</td>
-              <td><span class="badge badge-optional">Volitelný</span></td>
-              <td><code>'Mobily | Mobilní telefony'</code></td>
-              <td>Kategorie produktu. Lze použít jako podmínku retargetingu. Podporuje celý hierarchický řetězec z XML feedu, např. <code>'Příslušenství | Kryty | Apple'</code> – celý řetězec pak lze použít jako přesnou podmínku.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="code-block">
-        <div class="code-block-header">
-          <span class="code-block-lang">Příklad – contents[]</span>
-          <button class="copy-btn"></button>
-        </div>
-        <pre><code><span class="tok-property">contents</span>: [
-  {
-    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
-    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,            <span class="tok-comment">// s DPH</span>
-    <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
-    <span class="tok-property">content_category</span>: <span class="tok-string">'Mobilní telefony'</span>
-  },
-  {
-    <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
-    <span class="tok-property">quantity</span>: <span class="tok-number">2</span>,
-    <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,              <span class="tok-comment">// s DPH</span>
-    <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>
-  }
-]</code></pre>
-      </div>
-
       <div class="callout info">
         <span class="callout-icon"></span>
         <div class="callout-body">
-          <strong>Hodnota value vs. součet contents</strong>
-          Parametr <code>value</code> na úrovni události je celková hodnota produktů <strong>bez DPH</strong>.
-          Parametry <code>unit_price</code> v <code>contents[]</code>, <code>delivery_price</code> a <code>other_costs</code> jsou <strong>včetně DPH</strong>.
-          <code>value</code> nemusí nutně odpovídat součtu <code>unit_price × quantity</code> přepočítanému na základ daně –
-          může zahrnovat slevy nebo jiné úpravy. Detailní rozpad košíku je v <code>contents[]</code>.
+          <strong>Objekt produktu contents[]</strong>
+          <p>Parametry jednotlivých produktů předávaných v poli <code>contents</code> jsou popsány
+          na samostatné stránce <a href="contents.html">Objekt produktů – contents</a>.</p>
         </div>
       </div>
 
