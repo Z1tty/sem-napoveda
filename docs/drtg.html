@@ -19,51 +19,56 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
 
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
       <div class="nav-sub">
         <a class="nav-link" href="events.html#pageview">PageView</a>
         <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
         <a class="nav-link" href="events.html#addtocart">AddToCart</a>
         <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
-        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
+        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link active" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link active" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -285,11 +290,238 @@
       </div>
 
     </div>
+
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Configuration</span>
+        </div>
+        <h1>Dynamic Retargeting (DRTG)</h1>
+        <p class="lead">
+          Dynamic retargeting allows you to automatically show ads for specific products or categories
+          that a user has viewed. All you need to do is pass the correct parameters in a ViewContent or PageView event.
+        </p>
+      </div>
+
+      <h2 id="jak-funguje-en">How dynamic retargeting works</h2>
+
+      <p>
+        SEM automatically adds users to a retargeting list based on the events you send.
+        You do not need to create separate retargeting codes – simply fill in the
+        <code>content_type</code> and <code>contents</code> parameters in the <strong>ViewContent</strong>
+        or <strong>PageView</strong> events.
+      </p>
+
+      <p>
+        Sklik can then automatically show an ad for the exact product or category the user visited –
+        without manual audience-to-product-feed matching.
+      </p>
+
+      <h2 id="produkty-en">DRTG for products</h2>
+
+      <p>
+        For dynamic retargeting of products, send <strong>ViewContent</strong> or <strong>PageView</strong> events.
+        The <code>content_type</code> parameter can be set to <code>'product'</code> or left empty.
+        For more accurate matching with the product feed, pass an object with the product <code>id</code>
+        in the <code>contents</code> array – the value must match the ID in the Sklik / Seznam Shopping product feed.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Only the first object in <code>contents</code> is processed</strong>
+          <p>If you send multiple objects in the <code>contents</code> array, only the first one is processed for DRTG product purposes. The remaining objects are ignored.</p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – ViewContent (product detail)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK is supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">1490</span>,
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,   <span class="tok-comment">// optional – can be omitted</span>
+  <span class="tok-property">contents</span>: [
+    {
+      <span class="tok-property">id</span>: <span class="tok-string">'SKU-12345'</span>,        <span class="tok-comment">// product ID from the feed</span>
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">price</span>: <span class="tok-number">1490</span>
+    }
+  ]
+});</code></pre>
+      </div>
+
+      <h2 id="kategorie-en">DRTG for categories</h2>
+
+      <p>
+        For dynamic retargeting of categories, use <code>content_type: 'product_group'</code>
+        and pass the category name in the <code>content_category</code> parameter inside the <code>contents[]</code> array.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – ViewContent (category listing)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+  <span class="tok-property">value</span>: <span class="tok-number">0</span>,
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Televize | LCD televizory'</span>  <span class="tok-comment">// category for DRTG</span>
+  }]
+});</code></pre>
+      </div>
+
+      <p>Alternative using PageView:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – PageView</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Televize | LCD televizory'</span>
+  }]
+});</code></pre>
+      </div>
+
+      <h2 id="srovnani-en">Overview – when to use which content_type</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th>content_type</th>
+              <th>Required parameters</th>
+              <th>Optional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product detail</td>
+              <td><code>product</code></td>
+              <td><code>contents[].id</code></td>
+              <td><code>contents[].quantity</code>, <code>contents[].price</code>, <code>value</code></td>
+            </tr>
+            <tr>
+              <td>Category listing / search</td>
+              <td><code>product_group</code></td>
+              <td><code>content_category</code></td>
+              <td><code>contents[]</code> (optionally product IDs from the page)</td>
+            </tr>
+            <tr>
+              <td>Homepage / other</td>
+              <td>leave empty</td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Product ID must match the feed</strong>
+          <p>The value of <code>contents[].id</code> must exactly match the product ID in the product feed of the store linked to <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Shopping</a>. Otherwise the matching will fail and the dynamic ad will not be shown.</p>
+        </div>
+      </div>
+
+      <h2 id="dynamicke-seznamy-en">Dynamic retargeting lists</h2>
+
+      <p>
+        Dynamic retargeting lists are created <strong>automatically</strong> – for each
+        store linked to <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Shopping</a>,
+        three dynamic lists are automatically created when the store is connected:
+      </p>
+
+      <ul>
+        <li><strong>DRTG – Product visitors</strong></li>
+        <li><strong>DRTG – Product visitors on Seznam websites</strong></li>
+        <li><strong>DRTG – Category visitors</strong></li>
+      </ul>
+
+      <p>
+        The conditions for data collection in these lists cannot be defined manually. Simply implement
+        the <strong>ViewContent</strong> or <strong>PageView</strong> events correctly with the
+        <code>content_type</code> and <code>contents[]</code> parameters – SEM will assign the data to
+        the dynamic lists automatically.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Custom retargeting lists and conditions</strong>
+          <p>If you want to create a custom retargeting audience with conditions (URL, category, purchase value, gender…), go to the <a href="retargeting.html">Retargeting lists</a> section.</p>
+        </div>
+      </div>
+
+      <h2 id="gtm-en">Implementation via GTM</h2>
+
+      <p>
+        When using the GTM template, simply fill in the <strong>Content Type</strong> field
+        (<code>product</code> or <code>product_group</code>) and <strong>Contents</strong>
+        from a dataLayer variable containing the product array in the ViewContent tag.
+        The template will automatically pass the parameters to SEM.
+      </p>
+
+      <p>See <a href="gtm.html#viewcontent">GTM implementation → ViewContent</a>.</p>
+
+      <h2 id="s2s-en">Dynamic retargeting via S2S</h2>
+
+      <p>
+        For S2S measurement, pass the same parameters in the <code>event_data</code> section of the payload:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JSON – event_data</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-property">"event_data"</span>: {
+  <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>,  <span class="tok-comment">// only CZK is supported</span>
+  <span class="tok-property">"value"</span>: <span class="tok-number">1490</span>,
+  <span class="tok-property">"content_type"</span>: <span class="tok-string">"product"</span>,
+  <span class="tok-property">"contents"</span>: [
+    {
+      <span class="tok-property">"id"</span>: <span class="tok-string">"SKU-12345"</span>,
+      <span class="tok-property">"quantity"</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">"price"</span>: <span class="tok-number">1490</span>
+    }
+  ]
+}</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="method-grid">
+        <a class="method-card" href="events.html#viewcontent">
+          <span class="method-card-icon">📋</span>
+          <span class="method-card-name">ViewContent – parameters</span>
+          <span class="method-card-desc">Complete overview of ViewContent event parameters including code examples.</span>
+        </a>
+        <a class="method-card" href="retargeting.html">
+          <span class="method-card-icon">🎯</span>
+          <span class="method-card-name">Retargeting</span>
+          <span class="method-card-desc">Custom retargeting lists, conditions, and an overview of all retargeting audience types.</span>
+        </a>
+      </div>
+
+    </div>
+
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 <script src="assets/main.js"></script>

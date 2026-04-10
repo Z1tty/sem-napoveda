@@ -20,43 +20,47 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
 
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link active" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link active" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -150,11 +154,107 @@
       </div>
 
     </div>
+
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Configuration</span> <span>›</span> <span>Product object – contents</span>
+        </div>
+        <h1>Product object – contents</h1>
+        <p class="lead">
+          The <code>contents</code> array describes the individual products in a transaction. It is passed
+          in the ViewContent, AddToCart, AddToWishlist, InitiateCheckout, AddPaymentInfo and Purchase events.
+        </p>
+      </div>
+
+      <h2 id="parametry">Object parameters</h2>
+      <p>Each object in the array describes one product. The array may contain any number of objects.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Requirement</th><th>Example value</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>id</code></td><td>string</td>
+              <td><span class="badge badge-required">Required for Purchase</span></td>
+              <td><code>'ABC12345'</code></td>
+              <td>Unique identifier of the item in the e-shop.</td>
+            </tr>
+            <tr>
+              <td><code>quantity</code></td><td>number</td>
+              <td><span class="badge badge-required">Required for Purchase</span></td>
+              <td><code>2</code></td>
+              <td>Number of units of the product in the cart / order.</td>
+            </tr>
+            <tr>
+              <td><code>unit_price</code></td><td>number</td>
+              <td><span class="badge badge-required">Required for Purchase</span></td>
+              <td><code>33490</code></td>
+              <td>Price per unit in CZK <strong>incl. VAT</strong>.</td>
+            </tr>
+            <tr>
+              <td><code>content_name</code></td><td>string</td>
+              <td><span class="badge badge-required">Required for Purchase</span></td>
+              <td><code>'iPhone 15 Pro Max'</code></td>
+              <td>Any name. Can be used as a retargeting condition.</td>
+            </tr>
+            <tr>
+              <td><code>content_category</code></td><td>string</td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+              <td><code>'Elektronika | Mobilní telefony | Apple'</code></td>
+              <td>Full category path from your XML feed. Use a vertical bar <code>|</code> (pipe) as the level separator. Pass the same value as listed for offers in the XML feed – the full string can then be used as an exact condition for retargeting or conversions.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="priklad">Example</h2>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">Example – contents[]</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-property">contents</span>: [
+  {
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,            <span class="tok-comment">// incl. VAT</span>
+    <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>
+  },
+  {
+    <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">2</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>,              <span class="tok-comment">// incl. VAT</span>
+    <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>
+  }
+]</code></pre>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>value vs. sum of contents</strong>
+          <p>The <code>value</code> parameter at event level is the total value of products excl. VAT.
+          The <code>unit_price</code> parameters in <code>contents[]</code>, <code>delivery_price</code>
+          and <code>other_costs</code> are incl. VAT.
+          <code>value</code> does not necessarily equal the sum of <code>unit_price × quantity</code>
+          converted to the tax base – it may include discounts or other adjustments.
+          The detailed cart breakdown is in <code>contents[]</code>.</p>
+        </div>
+      </div>
+
+    </div>
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 

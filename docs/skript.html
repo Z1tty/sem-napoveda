@@ -20,50 +20,55 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link active" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link active" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
       <div class="nav-sub">
         <a class="nav-link" href="events.html#pageview">PageView</a>
         <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
         <a class="nav-link" href="events.html#addtocart">AddToCart</a>
         <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
-        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
+        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -100,7 +105,6 @@
         Otevře se dialog s kompletním skriptem – zkopírujte ho a vložte do sekce
         <code>&lt;head&gt;</code> na <strong>každé stránce</strong> vašeho webu.
       </p>
-
 
       <p>Skript vypadá takto:</p>
 
@@ -329,11 +333,279 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
       </div>
 
     </div>
+
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <a href="#">Implementation</a> <span>›</span> <span>Basic script</span>
+        </div>
+        <h1>Implementation using the basic script</h1>
+        <p class="lead">
+          The most universal deployment method – paste the code directly into your website's HTML template.
+          Suitable for developers with direct access to the source code.
+        </p>
+      </div>
+
+      <h2 id="predpoklady-en">Before you start</h2>
+      <p>You will need:</p>
+      <ul>
+        <li><strong>SEM ID</strong> – see <a href="sem-id.html">Where to find SEM ID?</a></li>
+        <li>Access to your website's HTML templates (the <code>&lt;head&gt;</code> section)</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Which websites is the direct script suitable for?</strong>
+          Direct implementation is best for <strong>simple websites</strong> – landing pages,
+          single-page sites, service websites without e-commerce. For e-shops using GTM we recommend
+          the <a href="gtm.html">GTM template</a>, which covers e-commerce events more comprehensively.
+        </div>
+      </div>
+
+      <h2 id="krok1-en">Step 1 – Copy the script from Account Settings</h2>
+      <p>
+        In Sklik → <strong><a href="https://www.sklik.cz/settings" target="_blank">Account Settings</a></strong>, click
+        <strong>Show SEM code</strong> next to the relevant SEM ID.
+        A dialog with the complete script will open – copy it and paste it into the
+        <code>&lt;head&gt;</code> section of <strong>every page</strong> on your website.
+      </p>
+
+      <p>The script looks like this:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">HTML</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">&lt;!-- Insert into &lt;head&gt; on every page of your website --&gt;</span>
+<span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=VASE_SEM_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span>
+<span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <p>The script provides:</p>
+      <ul>
+        <li>Automatic <code>PageView</code> event sent on every page load</li>
+        <li>Writing of <code>sid</code> and <code>udid</code> cookies for user identification</li>
+        <li>Automatic consent loading from the IAB TCF API (if your website uses TCF)</li>
+      </ul>
+
+      <h2 id="krok2-en">Step 2 – Set up <a href="consent.html">consent</a> (if you don't use IAB TCF)</h2>
+      <p>
+        If your website uses the standardised <strong>IAB Transparency and Consent Framework (TCF)</strong>,
+        consent is passed automatically – skip this step.
+      </p>
+      <p>
+        If you don't use TCF, pass consent information manually using the <code>updateConsent</code> method:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">const</span> consentData = {
+  <span class="tok-property">consent_mode</span>: {
+    <span class="tok-property">ad_storage</span>: <span class="tok-string">'granted'</span>,          <span class="tok-comment">// cookie storage</span>
+    <span class="tok-property">ad_user_data</span>: <span class="tok-string">'granted'</span>,        <span class="tok-comment">// identifier processing</span>
+    <span class="tok-property">ad_personalization</span>: <span class="tok-string">'granted'</span>,  <span class="tok-comment">// ad personalisation</span>
+    <span class="tok-property">functionality_storage</span>: <span class="tok-string">'denied'</span>,
+    <span class="tok-property">analytics_storage</span>: <span class="tok-string">'denied'</span>
+  }
+};
+
+SEM(<span class="tok-string">'updateConsent'</span>, consentData);</code></pre>
+      </div>
+
+      <h2 id="krok3-en">Step 3 – Send <a href="user-data.html">user data</a> (optional, recommended)</h2>
+      <p>
+        After a user signs in or completes an order, we recommend sending the customer's e-mail address.
+        The script automatically hashes it (SHA-256) and uses it for accurate conversion matching even without cookies.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">const</span> userData = {
+  <span class="tok-property">em</span>: <span class="tok-string">"jan.novak@email.cz"</span>,   <span class="tok-comment">// key identifier – hashed automatically</span>
+  <span class="tok-property">ph</span>: <span class="tok-string">"+420606666666"</span>,
+  <span class="tok-property">fn</span>: <span class="tok-string">"Jan"</span>,
+  <span class="tok-property">ln</span>: <span class="tok-string">"Novák"</span>
+};
+
+SEM(<span class="tok-string">'updateUserData'</span>, userData);</code></pre>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Hashing happens automatically</strong>
+          <p>You can pass values in plain text. The SEM script normalises and hashes them using the SHA-256 algorithm directly in the browser before sending.
+          Exception: the <code>review_email</code> parameter in the Purchase event – this must not be hashed, as it is needed to send the customer satisfaction survey for the completed purchase.</p>
+        </div>
+      </div>
+
+      <h2 id="krok4-en">Step 4 – Add events to the relevant pages</h2>
+      <p>
+        Add the appropriate events to your product pages, cart, checkout and order confirmation page.
+        See the <a href="events.html">Event reference</a> for a complete list.
+      </p>
+
+      <p>Example of a complete code snippet for a product page:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">HTML – product page</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">&lt;!-- In &lt;head&gt; --&gt;</span>
+<span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=VASE_SEM_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span>
+
+<span class="tok-comment">&lt;!-- After the page body, once product data is available --&gt;</span>
+<span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+
+  <span class="tok-comment">// 1. Consent – if you don't use IAB TCF, pass consent manually</span>
+  SEM(<span class="tok-string">'updateConsent'</span>, {
+    <span class="tok-property">consent_mode</span>: {
+      <span class="tok-property">ad_storage</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">ad_user_data</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">ad_personalization</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">analytics_storage</span>: <span class="tok-string">'granted'</span>,
+      <span class="tok-property">functionality_storage</span>: <span class="tok-string">'granted'</span>
+    }
+  });
+
+  <span class="tok-comment">// 2. User data – optional, recommended for signed-in users</span>
+  SEM(<span class="tok-string">'updateUserData'</span>, {
+    <span class="tok-property">em</span>: <span class="tok-string">'jan.novak@email.cz'</span>  <span class="tok-comment">// hashed automatically</span>
+  });
+
+  <span class="tok-comment">// 3. PageView</span>
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+
+  <span class="tok-comment">// 4. ViewContent – product detail (for DRTG and retargeting)</span>
+  SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+    <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
+    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+    <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// excl. VAT</span>
+    <span class="tok-property">contents</span>: [{
+      <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+      <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// incl. VAT</span>
+    }]
+  });
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <h2 id="csp-en">Content Security Policy (CSP)</h2>
+      <p>If your website uses CSP headers, add these allowed sources:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">HTTP Header</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>Content-Security-Policy:
+  script-src l.seznam.cz;
+  connect-src https://*.seznam.cz;</code></pre>
+      </div>
+
+      <h2 id="spa-en">SPA applications (React, Vue, Next.js...)</h2>
+      <p>
+        In single-page applications the page does not reload on navigation. Call <code>PageView</code>
+        manually on every route change:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – React Router example</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">import</span> { useEffect } <span class="tok-keyword">from</span> <span class="tok-string">'react'</span>;
+<span class="tok-keyword">import</span> { useLocation } <span class="tok-keyword">from</span> <span class="tok-string">'react-router-dom'</span>;
+
+<span class="tok-keyword">function</span> <span class="tok-function">PageViewTracker</span>() {
+  <span class="tok-keyword">const</span> location = useLocation();
+  useEffect(() => {
+    <span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">'function'</span>) {
+      SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+    }
+  }, [location.pathname]);
+  <span class="tok-keyword">return</span> <span class="tok-keyword">null</span>;
+}</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="method-grid">
+        <a class="method-card" href="events.html">
+          <span class="method-card-icon">📋</span>
+          <span class="method-card-name">Event reference</span>
+          <span class="method-card-desc">Complete list of events and parameters for every page type.</span>
+        </a>
+        <a class="method-card" href="consent.html">
+          <span class="method-card-icon">🔐</span>
+          <span class="method-card-name">Consent management</span>
+          <span class="method-card-desc">Details on passing consent via TCF and Google Consent Mode.</span>
+        </a>
+        <a class="method-card" href="sandbox.html">
+          <span class="method-card-icon">🧪</span>
+          <span class="method-card-name">Testing</span>
+          <span class="method-card-desc">How to verify your implementation in the sandbox environment.</span>
+        </a>
+      </div>
+
+      <h2 id="vice-sem-id-en">Multiple SEM IDs on one page</h2>
+
+      <p>
+        If you operate a website where you need to track for multiple Sklik accounts simultaneously
+        (e.g. a marketplace with multiple sellers, or a site combining your own tracking with a client's),
+        set <code>sem_id</code> directly in each <code>track</code> call.
+        A SEM ID specified in a <code>track</code> call takes precedence over the globally configured ID.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">// Tracking for the first account</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">sem_id</span>: <span class="tok-string">'VASE_SEM_ID_1'</span>
+});
+
+<span class="tok-comment">// Tracking for the second account (same event, different SEM ID)</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">sem_id</span>: <span class="tok-string">'VASE_SEM_ID_2'</span>
+});</code></pre>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>sem_id in track vs. in config</strong>
+          <p>The global <code>sem_id</code> set via <code>SEM('config', ...)</code> is used for all calls where <code>sem_id</code> is not explicitly specified. Once you provide <code>sem_id</code> directly in a <code>track</code> call, it overrides the global value for that single call only.</p>
+        </div>
+      </div>
+
+    </div>
+
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 

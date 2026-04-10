@@ -20,51 +20,57 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
 
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link active" href="events.html">Přehled událostí</a>
-      <div class="nav-sub">
-        <a class="nav-link" href="#pageview">PageView</a>
-        <a class="nav-link" href="#viewcontent">ViewContent</a>
-        <a class="nav-link" href="#addtocart">AddToCart</a>
-        <a class="nav-link" href="#purchase">Purchase</a>
-        <a class="nav-link" href="#lead">Lead / Registrace</a>
-        <a class="nav-link" href="#ostatni">Ostatní události</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link active" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
+      <div class="nav-sub open">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
+        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+
+    <!-- ==================== ČESKY ==================== -->
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -252,7 +258,6 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
         <strong>dynamický retargeting</strong> – pomocí <code>content_type</code> rozlišujete, zda jde o produkt nebo kategorii.
       </p>
 
-      
       <div class="callout info">
         <span class="callout-icon"></span>
         <div class="callout-body">
@@ -261,7 +266,7 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
         </div>
       </div>
 
-<div class="table-wrap">
+      <div class="table-wrap">
         <table>
           <thead>
             <tr><th>Parametr</th><th>Typ</th><th>Povinnost</th><th>Příklad</th><th>Popis</th></tr>
@@ -591,12 +596,543 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'
         </div>
       </div>
 
-    </div>
+    </div><!-- /.content-wrap.lang-cs -->
+
+    <!-- ==================== ENGLISH ==================== -->
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Event reference</span>
+        </div>
+        <h1>Event reference</h1>
+        <p class="lead">
+          Complete overview of all supported SEM events, their parameters and code examples.
+          Events are sent using <code>SEM('track', 'EventName', data)</code>.
+        </p>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Basic rules</strong>
+          <p>Currency must always be <code>CZK</code>. Convert other currencies before sending.
+          The <code>value</code> parameter is always <strong>excl. VAT</strong> (total product price).
+          Shipping price (<code>delivery_price</code>), other costs (<code>other_costs</code>) and unit price (<code>unit_price</code>) are <strong>incl. VAT</strong>.</p>
+        </div>
+      </div>
+
+      <!-- EVENT OVERVIEW TABLE -->
+      <h2 id="prehled-en">Overview of all events</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name in interface</th>
+              <th>Event</th>
+              <th>Required</th>
+              <th>Recommended</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Page view</td>
+              <td><a href="#pageview"><code>PageView</code></a></td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>Content view</td>
+              <td><a href="#viewcontent"><code>ViewContent</code></a></td>
+              <td>–</td>
+              <td><code>content_type</code>, <code>currency</code>, <code>value</code>, <code>contents</code></td>
+            </tr>
+            <tr>
+              <td>Add to cart</td>
+              <td><a href="#addtocart"><code>AddToCart</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
+            </tr>
+            <tr>
+              <td>Add to wishlist</td>
+              <td><a href="#addtocart"><code>AddToWishlist</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
+            </tr>
+            <tr>
+              <td>Initiate checkout</td>
+              <td><a href="#checkout"><code>InitiateCheckout</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
+            </tr>
+            <tr>
+              <td>Add payment info</td>
+              <td><a href="#checkout"><code>AddPaymentInfo</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code>, <code>contents</code></td>
+            </tr>
+            <tr>
+              <td>Purchase</td>
+              <td><a href="#purchase"><code>Purchase</code></a></td>
+              <td><code>order_id</code>, <code>currency</code>, <code>value</code></td>
+              <td><code>value_tax</code>, <code>content_type</code>, <code>contents</code>, <code>review_email</code>, <code>delivery_type</code>, <code>delivery_price</code></td>
+            </tr>
+            <tr>
+              <td>Search</td>
+              <td><a href="#search"><code>Search</code></a></td>
+              <td>–</td>
+              <td><code>search_string</code></td>
+            </tr>
+            <tr>
+              <td>Lead</td>
+              <td><a href="#lead"><code>Lead</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code></td>
+            </tr>
+            <tr>
+              <td>Complete registration</td>
+              <td><a href="#lead"><code>CompleteRegistration</code></a></td>
+              <td>–</td>
+              <td><code>status</code>, <code>currency</code>, <code>value</code></td>
+            </tr>
+            <tr>
+              <td>Subscribe</td>
+              <td><a href="#lead"><code>Subscribe</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code>, <code>predicted_ltv</code></td>
+            </tr>
+            <tr>
+              <td>Start trial</td>
+              <td><a href="#lead"><code>StartTrial</code></a></td>
+              <td>–</td>
+              <td><code>currency</code>, <code>value</code>, <code>predicted_ltv</code></td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td><a href="#ostatni"><code>Contact</code></a></td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>Schedule</td>
+              <td><a href="#ostatni"><code>Schedule</code></a></td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>Donate</td>
+              <td><a href="#ostatni"><code>Donate</code></a></td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>Customize product</td>
+              <td><a href="#ostatni"><code>CustomizeProduct</code></a></td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>Submit application</td>
+              <td><a href="#ostatni"><code>SubmitApplication</code></a></td>
+              <td>–</td>
+              <td>–</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== PAGEVIEW ===== -->
+      <h2 id="pageview-en">PageView</h2>
+      <p>
+        Send on every page of the website. The base script calls <code>PageView</code> automatically.
+        For SPA applications (React, Vue, etc.) call the event manually on every route change.
+      </p>
+      <p>
+        <code>PageView</code> is also used for <strong>dynamic product retargeting</strong> – add
+        <code>content_type: 'product'</code> and the product ID in the <code>contents</code> array.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">// Basic PageView (called automatically by the script)</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+
+<span class="tok-comment">// PageView with product data (for DRTG)</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27677</span>,         <span class="tok-comment">// excl. VAT</span>
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,    <span class="tok-comment">// incl. VAT</span>
+    <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>
+  }]
+});</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== VIEWCONTENT ===== -->
+      <h2 id="viewcontent-en">ViewContent</h2>
+      <p>
+        Send when a product page or category page is displayed. This is the key event for
+        <strong>dynamic retargeting</strong> – use <code>content_type</code> to distinguish between a product and a category.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Paired parameters</strong>
+          <p><code>value</code> and <code>currency</code> must always be sent together. The same applies to <code>contents</code> and <code>content_type</code> – one without the other is not sufficient.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Requirement</th><th>Example</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>content_type</code></td><td>string</td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+              <td><code>'product'</code></td>
+              <td>Content type: <code>product</code> for a product detail page, <code>product_group</code> for a category, <code>page</code> for other pages</td>
+            </tr>
+            <tr>
+              <td><code>currency</code></td><td>string</td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+              <td><code>'CZK'</code></td>
+              <td>Always <code>CZK</code>. Convert other currencies.</td>
+            </tr>
+            <tr>
+              <td><code>value</code></td><td>number</td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+              <td><code>33490</code></td>
+              <td>Total cart value in CZK excl. VAT</td>
+            </tr>
+            <tr>
+              <td><code>contents</code></td><td>array</td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+              <td>see example</td>
+              <td>Array of products. See the <a href="contents.html">Contents[]</a> object description.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-tab="produkt-en">Product detail</button>
+          <button class="impl-tab" data-tab="kategorie-en">Category</button>
+        </div>
+        <div class="impl-panel active" data-panel="produkt-en">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// excl. VAT</span>
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>,      <span class="tok-comment">// incl. VAT</span>
+    <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>
+  }]
+});</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="kategorie-en">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code><span class="tok-comment">// For a category page – content_type must be 'product_group'</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'ViewContent'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product_group'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">0</span>,
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>  <span class="tok-comment">// category for DRTG</span>
+  }]
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== ADDTOCART ===== -->
+      <h2 id="addtocart-en">AddToCart and AddToWishlist</h2>
+      <p>Send when a product is added to the cart (<code>AddToCart</code>) or to favourites (<code>AddToWishlist</code>). The data structure is identical for both events.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Requirement</th><th>Example</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>'CZK'</code></td><td>Always CZK</td></tr>
+            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>33490</code></td><td>Total cart value in CZK excl. VAT</td></tr>
+            <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Recommended</span></td><td>see example</td><td>Added products. See <a href="contents.html">Contents[]</a>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'AddToCart'</span>, {  <span class="tok-comment">// or 'AddToWishlist'</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27677</span>,          <span class="tok-comment">// excl. VAT</span>
+  <span class="tok-property">contents</span>: [{
+    <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+    <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+    <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+    <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+    <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// incl. VAT</span>
+  }]
+});</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== CHECKOUT ===== -->
+      <h2 id="checkout-en">InitiateCheckout and AddPaymentInfo</h2>
+      <p>Send when the order process is started (<code>InitiateCheckout</code>) and when payment details are entered (<code>AddPaymentInfo</code>). These events allow you to measure cart abandonment rates.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'InitiateCheckout'</span>, {  <span class="tok-comment">// or 'AddPaymentInfo'</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">28090</span>,          <span class="tok-comment">// excl. VAT</span>
+  <span class="tok-property">contents</span>: [
+    {
+      <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// incl. VAT</span>
+    },
+    {
+      <span class="tok-property">id</span>: <span class="tok-string">'KRYT999'</span>,
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">content_name</span>: <span class="tok-string">'Ochranný kryt'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Příslušenství | Kryty na telefon'</span>,
+      <span class="tok-property">unit_price</span>: <span class="tok-number">500</span>        <span class="tok-comment">// incl. VAT</span>
+    }
+  ]
+});</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== PURCHASE ===== -->
+      <h2 id="purchase-en">Purchase</h2>
+      <p>
+        The most important e-commerce event – send it immediately after the order is completed on the order confirmation page.
+        It contains complete order data including products, shipping and payment.
+      </p>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>review_email must not be hashed</strong>
+          <p>The <code>review_email</code> parameter is used to send a customer satisfaction survey from Seznam Shopping.
+          Unlike other email fields, do <strong>not hash</strong> this value. Only send it if the customer has not opted out of receiving surveys.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Requirement</th><th>Example</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>order_id</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td><code>'OBJ-987654'</code></td><td>Unique order number. Used for deduplication.</td></tr>
+            <tr><td><code>currency</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td><code>'CZK'</code></td><td>Always CZK</td></tr>
+            <tr><td><code>value</code></td><td>number</td><td><span class="badge badge-required">Required</span></td><td><code>27364</code></td><td>Total cart value in CZK excl. VAT</td></tr>
+            <tr><td><code>value_tax</code></td><td>number</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>5746</code></td><td>VAT on the <code>value</code> amount</td></tr>
+            <tr><td><code>content_type</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>'product'</code></td><td>Always <code>product</code> for product purchases</td></tr>
+            <tr><td><code>contents</code></td><td>array</td><td><span class="badge badge-recommended">Recommended</span></td><td>see example</td><td>Purchased products. See <a href="contents.html">Contents[]</a>.</td></tr>
+            <tr><td><code>review_email</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>'jan@email.cz'</code></td><td>⚠️ DO NOT HASH. Email for the Seznam Shopping survey.</td></tr>
+            <tr><td><code>delivery_type</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>'CESKA_POSTA'</code></td><td>Shipping method per DELIVERY_ID from the XML feed</td></tr>
+            <tr><td><code>delivery_price</code></td><td>number</td><td><span class="badge badge-recommended">Recommended</span></td><td><code>121</code></td><td>Shipping price <strong>incl. VAT</strong> in CZK</td></tr>
+            <tr><td><code>payment_type</code></td><td>string</td><td><span class="badge badge-optional">Optional</span></td><td><code>'karta'</code></td><td>Payment method – any string value</td></tr>
+            <tr><td><code>other_costs</code></td><td>number</td><td><span class="badge badge-optional">Optional</span></td><td><code>-500</code></td><td>Additional costs/discounts <strong>incl. VAT</strong>. Discounts = negative number.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Purchase'</span>, {
+  <span class="tok-property">content_type</span>: <span class="tok-string">'product'</span>,
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">order_id</span>: <span class="tok-string">'OBJ-987654'</span>,
+  <span class="tok-property">review_email</span>: <span class="tok-string">'zakaznik@email.cz'</span>,  <span class="tok-comment">// ⚠️ DO NOT HASH</span>
+  <span class="tok-property">value</span>: <span class="tok-number">27364</span>,          <span class="tok-comment">// total value excl. VAT (in CZK)</span>
+  <span class="tok-property">value_tax</span>: <span class="tok-number">5746</span>,       <span class="tok-comment">// VAT amount (in CZK)</span>
+  <span class="tok-property">delivery_type</span>: <span class="tok-string">'CESKA_POSTA'</span>,
+  <span class="tok-property">delivery_price</span>: <span class="tok-number">121</span>,    <span class="tok-comment">// shipping incl. VAT</span>
+  <span class="tok-property">other_costs</span>: <span class="tok-number">-500</span>,     <span class="tok-comment">// discount incl. VAT (negative number)</span>
+  <span class="tok-property">payment_type</span>: <span class="tok-string">'karta'</span>,
+  <span class="tok-property">contents</span>: [
+    {
+      <span class="tok-property">id</span>: <span class="tok-string">'ABC12345'</span>,
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>,
+      <span class="tok-property">content_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+      <span class="tok-property">content_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+      <span class="tok-property">unit_price</span>: <span class="tok-number">33490</span>      <span class="tok-comment">// incl. VAT</span>
+    }
+  ]
+});</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== SEARCH ===== -->
+      <h2 id="search-en">Search</h2>
+      <p>Send on every search performed on the website. Allows you to target retargeting at users searching for specific products.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Search'</span>, {
+  <span class="tok-property">search_string</span>: <span class="tok-string">'bezdrátová sluchátka'</span>
+});</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== LEAD ===== -->
+      <h2 id="lead-en">Lead, CompleteRegistration, Subscribe, StartTrial</h2>
+      <p>Events for non-e-commerce websites – lead generation, registration, subscriptions.</p>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-tab="lead2-en">Lead</button>
+          <button class="impl-tab" data-tab="reg-en">CompleteRegistration</button>
+          <button class="impl-tab" data-tab="sub-en">Subscribe / StartTrial</button>
+        </div>
+        <div class="impl-panel active" data-panel="lead2-en">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Lead'</span>, {
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">500</span>       <span class="tok-comment">// estimated lead value</span>
+});</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="reg-en">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'CompleteRegistration'</span>, {
+  <span class="tok-property">status</span>: <span class="tok-keyword">true</span>,    <span class="tok-comment">// true = successful registration</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">0</span>
+});</code></pre>
+          </div>
+        </div>
+        <div class="impl-panel" data-panel="sub-en">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-lang">JavaScript</span>
+              <button class="copy-btn"></button>
+            </div>
+            <pre><code>SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Subscribe'</span>, {  <span class="tok-comment">// or 'StartTrial'</span>
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">199</span>,           <span class="tok-comment">// subscription price (excl. VAT)</span>
+  <span class="tok-property">predicted_ltv</span>: <span class="tok-number">2400</span>  <span class="tok-comment">// estimated customer lifetime value</span>
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== OTHER EVENTS ===== -->
+      <h2 id="ostatni-en">Other events</h2>
+      <p>These events have no required parameters and are used to measure specific interactions.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Event</th><th>When to use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>Contact</code></td><td>User contacted the company (phone, chat, email)</td></tr>
+            <tr><td><code>CustomizeProduct</code></td><td>User customized a product (colour, configuration)</td></tr>
+            <tr><td><code>Donate</code></td><td>Donation to a charitable cause</td></tr>
+            <tr><td><code>Schedule</code></td><td>Booking an appointment (hairdresser, doctor, etc.)</td></tr>
+            <tr><td><code>SubmitApplication</code></td><td>Submitting an application or request</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-comment">// No parameters</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Contact'</span>);
+
+<span class="tok-comment">// With optional value</span>
+SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Schedule'</span>, {
+  <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,  <span class="tok-comment">// only CZK supported</span>
+  <span class="tok-property">value</span>: <span class="tok-number">1000</span>
+});</code></pre>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Product object contents[]</strong>
+          <p>The parameters for individual products passed in the <code>contents</code> array are described
+          on the dedicated page <a href="contents.html">Product object – contents</a>.</p>
+        </div>
+      </div>
+
+    </div><!-- /.content-wrap.lang-en -->
+
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 

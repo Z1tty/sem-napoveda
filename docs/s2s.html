@@ -20,50 +20,56 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link active" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
       <div class="nav-sub">
         <a class="nav-link" href="events.html#pageview">PageView</a>
         <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
         <a class="nav-link" href="events.html#addtocart">AddToCart</a>
         <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
-        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
+        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+
+    <!-- ===== ČESKÁ VERZE ===== -->
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -395,12 +401,349 @@ response.raise_for_status()</code></pre>
         </div>
       </div>
 
-    </div>
+    </div><!-- /lang-cs -->
+
+    <!-- ===== ANGLICKÁ VERZE ===== -->
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <a href="#">Implementation</a> <span>›</span> <span>Server-to-Server</span>
+        </div>
+        <h1>Server-to-Server (S2S) Measurement</h1>
+        <p class="lead">
+          Advanced measurement where you send data directly from your server to the Sklik endpoint.
+        </p>
+      </div>
+
+      <p>
+        S2S is suitable for websites where you need maximum accuracy without relying on third-party cookies.
+        It can also be used for measuring conversions from mobile applications or for sending offline conversions.
+      </p>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>The frontend script (sul.js) is required even for S2S</strong>
+          <p>Even with S2S measurement, the frontend script sul.js must be deployed on the website with your <strong>SEM ID</strong>.
+          It creates cookies <code>sid</code> and <code>udid</code> that you must read and pass in every S2S request.
+          The S2S payload itself also contains <strong>SEM ID</strong> (parameter <code>sem_id</code>) – that is a different identifier.
+          Without cookies from sul.js, user identity cannot be correctly matched.</p>
+        </div>
+      </div>
+
+      <h2 id="predpoklady-en">Prerequisites</h2>
+      <ul>
+        <li>Frontend script deployed on all pages of the website (generates cookies <code>sid</code> and <code>udid</code>)</li>
+        <li>Ability to read cookies <code>sid</code> and <code>udid</code> from the server</li>
+        <li>Ability to hash personal data with SHA-256 on the server</li>
+        <li>
+          <strong>SEM ID for S2S</strong> – a special identifier used exclusively for S2S measurement.
+          It differs from the standard SEM ID (for the script and GTM). See <a href="sem-id.html#s2s">Where to find SEM ID?</a>
+          If you have Seznam Shopping store outlets, each outlet has its own SEM ID for S2S.
+        </li>
+      </ul>
+
+      <h2 id="endpoint-en">Endpoint</h2>
+      <p>Send all S2S requests as <code>POST</code> to:</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">Endpoint</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>POST https://sem.seznam.cz/rtgconv
+Content-Type: application/json</code></pre>
+      </div>
+
+      <h3 id="hlavicky-en">HTTP headers</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Header</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>Content-Type</code></td><td><span class="badge badge-required">Required</span></td><td>Always <code>application/json</code></td></tr>
+            <tr><td><code>X-Client-Id</code></td><td><span class="badge badge-recommended">Recommended</span></td><td>Name of your application or library sending the data (e.g. <code>my-eshop-plugin</code>, <code>shoptet-sem</code>)</td></tr>
+            <tr><td><code>X-Client-Version</code></td><td><span class="badge badge-recommended">Recommended</span></td><td>Application version (e.g. <code>1.4.2</code>)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Why provide X-Client-Id and X-Client-Version?</strong>
+          <p>These headers help us debug issues on your side – we can quickly identify which application and version sent the data. They have no effect on event processing, but significantly speed up diagnostics.</p>
+        </div>
+      </div>
+
+      <h2 id="identita-en">User identification</h2>
+      <p>
+        The S2S payload must contain the <code>sid</code> and <code>udid</code> cookies generated by the frontend script.
+        Read them on the frontend and pass them to the server, where you include them in the <code>user_ids.user_data</code> object.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript – reading sid and udid cookies</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">function</span> <span class="tok-function">getCookie</span>(name) {
+  <span class="tok-keyword">const</span> match = document.cookie.match(<span class="tok-keyword">new</span> RegExp(<span class="tok-string">'(?:^|; )'</span> + name + <span class="tok-string">'=([^;]*)'</span>));
+  <span class="tok-keyword">return</span> match ? decodeURIComponent(match[<span class="tok-number">1</span>]) : <span class="tok-keyword">null</span>;
+}
+
+<span class="tok-keyword">const</span> sid  = getCookie(<span class="tok-string">'sid'</span>);   <span class="tok-comment">// pass to server as user_ids.user_data.sid</span>
+<span class="tok-keyword">const</span> udid = getCookie(<span class="tok-string">'udid'</span>);  <span class="tok-comment">// pass to server as user_ids.user_data.udid</span></code></pre>
+      </div>
+      <p>
+        Another key identifier is <code>sznaiid</code> – the click ID from Sklik.
+        This value is found in the URL parameter after a click on an ad and is used for anonymous conversion modelling.
+        It can be safely stored on the server without user consent.
+      </p>
+
+      <div class="callout danger">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Hash personal data before sending</strong>
+          <p>Unlike the frontend script, which hashes automatically, with S2S you must
+          <strong>hash yourself</strong> using SHA-256 all personal data fields:
+          em, ph, fn, ln, ge, db, ct, zp, sr, country.
+          Exception: <code>review_email</code> must <strong>not be hashed</strong> even with S2S.</p>
+        </div>
+      </div>
+
+      <h2 id="payload-en">Payload structure</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>schema_version</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td>Always <code>"v2"</code></td></tr>
+            <tr><td><code>event_name</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td>Event name, e.g. <code>"Purchase"</code></td></tr>
+            <tr><td><code>event_type</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td>Always <code>"rtgconv"</code></td></tr>
+            <tr><td><code>event_time</code></td><td>integer</td><td><span class="badge badge-required">Required</span></td><td>Unix timestamp in <strong>milliseconds</strong> (UTC)</td></tr>
+            <tr><td><code>event_url</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td>URL of the page where the event occurred</td></tr>
+            <tr><td><code>event_source</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td><code>"web"</code> or <code>"app"</code></td></tr>
+            <tr><td><code>event_id</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td>Unique event ID (ideally UUID-7) for deduplication</td></tr>
+            <tr><td><code>user_ids</code></td><td>object</td><td><span class="badge badge-required">Required</span></td><td>Object with user identifiers (see below)</td></tr>
+            <tr><td><code>event_data</code></td><td>object</td><td><span class="badge badge-required">Required</span></td><td>Event data – same structure as frontend measurement + <code>sem_id</code> and <code>sznaiid</code></td></tr>
+            <tr><td><code>consent_string</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td>IAB TCF consent string (if available)</td></tr>
+            <tr><td><code>consent_mode</code></td><td>object</td><td><span class="badge badge-recommended">Recommended</span></td><td>Google Consent Mode (alternative to TCF)</td></tr>
+            <tr><td><code>s2s_headers</code></td><td>object</td><td><span class="badge badge-recommended">Recommended</span></td><td>IP address and User Agent for more accurate identification</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="user-ids-en">user_ids.user_data object</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Description</th><th>Hash?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>sid</code></td><td>Session cookie from seznam.cz – read from browser</td><td>No</td></tr>
+            <tr><td><code>udid</code></td><td>Session cookie generated by sul.js</td><td>No</td></tr>
+            <tr><td><code>em</code></td><td>User email address (key identifier)</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>ph</code></td><td>Phone number</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>fn</code></td><td>First name</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>ln</code></td><td>Last name</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>ge</code></td><td>Gender (<code>m</code>, <code>f</code> or <code>o</code>)</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>db</code></td><td>Date of birth (format YYYYMMDD)</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>ct</code></td><td>City</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>zp</code></td><td>Postal code</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>sr</code></td><td>Street and house number</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+            <tr><td><code>country</code></td><td>Country code (ISO 3166-1 alpha-2, e.g. <code>cz</code>)</td><td><strong>Yes</strong> (SHA-256)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="event-data-s2s-en">Special parameters in event_data for S2S</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>sem_id</code></td>
+              <td><span class="badge badge-required">Required for S2S</span></td>
+              <td><strong>SEM ID for S2S</strong> – a separate identifier visible after enabling advanced settings. Different from the SEM ID for the script/GTM.</td>
+            </tr>
+            <tr>
+              <td><code>sznaiid</code></td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+              <td>Click ID from Sklik – URL parameter after clicking on an ad. Used for anonymous conversion modelling.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="priklad-en">Complete payload example</h2>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JSON – Purchase payload</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>{
+  <span class="tok-property">"schema_version"</span>: <span class="tok-string">"v2"</span>,
+  <span class="tok-property">"event_source"</span>: <span class="tok-string">"web"</span>,
+  <span class="tok-property">"event_name"</span>: <span class="tok-string">"Purchase"</span>,
+  <span class="tok-property">"event_type"</span>: <span class="tok-string">"rtgconv"</span>,
+  <span class="tok-property">"event_time"</span>: <span class="tok-number">1770134113676</span>,
+  <span class="tok-property">"event_id"</span>: <span class="tok-string">"018e4f2a-1234-7abc-9def-0123456789ab"</span>,
+  <span class="tok-property">"event_url"</span>: <span class="tok-string">"https://vas-eshop.cz/dekujeme"</span>,
+
+  <span class="tok-property">"user_ids"</span>: {
+    <span class="tok-property">"user_data"</span>: {
+      <span class="tok-comment">// Cookies from sul.js – read from browser (do not hash)</span>
+      <span class="tok-property">"sid"</span>: <span class="tok-string">"id=1922397029101872874|t=1737450723.526|te=1756971615.061|c=0F247CCA"</span>,
+      <span class="tok-property">"udid"</span>: <span class="tok-string">"01958f34-71d5-7ec2-ae01-cb3c80a1d0a0"</span>,
+
+      <span class="tok-comment">// Personal data – hash with SHA-256 on the server</span>
+      <span class="tok-property">"em"</span>: <span class="tok-string">"6db68d052788e70eb459463eb34370fe983ef838db65641902f02326fabc37a7"</span>,
+      <span class="tok-property">"ph"</span>: <span class="tok-string">"ca6faa7abf120a739e8ce3bcf581553af9ad983b3290ed8cdf8cc40b9d4fefcf"</span>,
+      <span class="tok-property">"fn"</span>: <span class="tok-string">"6a0ac0fd972c325d6ca5512b67a5e0ad996c4a3e9b59971d125164e6d4db1a1c"</span>,
+      <span class="tok-property">"ln"</span>: <span class="tok-string">"64118260ecb916c23621d8f2768d8dc75d1f5710b1b7e4f2c41ad41e6bc4d688"</span>,
+      <span class="tok-property">"ct"</span>: <span class="tok-string">"f377db9f1f0af132866afd5c4381512a5c9a3b3a32e9ca2f88f0aced18264568"</span>
+    }
+  },
+
+  <span class="tok-property">"consent_mode"</span>: {
+    <span class="tok-property">"ad_storage"</span>: <span class="tok-string">"granted"</span>,
+    <span class="tok-property">"ad_user_data"</span>: <span class="tok-string">"granted"</span>,
+    <span class="tok-property">"ad_personalization"</span>: <span class="tok-string">"granted"</span>,
+    <span class="tok-property">"functionality_storage"</span>: <span class="tok-string">"denied"</span>,
+    <span class="tok-property">"analytics_storage"</span>: <span class="tok-string">"denied"</span>
+  },
+
+  <span class="tok-property">"s2s_headers"</span>: {
+    <span class="tok-property">"client_ip_address"</span>: <span class="tok-string">"77.75.74.172"</span>,
+    <span class="tok-property">"user_agent"</span>: <span class="tok-string">"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36..."</span>,
+    <span class="tok-property">"sec_ch_ua_mobile"</span>: <span class="tok-string">"?0"</span>,
+    <span class="tok-property">"sec_ch_ua_platform"</span>: <span class="tok-string">"\"Windows\""</span>
+  },
+
+  <span class="tok-property">"event_data"</span>: {
+    <span class="tok-property">"sem_id"</span>: <span class="tok-string">"VASE_SEM_ID_PRO_S2S"</span>,
+    <span class="tok-property">"sznaiid"</span>: <span class="tok-string">"2627214859780792651"</span>,
+    <span class="tok-property">"order_id"</span>: <span class="tok-string">"OBJ-987654"</span>,
+    <span class="tok-property">"content_type"</span>: <span class="tok-string">"product"</span>,
+    <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>,  <span class="tok-comment">// only CZK is supported</span>
+    <span class="tok-property">"value"</span>: <span class="tok-number">27364</span>,          <span class="tok-comment">// total value excluding VAT (in CZK)</span>
+    <span class="tok-property">"value_tax"</span>: <span class="tok-number">5746</span>,
+    <span class="tok-property">"delivery_type"</span>: <span class="tok-string">"CESKA_POSTA"</span>,
+    <span class="tok-property">"delivery_price"</span>: <span class="tok-number">121</span>,       <span class="tok-comment">// including VAT</span>
+    <span class="tok-property">"other_costs"</span>: <span class="tok-number">-500</span>,         <span class="tok-comment">// discount including VAT</span>
+    <span class="tok-property">"payment_type"</span>: <span class="tok-string">"karta"</span>,
+    <span class="tok-property">"contents"</span>: [
+      {
+        <span class="tok-property">"id"</span>: <span class="tok-string">"ABC12345"</span>,
+        <span class="tok-property">"quantity"</span>: <span class="tok-number">1</span>,
+        <span class="tok-property">"unit_price"</span>: <span class="tok-number">33490</span>,       <span class="tok-comment">// including VAT</span>
+        <span class="tok-property">"content_name"</span>: <span class="tok-string">"iPhone 15 Pro Max"</span>,
+        <span class="tok-property">"content_category"</span>: <span class="tok-string">"Elektronika | Mobilní telefony | Apple"</span>
+      }
+    ]
+  }
+}</code></pre>
+      </div>
+
+      <h2 id="odeslani-en">Sending the request</h2>
+
+      <p>Send the payload as an HTTP POST request to the endpoint <code>https://sem.seznam.cz/rtgconv</code> with the <code>Content-Type: application/json</code> header.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">cURL</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code>curl -X POST https://sem.seznam.cz/rtgconv \
+  -H <span class="tok-string">"Content-Type: application/json"</span> \
+  -H <span class="tok-string">"X-Client-Id: my-eshop-plugin"</span> \
+  -H <span class="tok-string">"X-Client-Version: 1.0.0"</span> \
+  -d <span class="tok-string">'{ ... your payload ... }'</span></code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">JavaScript (Node.js – fetch)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">await</span> fetch(<span class="tok-string">'https://sem.seznam.cz/rtgconv'</span>, {
+  <span class="tok-property">method</span>: <span class="tok-string">'POST'</span>,
+  <span class="tok-property">headers</span>: {
+    <span class="tok-string">'Content-Type'</span>: <span class="tok-string">'application/json'</span>,
+    <span class="tok-string">'X-Client-Id'</span>: <span class="tok-string">'my-eshop-plugin'</span>,
+    <span class="tok-string">'X-Client-Version'</span>: <span class="tok-string">'1.0.0'</span>,
+  },
+  <span class="tok-property">body</span>: JSON.stringify(payload)
+});</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-lang">Python (requests)</span>
+          <button class="copy-btn"></button>
+        </div>
+        <pre><code><span class="tok-keyword">import</span> requests
+
+response = requests.post(
+    <span class="tok-string">'https://sem.seznam.cz/rtgconv'</span>,
+    json=payload,
+    headers={
+        <span class="tok-string">'X-Client-Id'</span>: <span class="tok-string">'my-eshop-plugin'</span>,
+        <span class="tok-string">'X-Client-Version'</span>: <span class="tok-string">'1.0.0'</span>,
+    }
+)
+response.raise_for_status()</code></pre>
+      </div>
+
+      <h2 id="chyby-en">Error handling and recommendations</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>HTTP status</th><th>Meaning</th><th>Recommended action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>200 OK</code></td><td>Event received and processed</td><td>–</td></tr>
+            <tr><td><code>400 Bad Request</code></td><td>Invalid payload – missing required field or incorrect format</td><td>Fix the payload, do not retry automatically</td></tr>
+            <tr><td><code>401 / 403</code></td><td>Invalid SEM ID or inaccessible endpoint</td><td>Check the SEM ID for S2S</td></tr>
+            <tr><td><code>5xx</code></td><td>Server-side error</td><td>Retry with exponential backoff (see below)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Retry strategy</strong>
+          <p>For <code>5xx</code> errors or network timeouts, we recommend retrying the request with exponential backoff: 1 s → 2 s → 4 s, up to 3 attempts. Do not retry <code>4xx</code> errors – they indicate a problem with the payload, not a temporary outage.</p>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Timeout</strong>
+          <p>Set the request timeout to <strong>3–5 seconds</strong>. S2S calls must not block order processing on your server – send events asynchronously (e.g. in a background queue).</p>
+        </div>
+      </div>
+
+    </div><!-- /lang-en -->
+
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 

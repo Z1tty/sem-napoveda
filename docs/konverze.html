@@ -19,51 +19,56 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
 
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
       <div class="nav-sub">
         <a class="nav-link" href="events.html#pageview">PageView</a>
         <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
         <a class="nav-link" href="events.html#addtocart">AddToCart</a>
         <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead">Lead / Registrace</a>
-        <a class="nav-link" href="events.html#ostatni">Ostatní události</a>
+        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
+        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
       </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link active" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link active" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -203,11 +208,154 @@
       </div>
 
     </div>
+
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <span>Configuration</span>
+        </div>
+        <h1>Conversion management</h1>
+        <p class="lead">
+          In the <a href="https://nas.sklik.cz/event-management?view=conversions" target="_blank">Event Management → Conversions</a>
+          section you define which SEM events should be counted as conversion actions, what value they have, and under what conditions.
+        </p>
+      </div>
+
+      <h2 id="konverze-en">Conversion setup</h2>
+
+      <p>
+        You define conversions in the <strong>Conversions</strong> tab. Each conversion is linked to a specific
+        SEM event (e.g. Purchase) and determines:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Setting</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Conversion name</strong></td>
+              <td>Internal name for clarity (e.g. "E-shop purchase")</td>
+            </tr>
+            <tr>
+              <td><strong>Event</strong></td>
+              <td>The SEM event the conversion is based on (Purchase, Lead, CompleteRegistration…)</td>
+            </tr>
+            <tr>
+              <td><strong>Conversion value</strong></td>
+              <td>A fixed amount <strong>excl. VAT</strong>, or a dynamic value from the event's <code>value</code> parameter (always excl. VAT)</td>
+            </tr>
+            <tr>
+              <td><strong>Conditions</strong></td>
+              <td>Optional filters – the conversion is counted only when conditions are met (see below)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <img src="img/sprava-mereni-konverze.png" alt="Event Management – Conversions tab" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-bottom:32px;">
+
+      <h3 id="podminky-konverzi-en">Conversion conditions</h3>
+
+      <p>
+        You can add conditions to each conversion that restrict when the conversion is counted.
+        Supported conditions:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Condition</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Page URL</td><td>contains <code>/thank-you/</code></td></tr>
+            <tr><td>Content type (<code>content_type</code>)</td><td>is <code>product</code></td></tr>
+            <tr><td>Content name (<code>content_name</code>)</td><td>contains <code>Premium</code></td></tr>
+            <tr><td>Category (<code>content_category</code>)</td><td>is <code>Elektronika | Mobilní telefony | Apple</code></td></tr>
+            <tr><td>Product ID (<code>contents[].id</code>)</td><td>is <code>SKU-001</code></td></tr>
+            <tr><td>Purchase value (<code>value</code>)</td><td>greater than 500 CZK</td></tr>
+            <tr><td>User gender</td><td>female</td></tr>
+            <tr><td>City</td><td>Praha</td></tr>
+            <tr><td>Country</td><td>Czech Republic</td></tr>
+            <tr><td>Event source</td><td>Web / App</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>AND / OR logic in conditions</strong>
+          <p>Conditions <em>within a single object</em> in the <code>contents</code> array act as AND.
+          Conditions <em>across multiple objects</em> in the array work as OR – only one needs to be satisfied.</p>
+        </div>
+      </div>
+
+      <p>For an overview of SEM script parameters corresponding to individual conditions, see <a href="retargeting.html#parametry-podminek">Retargeting lists – condition parameters</a>.</p>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Retargeting lists</strong>
+          <p>For each conversion event, SEM automatically creates a corresponding retargeting list containing users who completed the conversion. For an overview of retargeting list types and how to create custom ones, see <a href="retargeting.html">Retargeting lists</a>.</p>
+        </div>
+      </div>
+
+      <h2 id="zbozi-en">E-shops linked to Seznam Shopping (store outlets)</h2>
+
+      <p>
+        If you operate an e-shop linked to Seznam Shopping, to correctly send conversions
+        for the purpose of obtaining customer feedback (product reviews) you must use the <strong>combined SEM ID</strong>
+        of the relevant store outlet – not the general account SEM ID.
+      </p>
+
+      <p>
+        The combined SEM ID contains both the account identifier and the store outlet identifier, ensuring
+        that feedback is correctly attributed to the specific store. You can find it in Event Management –
+        each store outlet has its own record.
+      </p>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Moving a store outlet to another account</strong>
+          When a store outlet is moved to a different Sklik account, the combined SEM ID becomes invalid.
+          You will be notified and will need to update the SEM ID in your implementation.
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2 id="dalsi-en">Next steps</h2>
+
+      <div class="method-grid">
+        <a class="method-card" href="jak-nasadit.html">
+          <span class="method-card-icon">🔄</span>
+          <span class="method-card-name">Migration guide</span>
+          <span class="method-card-desc">Step-by-step instructions for migrating from old scripts to SEM in three stages.</span>
+        </a>
+        <a class="method-card" href="drtg.html">
+          <span class="method-card-icon">🎯</span>
+          <span class="method-card-name">Dynamic retargeting</span>
+          <span class="method-card-desc">How to implement DRTG for products and categories.</span>
+        </a>
+        <a class="method-card" href="events.html#purchase">
+          <span class="method-card-icon">🛒</span>
+          <span class="method-card-name">Purchase event</span>
+          <span class="method-card-desc">Parameters and code examples for the Purchase conversion event.</span>
+        </a>
+      </div>
+
+    </div>
+
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 <script src="assets/main.js"></script>

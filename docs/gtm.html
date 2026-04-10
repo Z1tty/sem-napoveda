@@ -20,42 +20,56 @@
   </a>
   <div class="header-divider"></div>
   <span class="header-title">SEM – Event Measurement</span>
-  <span class="header-badge">⚡ Beta dokumentace</span>
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="cs">CS</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
 </header>
 
 <div class="layout">
   <nav class="sidebar">
     <div class="nav-section">
-      <span class="nav-section-label">Začínáme</span>
-      <a class="nav-link" href="index.html">Co je SEM</a>
-      <a class="nav-link" href="sem-id.html">Kde najdu SEM ID?</a>
-      <a class="nav-link" href="jak-nasadit.html">Nasazení a přechod na SEM</a>
-      <a class="nav-link" href="sandbox.html">Testování (Sandbox)</a>
+      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
+      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
+      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
+      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
+      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Implementace</span>
-      <a class="nav-link" href="skript.html">Základní skript</a>
+      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
+      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
       <a class="nav-link active" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html">E-commerce platformy</a>
+      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
       <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Reference událostí</span>
-      <a class="nav-link" href="events.html">Přehled událostí</a>
+      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
+      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
+      <div class="nav-sub">
+        <a class="nav-link" href="events.html#pageview">PageView</a>
+        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
+        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
+        <a class="nav-link" href="events.html#purchase">Purchase</a>
+        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
+        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
+      </div>
     </div>
     <div class="nav-section">
-      <span class="nav-section-label">Konfigurace</span>
-      <a class="nav-link" href="consent.html">Správa souhlasů</a>
-      <a class="nav-link" href="user-data.html">Uživatelská data</a>
-      <a class="nav-link" href="contents.html">Objekt produktů – contents</a>
-      <a class="nav-link" href="drtg.html">Dynamický retargeting</a>
-      <a class="nav-link" href="retargeting.html">Retargetingové seznamy</a>
-      <a class="nav-link" href="konverze.html">Správa konverzí</a>
+      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
+      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
+      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
+      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
+      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
+      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
+      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
     </div>
   </nav>
 
   <main class="main-content">
-    <div class="content-wrap">
+
+    <!-- ===== ČESKÁ VERZE ===== -->
+    <div class="content-wrap lang-cs">
 
       <div class="page-header">
         <div class="breadcrumb">
@@ -452,12 +466,415 @@
         </a>
       </div>
 
-    </div>
+    </div><!-- /lang-cs -->
+
+    <!-- ===== ANGLICKÁ VERZE ===== -->
+    <div class="content-wrap lang-en">
+
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="index.html">SEM</a> <span>›</span> <a href="#">Implementation</a> <span>›</span> <span>Google Tag Manager</span>
+        </div>
+        <h1>Google Tag Manager Implementation</h1>
+        <p class="lead">
+          The fastest way to deploy SEM. The GTM template handles script loading, user data hashing,
+          and Consent Mode for you – just configure your tags and connect them to the dataLayer.
+        </p>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>This documentation is based on Pavel Šabatka's GTM template</strong>
+          The template is available in the GTM Community Gallery and on
+          <a href="https://github.com/pavelsabatka/gtm-seznam-sem" target="_blank">GitHub</a>.
+          Full author documentation: <a href="https://www.sabatka.net/cs/seznam-sem-gtm-template/" target="_blank">sabatka.net</a>.
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <h2 id="krok1-en">Step 1 – Find your SEM ID</h2>
+
+      <p>
+        The GTM template requires a <strong>SEM ID</strong> – see <a href="sem-id.html">Where to find SEM ID?</a>.
+      </p>
+
+      <p>Correct procedure:</p>
+      <ol>
+        <li>Go to Sklik → <strong><a href="https://www.sklik.cz/settings" target="_blank">Account settings</a></strong></li>
+        <li>Click the <strong>copy</strong> icon next to the SEM ID for the relevant record</li>
+        <li>If you have Seznam Shopping store outlets, use the <strong>combined SEM ID</strong> for the appropriate outlet</li>
+      </ol>
+
+      <!-- STEP 2 -->
+      <h2 id="krok2-en">Step 2 – Install the template in GTM</h2>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Open your GTM container</h3>
+            <p>Sign in to <a href="https://tagmanager.google.com" target="_blank">Google Tag Manager</a> and open your website container.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Add the template from the Gallery</h3>
+            <p>In the left menu click <strong>Templates</strong> → <strong>Template Gallery</strong>. Search for <em>"Seznam SEM"</em> or <em>"Sabatka"</em> and add the template to your container, or use the <a href="https://tagmanager.google.com/gallery/#/owners/pavelsabatka/templates/gtm-seznam-sem" target="_blank">direct link to GTM Gallery</a>.</p>
+          </div>
+        </li>
+      </ol>
+
+      <!-- STEP 3 -->
+      <h2 id="krok3-en">Step 3 – Create a PageView tag</h2>
+
+      <p>
+        The PageView tag fires on every page. It is the foundation of the entire implementation –
+        it initialises the SEM script and sends basic visit data.
+      </p>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Create a new tag</h3>
+            <p>Tags → New → select tag type <strong>Seznam SEM</strong> (the template you just added).</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Fill in the required fields</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Seznam ID</strong></td><td>Your SEM ID copied in Step 1</td></tr>
+                  <tr><td><strong>Event name</strong></td><td><code>PageView</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Set the trigger</h3>
+            <p>Assign the <strong>All Pages</strong> trigger (or an equivalent trigger for all page views in your SPA).</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number"></div>
+          <div class="step-body">
+            <h3>Configure Consent Mode</h3>
+            <p>
+              If your website uses <strong>Consent Mode v2</strong>, keep the option
+              <em>"I use Consent Mode v2"</em> checked – the template will read consent state automatically.
+            </p>
+            <p>
+              If you do not use Consent Mode v2, uncheck the option and fill in consent status
+              manually. See the <a href="consent.html">Consent management</a> section for details.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <!-- STEP 4 -->
+      <h2 id="krok4-en">Step 4 – E-commerce tags</h2>
+
+      <p>
+        For each tracked action (product view, cart, purchase…) create a separate tag.
+        Each tag reads data from the <strong>dataLayer</strong> – your website must push
+        the relevant data to the dataLayer when these actions occur.
+      </p>
+
+      <h3 id="datalayer-format-en">dataLayer format</h3>
+      <p>
+        The template accepts product data in <strong>Google Enhanced Ecommerce (GA4)</strong>
+        or <strong>Shoptet</strong> format. If you already have a GA4 ecommerce implementation
+        on your site, you can reuse the dataLayer data without any changes.
+      </p>
+
+      <div class="impl-switcher">
+        <div class="impl-tabs">
+          <button class="impl-tab active" data-tab="viewcontent-dl-en">ViewContent</button>
+          <button class="impl-tab" data-tab="addtocart-dl-en">AddToCart</button>
+          <button class="impl-tab" data-tab="purchase-dl-en">Purchase</button>
+        </div>
+
+        <div class="impl-panel active" data-panel="viewcontent-dl-en">
+          <p style="padding:16px 0 8px">Push to dataLayer on the product detail page:</p>
+          <div class="code-block">
+            <div class="code-block-header"><span class="code-block-lang">JavaScript – dataLayer push</span><button class="copy-btn"></button></div>
+            <pre><code>dataLayer.push({
+  <span class="tok-property">event</span>: <span class="tok-string">'seznam_view_content'</span>,       <span class="tok-comment">// trigger name in GTM</span>
+  <span class="tok-property">ecommerce</span>: {
+    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+    <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
+    <span class="tok-property">items</span>: [{
+      <span class="tok-property">item_id</span>: <span class="tok-string">'ABC12345'</span>,
+      <span class="tok-property">item_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+      <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+      <span class="tok-property">price</span>: <span class="tok-number">33490</span>,
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
+    }]
+  }
+});</code></pre>
+          </div>
+          <p style="margin-top:12px">Tag configuration in GTM:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Event name</strong></td><td><code>ViewContent</code></td></tr>
+                <tr><td><strong>Content Type</strong></td><td><code>product</code> (product detail) or <code>product_group</code> (category)</td></tr>
+                <tr><td><strong>Products</strong></td><td>GTM variable: <code>{{ecommerce.items}}</code></td></tr>
+                <tr><td><strong>Currency</strong></td><td>GTM variable: <code>{{ecommerce.currency}}</code></td></tr>
+                <tr><td><strong>Value</strong></td><td>GTM variable: <code>{{ecommerce.value}}</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="impl-panel" data-panel="addtocart-dl-en">
+          <p style="padding:16px 0 8px">Push to dataLayer when a product is added to cart:</p>
+          <div class="code-block">
+            <div class="code-block-header"><span class="code-block-lang">JavaScript – dataLayer push</span><button class="copy-btn"></button></div>
+            <pre><code>dataLayer.push({
+  <span class="tok-property">event</span>: <span class="tok-string">'seznam_add_to_cart'</span>,
+  <span class="tok-property">ecommerce</span>: {
+    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+    <span class="tok-property">value</span>: <span class="tok-number">33490</span>,
+    <span class="tok-property">items</span>: [{
+      <span class="tok-property">item_id</span>: <span class="tok-string">'ABC12345'</span>,
+      <span class="tok-property">item_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+      <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+      <span class="tok-property">price</span>: <span class="tok-number">33490</span>,
+      <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
+    }]
+  }
+});</code></pre>
+          </div>
+          <p style="margin-top:12px">Tag configuration: Event name = <code>AddToCart</code>, Products = <code>{{ecommerce.items}}</code>.</p>
+        </div>
+
+        <div class="impl-panel" data-panel="purchase-dl-en">
+          <p style="padding:16px 0 8px">Push to dataLayer on the order confirmation page:</p>
+          <div class="code-block">
+            <div class="code-block-header"><span class="code-block-lang">JavaScript – dataLayer push</span><button class="copy-btn"></button></div>
+            <pre><code>dataLayer.push({
+  <span class="tok-property">event</span>: <span class="tok-string">'seznam_purchase'</span>,
+  <span class="tok-property">ecommerce</span>: {
+    <span class="tok-property">transaction_id</span>: <span class="tok-string">'OBJ-987654'</span>,
+    <span class="tok-property">currency</span>: <span class="tok-string">'CZK'</span>,
+    <span class="tok-property">value</span>: <span class="tok-number">33990</span>,          <span class="tok-comment">// product price excluding VAT</span>
+    <span class="tok-property">tax</span>: <span class="tok-number">7138</span>,
+    <span class="tok-property">shipping</span>: <span class="tok-number">120</span>,
+    <span class="tok-property">items</span>: [
+      {
+        <span class="tok-property">item_id</span>: <span class="tok-string">'ABC12345'</span>,
+        <span class="tok-property">item_name</span>: <span class="tok-string">'iPhone 15 Pro Max'</span>,
+        <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Mobilní telefony | Apple'</span>,
+        <span class="tok-property">price</span>: <span class="tok-number">33490</span>,
+        <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
+      },
+      {
+        <span class="tok-property">item_id</span>: <span class="tok-string">'KRYT999'</span>,
+        <span class="tok-property">item_name</span>: <span class="tok-string">'Ochranný kryt'</span>,
+        <span class="tok-property">item_category</span>: <span class="tok-string">'Elektronika | Příslušenství | Kryty na telefon'</span>,
+        <span class="tok-property">price</span>: <span class="tok-number">500</span>,
+        <span class="tok-property">quantity</span>: <span class="tok-number">1</span>
+      }
+    ]
+  },
+  <span class="tok-comment">// pass review_email outside the ecommerce object – it will not be hashed</span>
+  <span class="tok-property">review_email</span>: <span class="tok-string">'zakaznik@email.cz'</span>
+});</code></pre>
+          </div>
+          <p style="margin-top:12px">Tag configuration in GTM:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Event name</strong></td><td><code>Purchase</code></td></tr>
+                <tr><td><strong>Order</strong></td><td>GTM variable mapping the <code>ecommerce</code> object</td></tr>
+                <tr><td><strong>Products</strong></td><td>GTM variable: <code>{{ecommerce.items}}</code></td></tr>
+                <tr><td><strong>Content Type</strong></td><td><code>product</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warning">
+            <span class="callout-icon"></span>
+            <div class="callout-body">
+              <strong>review_email must not be hashed</strong>
+              The template automatically hashes user data with SHA-256. Pass the <code>review_email</code>
+              parameter for the Seznam Shopping customer satisfaction survey outside the user object –
+              otherwise it will be hashed and the survey will not work.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMPLEMENTATION WITHOUT TEMPLATE -->
+      <h2 id="bez-sablony-en">Implementation without template (Custom HTML)</h2>
+
+      <p>
+        SEM can be deployed in GTM in two ways – via the <strong>GTM template</strong> (described above)
+        or manually using <strong>Custom HTML</strong> tags. Both approaches are fully featured;
+        the choice depends on your preferences and the existing structure of your GTM container.
+        Custom HTML tags give you greater control over firing order and do not require installing a template.
+      </p>
+
+      <h3 id="bez-sablony-struktura-en">Recommended tag structure</h3>
+      <p>Create three types of tags:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tag</th><th>Content</th><th>Trigger</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Seznam SEM – base</strong></td><td>Load <code>sul.js</code></td><td>All Pages</td></tr>
+            <tr><td><strong>Seznam SEM – pageview event</strong></td><td>Send PageView event</td><td>All Pages</td></tr>
+            <tr><td><strong>Seznam SEM – [name] event</strong></td><td>Send a specific event</td><td>Relevant trigger</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="bez-sablony-kody-en">Tag code</h3>
+
+      <p><strong>base</strong> – loads the script, sends no event:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
+        <pre><code><span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"https://l.seznam.cz/sul.js?id=YOUR_SEM_ID"</span><span class="tok-tag">&gt;&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <p><strong>pageview event</strong> – sends PageView (fire on All Pages):</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
+        <pre><code><span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+    SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'</span>);
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <p><strong>Other events</strong> (Contact, Lead, etc.) – same pattern:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTML</span><button class="copy-btn"></button></div>
+        <pre><code><span class="tok-tag">&lt;script&gt;</span>
+<span class="tok-keyword">if</span> (<span class="tok-keyword">typeof</span> window.SEM === <span class="tok-string">"function"</span>) {
+    SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'Contact'</span>);
+}
+<span class="tok-tag">&lt;/script&gt;</span></code></pre>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Tag firing sequence</strong>
+          <p>Because <code>sul.js</code> loads asynchronously, all other event tags must have a configured
+          <strong>tag sequencing</strong> – in the tag settings check
+          <em>"Fire a tag before [this tag] fires"</em> and select the <strong>base</strong> tag.
+          Without this setting, <code>window.SEM</code> may not yet be available when the event tag fires
+          and the event will not be sent. GTM tag firing priority alone is not sufficient for asynchronous scripts.</p>
+        </div>
+      </div>
+
+      <!-- RECOMMENDED TAGS -->
+      <h2 id="prehled-tagu-en">Recommended tag set</h2>
+      <p>Create one tag for each page type / action:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Page / action</th><th>Tag (event)</th><th>Trigger</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>All pages</td><td><code>PageView</code></td><td>All Pages</td></tr>
+            <tr><td>Product detail page</td><td><code>ViewContent</code> (content_type: product)</td><td>Custom event: <code>seznam_view_content</code></td></tr>
+            <tr><td>Category page</td><td><code>ViewContent</code> (content_type: product_group)</td><td>Custom event: <code>seznam_view_category</code></td></tr>
+            <tr><td>Add to cart</td><td><code>AddToCart</code></td><td>Custom event: <code>seznam_add_to_cart</code></td></tr>
+            <tr><td>Checkout initiated</td><td><code>InitiateCheckout</code></td><td>Custom event: <code>seznam_initiate_checkout</code></td></tr>
+            <tr><td>Order confirmation</td><td><code>Purchase</code></td><td>Custom event: <code>seznam_purchase</code></td></tr>
+            <tr><td>Search</td><td><code>Search</code></td><td>Custom event: <code>seznam_search</code></td></tr>
+            <tr><td>Form submission</td><td><code>Lead</code></td><td>Custom event or Form Submit trigger</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Custom event names are flexible</strong>
+          Events such as <code>seznam_purchase</code> are recommended conventions only. If you already have different names in the dataLayer (e.g. from a GA4 implementation), use those – just configure the corresponding trigger in GTM.
+        </div>
+      </div>
+
+      <!-- USER DATA -->
+      <h2 id="user-data-gtm-en">User data in GTM</h2>
+      <p>
+        To pass an email address or other user data, use the <strong>User Object</strong> section
+        in the tag configuration. The template automatically hashes the data with SHA-256 before
+        sending – pass it in plain text.
+      </p>
+      <p>
+        Typically it is sufficient to add the User Object to the <strong>PageView</strong> tag (or to
+        a dedicated <code>UserDataUpdate</code> tag) and configure the variable from a dataLayer,
+        cookie, or JS variable where the user's email is available.
+      </p>
+
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">JavaScript – dataLayer push with user data</span><button class="copy-btn"></button></div>
+        <pre><code>dataLayer.push({
+  <span class="tok-property">event</span>: <span class="tok-string">'seznam_user_data'</span>,
+  <span class="tok-property">user</span>: {
+    <span class="tok-property">email</span>: <span class="tok-string">'jan.novak@email.cz'</span>,   <span class="tok-comment">// hashed automatically by the template</span>
+    <span class="tok-property">phone</span>: <span class="tok-string">'+420606666666'</span>,
+    <span class="tok-property">first_name</span>: <span class="tok-string">'Jan'</span>,
+    <span class="tok-property">last_name</span>: <span class="tok-string">'Novák'</span>
+  }
+});</code></pre>
+      </div>
+
+      <!-- CSP -->
+      <h2 id="csp-en">Content Security Policy</h2>
+      <p>If your website uses CSP headers, add these permissions:</p>
+      <div class="code-block">
+        <div class="code-block-header"><span class="code-block-lang">HTTP Header</span><button class="copy-btn"></button></div>
+        <pre><code>Content-Security-Policy:
+  script-src l.seznam.cz;       <span class="tok-comment">/* can be omitted if GTM uses nonce */</span>
+  connect-src https://*.seznam.cz;  <span class="tok-comment">/* l.seznam.cz + sem.seznam.cz */</span></code></pre>
+      </div>
+      <p>If measurement is not working, check the browser console for a <em>"Refused because of Content Security Policy"</em> error.</p>
+
+      <hr class="section-divider">
+
+      <div class="method-grid">
+        <a class="method-card" href="events.html">
+          <span class="method-card-icon">📋</span>
+          <span class="method-card-name">Event reference</span>
+          <span class="method-card-desc">Complete parameters for each event.</span>
+        </a>
+        <a class="method-card" href="sandbox.html">
+          <span class="method-card-icon">🧪</span>
+          <span class="method-card-name">Testing</span>
+          <span class="method-card-desc">Verify your implementation in the Sandbox before going live.</span>
+        </a>
+        <a class="method-card" href="consent.html">
+          <span class="method-card-icon">🔐</span>
+          <span class="method-card-name">Consent Mode</span>
+          <span class="method-card-desc">Configure consent without Consent Mode v2.</span>
+        </a>
+      </div>
+
+    </div><!-- /lang-en -->
+
   </main>
 </div>
 
 <footer class="site-footer">
-  <span>© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
+  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
   <span>Sklik · napoveda.sklik.cz</span>
 </footer>
 
