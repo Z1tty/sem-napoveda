@@ -3,6 +3,7 @@ function getLang() { return document.documentElement.lang || 'cs'; }
 
 function setLang(lang, save) {
   document.documentElement.lang = lang;
+  document.documentElement.classList.toggle('lang-en', lang === 'en');
   if (save !== false) localStorage.setItem('sem-lang', lang);
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);

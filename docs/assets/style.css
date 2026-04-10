@@ -100,8 +100,9 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-html[lang="en"] .lang-cs { display: none !important; }
-html[lang="cs"] .lang-en { display: none !important; }
+/* Default: EN hidden, CS visible. Class lang-en added by JS. */
+html:not(.lang-en) .lang-en { display: none !important; }
+html.lang-en .lang-cs { display: none !important; }
 
 /* ===== LAYOUT ===== */
 .layout {
