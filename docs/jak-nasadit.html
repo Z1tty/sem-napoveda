@@ -121,7 +121,7 @@
               <li><a href="platformy.html">Doplněk e-commerce platformy</a></li>
               <li><a href="s2s.html">Server-to-Server (S2S)</a> – pokročilé měření z backendu</li>
             </ul>
-            <div class="callout info"><span class="callout-icon"></span><div class="callout-body"><strong>E-shopy napojené na Zboží.cz</strong><p>Pro všechny události na webu používejte <strong>kombinované SEM ID provozovny</strong>. Díky tomu správně přiřadíte nákupní konverze ke kampani <a href="https://napoveda.sklik.cz/inzerce-nakupy/" target="_blank">Seznam Nákupy</a>.</p></div></div>
+            <div class="callout info"><span class="callout-icon"></span><div class="callout-body"><strong>E-shopy napojené na Zboží.cz</strong><p>Pro všechny události na webu používejte <strong>kombinované SEM ID provozovny</strong>. Zajistíte tak správné odesílání konverzí za účelem získání zpětné vazby (recenzí produktů) ke konkrétní provozovně.</p></div></div>
           </div>
         </li>
 
@@ -129,14 +129,14 @@
           <div class="step-number"></div>
           <div class="step-body">
             <h3>Migrace konverzí na SEM v účtu <span class="step-tag">Pouze při přechodu</span></h3>
-            <p>Aby se vám aktivní konverze i nadále správně měřily, nastavte u nich ve <a href="https://www.sklik.cz/event-management" target="_blank">Správě měření</a> správný typ. Více ve <a href="konverze.html">Správě konverzí</a>.</p>
+            <p>Správa měření automaticky připraví vaše stávající aktivní konverze k migraci. Většinu konverzí lze převést 1:1. V případě duplicit nebo nepodporovaného typu vás Sklik vyzve k ručnímu nastavení. Konverze, které nechcete migrovat, lze ponechat v přechodném stavu nebo odstranit – do nového měření se pak nepřevedou. Více ve <a href="konverze.html">Správě konverzí</a>.</p>
           </div>
         </li>
 
         <li class="step">
           <div class="step-number"></div>
           <div class="step-body">
-            <h3>Vytvoření nových konverzních SEM událostí</h3>
+            <h3>Vytvoření nových konverzních SEM událostí <span class="step-tag">Volitelný</span></h3>
             <p>Další akce uživatelů na vašem webu, které budete chtít v Skliku sledovat, si můžete nastavit předem v <a href="https://www.sklik.cz/event-management" target="_blank">Správě měření</a>.</p>
           </div>
         </li>
@@ -144,7 +144,7 @@
         <li class="step">
           <div class="step-number"></div>
           <div class="step-body">
-            <h3>Test SEMu v sandboxu</h3>
+            <h3>Test SEMu v sandboxu <span class="step-tag">Doporučený</span></h3>
             <p>Nezávazně si ověřte, že všechny události posíláte správně, abyste nepřišli o žádná data. Viz <a href="sandbox.html">Testování (Sandbox)</a>.</p>
           </div>
         </li>
@@ -154,6 +154,7 @@
           <div class="step-body">
             <h3>Zapnutí SEMu</h3>
             <p>Ve <a href="https://www.sklik.cz/event-management" target="_blank">Správě měření</a> aktivujte <strong>Začít používat SEM</strong>. Od této chvíle pro měření konverzí a zařazení publik do retargetingu (RTG) využíváte výhradně události SEM. Rozhraní Skliku vás procesem provede a upozorní na případné nedokončené kroky.</p>
+            <p>Pokud máte kampaně s aktivní <strong>optimalizací na konverze (ONK)</strong>, systém vás po překliku na Začít používat SEM vyzve, abyste u každé z nich nastavili, na které SEM konverze se má kampaň optimalizovat.</p>
             <div class="callout danger"><span class="callout-icon"></span><div class="callout-body"><strong>Přepnutí nelze vrátit zpět</strong><p>Po potvrzení přechodu se staré měřicí kódy přestanou zpracovávat. Ujistěte se, že máte nastavené SEM konverze a ověřená data v Sandboxu.</p></div></div>
             <img src="img/aktivace-sem.png" alt="Tlačítko Začít používat SEM ve Správě měření" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-top:12px;">
           </div>
@@ -162,7 +163,7 @@
         <li class="step">
           <div class="step-number"></div>
           <div class="step-body">
-            <h3>Vytvoření nových RTG událostí</h3>
+            <h3>Vytvoření nových RTG událostí <span class="step-tag">Volitelný</span></h3>
             <p>Z pokročilých údajů, které posíláte pomocí SEM, si můžete vytvořit více retargetingových publik.</p>
           </div>
         </li>
