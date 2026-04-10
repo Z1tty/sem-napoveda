@@ -80,19 +80,19 @@
           <tbody>
             <tr>
               <td><code>id</code></td><td>string</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
+              <td><span class="badge badge-required">Povinný u Purchase</span></td>
               <td><code>'ABC12345'</code></td>
               <td>Unikátní identifikátor položky v e-shopu.</td>
             </tr>
             <tr>
               <td><code>quantity</code></td><td>number</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
+              <td><span class="badge badge-required">Povinný u Purchase</span></td>
               <td><code>2</code></td>
               <td>Počet kusů daného produktu v košíku / objednávce.</td>
             </tr>
             <tr>
               <td><code>unit_price</code></td><td>number</td>
-              <td><span class="badge badge-recommended">Doporučený</span></td>
+              <td><span class="badge badge-required">Povinný u Purchase</span></td>
               <td><code>33490</code></td>
               <td>Cena za jeden kus v CZK <strong>včetně DPH</strong>.</td>
             </tr>
@@ -100,11 +100,11 @@
               <td><code>content_name</code></td><td>string</td>
               <td><span class="badge badge-required">Povinný u Purchase</span></td>
               <td><code>'iPhone 15 Pro Max'</code></td>
-              <td>Název produktu. Povinné u události Purchase. Lze použít jako podmínku retargetingu.</td>
+              <td>Libovolný název. Lze použít jako podmínku retargetingu.</td>
             </tr>
             <tr>
               <td><code>content_category</code></td><td>string</td>
-              <td><span class="badge badge-optional">Volitelný</span></td>
+              <td><span class="badge badge-recommended">Doporučený</span></td>
               <td><code>'Elektronika | Mobilní telefony | Apple'</code></td>
               <td>Kompletní cesta kategorie z vašeho XML feedu. Jako oddělovač úrovní slouží svislá čára <code>|</code> (pipe). Předávejte stejnou hodnotu, jakou máte uvedenou u nabídek v XML feedu – celý řetězec pak lze použít jako přesnou podmínku pro retargeting nebo konverze.</td>
             </tr>
