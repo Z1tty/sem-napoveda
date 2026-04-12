@@ -92,6 +92,21 @@ function initSwitcher(container) {
 }
 document.querySelectorAll('.impl-switcher').forEach(initSwitcher);
 
+// ===== MOBILE NAV =====
+const hamburgerBtn = document.querySelector('.hamburger-btn');
+const navOverlay = document.querySelector('.nav-overlay');
+
+function toggleNav(open) {
+  document.body.classList.toggle('nav-open', open);
+}
+
+if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => toggleNav(!document.body.classList.contains('nav-open')));
+if (navOverlay) navOverlay.addEventListener('click', () => toggleNav(false));
+
+document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+  link.addEventListener('click', () => toggleNav(false));
+});
+
 // ===== ACTIVE NAV LINK =====
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link').forEach(link => {
