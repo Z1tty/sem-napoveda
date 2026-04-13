@@ -138,7 +138,8 @@
         consent se předává automaticky – tento krok přeskočte.
       </p>
       <p>
-        Pokud TCF nepoužíváte, předejte informaci o souhlasu ručně metodou <code>updateConsent</code>:
+        Pokud TCF nepoužíváte, předejte informaci o souhlasu ručně metodou <code>updateConsent</code> –
+        vždy <strong>před</strong> voláním <code>PageView</code>:
       </p>
 
       <div class="code-block">
@@ -159,9 +160,20 @@
 SEM(<span class="tok-string">'updateConsent'</span>, consentData);</code></pre>
       </div>
 
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Souhlas musí předcházet PageView</strong>
+          <p>Cookie <code>sid</code> se vygeneruje až po přijetí souhlasu s <code>ad_storage: 'granted'</code>.
+          Pokud předáte consent až po PageView, <code>sid</code> nemusí být k dispozici – to se projeví
+          zejména u <a href="s2s.html">S2S měření</a>, kde cookies číst explicitně musíte.</p>
+        </div>
+      </div>
+
       <h2 id="krok3">Krok 3 – Odešlete <a href="user-data.html">uživatelská data</a> (volitelné, doporučené)</h2>
       <p>
-        Po přihlášení uživatele nebo po dokončení objednávky doporučujeme odeslat e-mail zákazníka.
+        Po přihlášení uživatele nebo po dokončení objednávky doporučujeme odeslat e-mail zákazníka –
+        ideálně <strong>před</strong> voláním <code>PageView</code>.
         Skript ho automaticky zahashuje (SHA-256) a slouží k přesnému párování konverzí i bez cookies.
       </p>
 
@@ -404,7 +416,8 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
         consent is passed automatically – skip this step.
       </p>
       <p>
-        If you don't use TCF, pass consent information manually using the <code>updateConsent</code> method:
+        If you don't use TCF, pass consent information manually using the <code>updateConsent</code> method –
+        always <strong>before</strong> calling <code>PageView</code>:
       </p>
 
       <div class="code-block">
@@ -425,9 +438,20 @@ SEM(<span class="tok-string">'track'</span>, <span class="tok-string">'PageView'
 SEM(<span class="tok-string">'updateConsent'</span>, consentData);</code></pre>
       </div>
 
+      <div class="callout warning">
+        <span class="callout-icon"></span>
+        <div class="callout-body">
+          <strong>Consent must come before PageView</strong>
+          <p>The <code>sid</code> cookie is only generated after consent with <code>ad_storage: 'granted'</code> is received.
+          If you pass consent after PageView, <code>sid</code> may not be available – this is especially
+          important for <a href="s2s.html">S2S measurement</a>, where you need to read the cookie explicitly.</p>
+        </div>
+      </div>
+
       <h2 id="krok3-en">Step 3 – Send <a href="user-data.html">user data</a> (optional, recommended)</h2>
       <p>
-        After a user signs in or completes an order, we recommend sending the customer's e-mail address.
+        After a user signs in or completes an order, we recommend sending the customer's e-mail address –
+        ideally <strong>before</strong> calling <code>PageView</code>.
         The script automatically hashes it (SHA-256) and uses it for accurate conversion matching even without cookies.
       </p>
 
