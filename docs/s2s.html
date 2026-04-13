@@ -211,7 +211,7 @@ Content-Type: application/json</code></pre>
             <tr><td><code>event_source</code></td><td>string</td><td><span class="badge badge-required">Povinný</span></td><td><code>"web"</code> nebo <code>"app"</code></td></tr>
             <tr><td><code>event_id</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td>Unikátní ID eventu (ideálně UUID-7) pro deduplikaci</td></tr>
             <tr><td><code>user_ids</code></td><td>object</td><td><span class="badge badge-required">Povinný</span></td><td>Objekt s identifikátory uživatele (viz níže)</td></tr>
-            <tr><td><code>event_data</code></td><td>object</td><td><span class="badge badge-required">Povinný</span></td><td>Data události – stejná struktura jako u FE měření + <code>sem_id</code> a <code>sznaiid</code></td></tr>
+            <tr><td><code>event_data</code></td><td>object</td><td><span class="badge badge-required">Povinný</span></td><td>Data události – stejná struktura jako u frontendového měření (viz <a href="events.html">Reference událostí</a>) + parametry <code>sem_id</code> a <code>sznaiid</code></td></tr>
             <tr><td><code>consent_string</code></td><td>string</td><td><span class="badge badge-recommended">Doporučený</span></td><td>IAB TCF consent string (pokud k dispozici)</td></tr>
             <tr><td><code>consent_mode</code></td><td>object</td><td><span class="badge badge-recommended">Doporučený</span></td><td>Google Consent Mode (alternativa k TCF)</td></tr>
             <tr><td><code>s2s_headers</code></td><td>object</td><td><span class="badge badge-recommended">Doporučený</span></td><td>IP adresa a User Agent pro přesnější identifikaci</td></tr>
@@ -558,7 +558,7 @@ Content-Type: application/json</code></pre>
             <tr><td><code>event_source</code></td><td>string</td><td><span class="badge badge-required">Required</span></td><td><code>"web"</code> or <code>"app"</code></td></tr>
             <tr><td><code>event_id</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td>Unique event ID (ideally UUID-7) for deduplication</td></tr>
             <tr><td><code>user_ids</code></td><td>object</td><td><span class="badge badge-required">Required</span></td><td>Object with user identifiers (see below)</td></tr>
-            <tr><td><code>event_data</code></td><td>object</td><td><span class="badge badge-required">Required</span></td><td>Event data – same structure as frontend measurement + <code>sem_id</code> and <code>sznaiid</code></td></tr>
+            <tr><td><code>event_data</code></td><td>object</td><td><span class="badge badge-required">Required</span></td><td>Event data – same structure as frontend measurement (see <a href="events.html">Event reference</a>) + parameters <code>sem_id</code> and <code>sznaiid</code></td></tr>
             <tr><td><code>consent_string</code></td><td>string</td><td><span class="badge badge-recommended">Recommended</span></td><td>IAB TCF consent string (if available)</td></tr>
             <tr><td><code>consent_mode</code></td><td>object</td><td><span class="badge badge-recommended">Recommended</span></td><td>Google Consent Mode (alternative to TCF)</td></tr>
             <tr><td><code>s2s_headers</code></td><td>object</td><td><span class="badge badge-recommended">Recommended</span></td><td>IP address and User Agent for more accurate identification</td></tr>
