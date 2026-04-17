@@ -1,307 +1,41 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>E-commerce platformy – SEM | Sklik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dokumentace SEM se přesunula | SEM documentation moved</title>
+<link rel="canonical" href="https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/implementace-sem/e-commerce-platformy/">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/implementace-sem/e-commerce-platformy/">
+<script>
+(function() {
+  var lang = null;
+  try { lang = localStorage.getItem('sem-lang'); } catch (e) {}
+  if (!lang) {
+    var nav = (navigator.language || '').toLowerCase();
+    lang = (nav.indexOf('cs') === 0 || nav.indexOf('sk') === 0) ? 'cs' : 'en';
+  }
+  var target = lang === 'en' ? "https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/sem-implementation/e-commerce-platforms/" : "https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/implementace-sem/e-commerce-platformy/";
+  location.replace(target);
+})();
+</script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; padding: 4rem 1.5rem; text-align: center; color: #222; line-height: 1.5; }
+  h1 { font-size: 1.5rem; margin: 0 0 1rem; }
+  p { margin: 0.5rem 0; }
+  a { color: #cc0000; font-weight: 600; word-break: break-all; }
+  hr { max-width: 420px; margin: 2rem auto; border: none; border-top: 1px solid #ddd; }
+  small { color: #666; }
+</style>
 </head>
 <body>
-<header class="site-header">
-  <a class="logo" href="index.html">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="6" fill="#cc0000"/>
-      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
-    </svg>
-    Sklik
-  </a>
-  <div class="header-divider"></div>
-  <span class="header-title">SEM – Event Measurement</span>
-  <div class="lang-switch">
-    <button class="lang-btn" data-lang="cs">CS</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
-  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
-<button class="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-
-<div class="layout">
-<div class="nav-overlay"></div>
-
-
-  <nav class="sidebar">
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
-      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
-      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
-      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
-      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
-      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
-      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link active" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
-      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
-      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
-      <div class="nav-sub">
-        <a class="nav-link" href="events.html#pageview">PageView</a>
-        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
-        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
-        <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
-        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
-      </div>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
-      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
-      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
-      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
-      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
-      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
-      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
-    </div>
-  </nav>
-
-  <main class="main-content">
-    <div class="content-wrap lang-cs">
-
-      <div class="page-header">
-        <div class="breadcrumb">
-          <a href="index.html">SEM</a> <span>›</span> <span>Implementace</span>
-        </div>
-        <h1>E-commerce platformy</h1>
-        <p class="lead">
-          Seznam Event Measurement (SEM) můžete aktivovat přímo v administraci e-shopu pomocí nativního modulu.
-          Celý proces je navržený tak, aby byl rychlý, přehledný a nevyžadoval žádné technické zásahy –
-          stačí doplnit identifikátor a zapnout měření.
-        </p>
-      </div>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Přehled podporovaných platforem</strong>
-          <p>Aktuální přehled e-shopových platforem s nativní podporou SEM najdete na
-          <a href="https://o-seznam.cz/reklama/seznam-event-measurement/" target="_blank">o-seznam.cz/reklama/seznam-event-measurement/</a>.</p>
-        </div>
-      </div>
-
-      <div class="highlight-grid">
-        <div class="highlight-card">
-          <span class="highlight-card-icon">🖱️</span>
-          <span class="highlight-card-text">Aktivace na pár kliků bez nutnosti programování</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-card-icon">📦</span>
-          <span class="highlight-card-text">Nativní modul připravený k okamžitému použití</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-card-icon">⚡</span>
-          <span class="highlight-card-text">Rychlé spuštění měření klíčových událostí</span>
-        </div>
-      </div>
-
-      <h2 id="obecny-postup">Obecný postup aktivace</h2>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Přihlaste se do administrace e-shopu</h3>
-            <p>Otevřete administraci svého e-shopu a přihlaste se.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Přejděte do sekce nastavení měření</h3>
-            <p>V administraci vyhledejte sekci, kde spravujete měření nebo marketingové nástroje.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Vyberte modul Seznam Event Measurement</h3>
-            <p>V seznamu dostupných nástrojů otevřete modul pro Seznam Event Measurement.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Vložte své SEM ID</h3>
-            <p>Pro aktivaci použijte <a href="sem-id.html">SEM ID</a>.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Aktivujte měření</h3>
-            <p>Zapněte měření zaškrtnutím příslušného pole.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Uložte nastavení</h3>
-            <p>Uložte změny. Tím je aktivace v administraci e-shopu dokončena.</p>
-          </div>
-        </li>
-      </ol>
-
-      <h2 id="dalsi-platformy">Platforma není v seznamu?</h2>
-
-      <p>
-        Pokud vaše platforma nativní modul pro SEM zatím nepodporuje,
-        použijte jednu z těchto alternativních metod:
-      </p>
-
-      <div class="method-grid">
-        <a class="method-card" href="gtm.html">
-          <span class="method-card-icon">🏷️</span>
-          <span class="method-card-name">Google Tag Manager</span>
-          <span class="method-card-desc">Pokud platforma podporuje GTM, nasaďte SEM přes GTM šablonu bez úpravy kódu webu.</span>
-        </a>
-        <a class="method-card" href="skript.html">
-          <span class="method-card-icon">🖥️</span>
-          <span class="method-card-name">Přímý skript</span>
-          <span class="method-card-desc">Pokud máte přístup do HTML šablon platformy, vložte SEM skript přímo.</span>
-        </a>
-        <a class="method-card" href="s2s.html">
-          <span class="method-card-icon">⚙️</span>
-          <span class="method-card-name">Server-to-Server (S2S)</span>
-          <span class="method-card-desc">Pokročilé měření přímo z vašeho serveru – nezávislé na platformě ani GTM.</span>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="content-wrap lang-en">
-
-      <div class="page-header">
-        <div class="breadcrumb">
-          <a href="index.html">SEM</a> <span>›</span> <span>Implementation</span>
-        </div>
-        <h1>E-commerce platforms</h1>
-        <p class="lead">
-          You can activate Seznam Event Measurement (SEM) directly in your e-shop administration using the native module.
-          The entire process is designed to be fast, straightforward, and require no technical expertise –
-          just enter your identifier and enable measurement.
-        </p>
-      </div>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Supported platforms overview</strong>
-          <p>For the current list of e-commerce platforms with native SEM support, visit
-          <a href="https://o-seznam.cz/reklama/seznam-event-measurement/" target="_blank">o-seznam.cz/reklama/seznam-event-measurement/</a>.</p>
-        </div>
-      </div>
-
-      <div class="highlight-grid">
-        <div class="highlight-card">
-          <span class="highlight-card-icon">🖱️</span>
-          <span class="highlight-card-text">Activation in a few clicks – no coding required</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-card-icon">📦</span>
-          <span class="highlight-card-text">Native module ready to use out of the box</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-card-icon">⚡</span>
-          <span class="highlight-card-text">Quickly start measuring key events</span>
-        </div>
-      </div>
-
-      <h2 id="obecny-postup">General activation steps</h2>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Log in to your e-shop administration</h3>
-            <p>Open your e-shop administration and log in.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Go to the measurement settings section</h3>
-            <p>In the administration, find the section where you manage tracking or marketing tools.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Select the Seznam Event Measurement module</h3>
-            <p>In the list of available tools, open the Seznam Event Measurement module.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Enter your SEM ID</h3>
-            <p>Use your <a href="sem-id.html">SEM ID</a> to activate the module.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Enable measurement</h3>
-            <p>Turn on measurement by checking the relevant checkbox.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Save the settings</h3>
-            <p>Save your changes. Activation in the e-shop administration is now complete.</p>
-          </div>
-        </li>
-      </ol>
-
-      <h2 id="dalsi-platformy">Platform not in the list?</h2>
-
-      <p>
-        If your platform does not yet support a native SEM module,
-        use one of these alternative methods:
-      </p>
-
-      <div class="method-grid">
-        <a class="method-card" href="gtm.html">
-          <span class="method-card-icon">🏷️</span>
-          <span class="method-card-name">Google Tag Manager</span>
-          <span class="method-card-desc">If your platform supports GTM, deploy SEM via the GTM template without modifying your website code.</span>
-        </a>
-        <a class="method-card" href="skript.html">
-          <span class="method-card-icon">🖥️</span>
-          <span class="method-card-name">Basic script</span>
-          <span class="method-card-desc">If you have access to the platform's HTML templates, embed the SEM script directly.</span>
-        </a>
-        <a class="method-card" href="s2s.html">
-          <span class="method-card-icon">⚙️</span>
-          <span class="method-card-name">Server-to-Server (S2S)</span>
-          <span class="method-card-desc">Advanced measurement directly from your server – independent of any platform or GTM.</span>
-        </a>
-      </div>
-
-    </div>
-  </main>
-</div>
-
-<footer class="site-footer">
-  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
-  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
-  <span>Sklik · napoveda.sklik.cz</span>
-  <span><a href="mailto:sem@firma.seznam.cz">sem@firma.seznam.cz</a></span>
-</footer>
-<script src="assets/main.js"></script>
+  <h1>Dokumentace SEM se přesunula</h1>
+  <p>Pokud nejste přesměrováni automaticky, pokračujte zde:</p>
+  <p><a href="https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/implementace-sem/e-commerce-platformy/">https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/implementace-sem/e-commerce-platformy/</a></p>
+  <hr>
+  <h1 style="font-size:1.15rem">SEM documentation has moved</h1>
+  <p><small>English version:</small></p>
+  <p><a href="https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/sem-implementation/e-commerce-platforms/">https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/sem-implementation/e-commerce-platforms/</a></p>
 </body>
 </html>

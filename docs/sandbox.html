@@ -1,331 +1,41 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Testování (Sandbox) – SEM | Sklik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dokumentace SEM se přesunula | SEM documentation moved</title>
+<link rel="canonical" href="https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/zaciname-se-sem/testovani-sandbox/">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/zaciname-se-sem/testovani-sandbox/">
+<script>
+(function() {
+  var lang = null;
+  try { lang = localStorage.getItem('sem-lang'); } catch (e) {}
+  if (!lang) {
+    var nav = (navigator.language || '').toLowerCase();
+    lang = (nav.indexOf('cs') === 0 || nav.indexOf('sk') === 0) ? 'cs' : 'en';
+  }
+  var target = lang === 'en' ? "https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/getting-started/testing-sandbox/" : "https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/zaciname-se-sem/testovani-sandbox/";
+  location.replace(target);
+})();
+</script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; padding: 4rem 1.5rem; text-align: center; color: #222; line-height: 1.5; }
+  h1 { font-size: 1.5rem; margin: 0 0 1rem; }
+  p { margin: 0.5rem 0; }
+  a { color: #cc0000; font-weight: 600; word-break: break-all; }
+  hr { max-width: 420px; margin: 2rem auto; border: none; border-top: 1px solid #ddd; }
+  small { color: #666; }
+</style>
 </head>
 <body>
-<header class="site-header">
-  <a class="logo" href="index.html"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#cc0000"/><text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text></svg>Sklik</a>
-  <div class="header-divider"></div>
-  <span class="header-title">SEM – Event Measurement</span>
-  <div class="lang-switch">
-    <button class="lang-btn" data-lang="cs">CS</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
-  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
-<button class="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-<div class="layout">
-<div class="nav-overlay"></div>
-
-  <nav class="sidebar">
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
-      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
-      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
-      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
-      <a class="nav-link active" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
-      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
-      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
-      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
-      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
-      <div class="nav-sub">
-        <a class="nav-link" href="events.html#pageview">PageView</a>
-        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
-        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
-        <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
-        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
-      </div>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
-      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
-      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
-      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
-      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
-      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
-      <a class="nav-link" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
-    </div>
-  </nav>
-  <main class="main-content">
-    <div class="content-wrap lang-cs">
-      <div class="page-header">
-        <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Začínáme</span></div>
-        <h1>Testování (Sandbox)</h1>
-        <p class="lead">
-          Sandbox je testovací nástroj ve Správě měření, který vám umožní ověřit správnost
-          nasazení SEM kódu ještě před ostrým provozem – bez ovlivnění reálných dat.
-        </p>
-      </div>
-
-      <h2 id="co-je-sandbox">Co je Sandbox</h2>
-      <p>
-        Po spuštění testu vás Sandbox přesměruje na váš web a začne zachytávat SEM události
-        odesílané z dané relace. Na webu pak můžete simulovat jednotlivé akce – zobrazení
-        produktu, přidání do košíku, dokončení objednávky – a v reálném čase sledovat,
-        zda jsou události správně odesílány a zda obsahují očekávané parametry.
-      </p>
-
-      <div class="callout success">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Testovací data neovlivní váš účet</strong>
-          <p>Události zachycené během testu v Sandboxu nejsou započítávány do reálných dat Sklik účtu.
-          Nedochází tak ke zkreslení konverzí, retargetingových publik ani statistik kampaní.</p>
-        </div>
-      </div>
-
-      <h2 id="jak-spustit">Jak spustit test</h2>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Otevřete Sandbox ve Správě měření</h3>
-            <p>Přejděte přímo do <a href="https://www.sklik.cz/event-management/sandbox" target="_blank">Sandboxu ve Správě měření</a>.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Přidejte zdroj testování</h3>
-            <p>Klikněte na <strong>Přidat zdroj</strong>, vyberte SEM ID, které chcete testovat,
-            a zadejte URL stránky s nasazeným SEM kódem.</p>
-            <img src="img/sandbox.png" alt="Dialog Přidat zdroj testování v Sandboxu" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-top:12px;">
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Spusťte test a simulujte události</h3>
-            <p>Po kliknutí na <strong>Testovat</strong> vás Sandbox přesměruje na zadanou URL.
-            Na webu proveďte akce, které chcete ověřit – procházení produktů, přidání do košíku,
-            objednávku. Události se budou v reálném čase zobrazovat v Sandboxu.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Zkontrolujte zachycené události</h3>
-            <p>V tabulce Sandboxu uvidíte typ události, její stav (<strong>Zpracováno</strong>
-            / chyba) a zdrojovou URL. Kliknutím na řádek zobrazíte detailní parametry události
-            a ověříte, zda odpovídají očekávaným hodnotám.</p>
-          </div>
-        </li>
-      </ol>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Test je aktivní 24 hodin</strong>
-          <p>Testovací relace vyprší automaticky po 24 hodinách od spuštění.
-          Po skončení testu se události opět odesílají standardně do ostrého měření.</p>
-        </div>
-      </div>
-
-      <h2 id="s2s">Testování S2S měření</h2>
-
-      <p>
-        Pokud implementujete <a href="s2s.html">Server-to-Server (S2S)</a> měření, Sandbox funguje
-        odlišně – prohlížeč nepřesměrovává. Token zkopírujete ze Správy měření a předáte ho
-        přímo v S2S payloadu jako parametr <code>sandbox</code>.
-      </p>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Zkopírujte sandbox token</h3>
-            <p>Přejděte do <a href="https://www.sklik.cz/event-management/sandbox" target="_blank">Sandboxu ve Správě měření</a>
-            a zkopírujte vygenerovaný token. Token je platný 24 hodin.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Přidejte token do S2S payloadu</h3>
-            <p>Token předejte jako top-level parametr <code>sandbox</code> v těle požadavku. Ostatní parametry zůstávají stejné jako při ostrém měření.</p>
-            <div class="code-block">
-              <div class="code-block-header">
-                <span class="code-block-lang">JSON – S2S hit se sandbox tokenem</span>
-                <button class="copy-btn"></button>
-              </div>
-              <pre><code>{
-  <span class="tok-property">"schema_version"</span>: <span class="tok-string">"v2"</span>,
-  <span class="tok-property">"sandbox"</span>: <span class="tok-string">"vas-testovaci-token-123"</span>,
-  <span class="tok-property">"event_name"</span>: <span class="tok-string">"Purchase"</span>,
-  <span class="tok-property">"event_type"</span>: <span class="tok-string">"rtgconv"</span>,
-  <span class="tok-property">"event_time"</span>: <span class="tok-number">1712745193000</span>,
-  <span class="tok-property">"event_data"</span>: {
-    <span class="tok-property">"sem_id"</span>: <span class="tok-string">"abc123def456ghi789jkl012"</span>,
-    <span class="tok-property">"order_id"</span>: <span class="tok-string">"OBJ-2024-001"</span>,
-    <span class="tok-property">"value"</span>: <span class="tok-number">1500.0</span>,
-    <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>
-  }
-}</code></pre>
-            </div>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Zkontrolujte zachycené události v Sandboxu</h3>
-            <p>Odeslané hity se zobrazí v tabulce Sandboxu stejně jako při frontendovém testování.
-            Kliknutím na řádek ověříte detailní parametry.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-
-    <div class="content-wrap lang-en">
-      <div class="page-header">
-        <div class="breadcrumb"><a href="index.html">SEM</a> <span>›</span> <span>Getting started</span></div>
-        <h1>Testing (Sandbox)</h1>
-        <p class="lead">
-          Sandbox is a testing tool in Event Management that lets you verify your SEM implementation
-          is working correctly before going live – without affecting real data.
-        </p>
-      </div>
-
-      <h2 id="co-je-sandbox">What is Sandbox</h2>
-      <p>
-        Once you start a test, Sandbox redirects you to your website and begins capturing SEM events
-        sent during that session. You can then simulate individual actions on the site – viewing a
-        product, adding to cart, completing an order – and see in real time whether events are
-        being sent correctly and contain the expected parameters.
-      </p>
-
-      <div class="callout success">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Test data will not affect your account</strong>
-          <p>Events captured during a Sandbox test are not counted toward your real Sklik account data.
-          They will not skew your conversions, retargeting audiences, or campaign statistics.</p>
-        </div>
-      </div>
-
-      <h2 id="jak-spustit">How to run a test</h2>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Open Sandbox in Event Management</h3>
-            <p>Go directly to <a href="https://www.sklik.cz/event-management/sandbox" target="_blank">Sandbox in Event Management</a>.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Add a test source</h3>
-            <p>Click <strong>Add source</strong>, select the SEM ID you want to test,
-            and enter the URL of the page with SEM code deployed.</p>
-            <img src="img/sandbox.png" alt="Add test source dialog in Sandbox" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-top:12px;">
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Start the test and simulate events</h3>
-            <p>After clicking <strong>Test</strong>, Sandbox redirects you to the specified URL.
-            Perform the actions you want to verify on the website – browsing products, adding to cart,
-            placing an order. Events will appear in Sandbox in real time.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Review the captured events</h3>
-            <p>The Sandbox table shows the event type, its status (<strong>Processed</strong>
-            / error), and the source URL. Click a row to view detailed event parameters
-            and verify they match the expected values.</p>
-          </div>
-        </li>
-      </ol>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Test session is active for 24 hours</strong>
-          <p>The test session expires automatically 24 hours after it starts.
-          Once the test ends, events are sent normally to live measurement again.</p>
-        </div>
-      </div>
-
-      <h2 id="s2s">Testing S2S measurement</h2>
-
-      <p>
-        If you implement <a href="s2s.html">Server-to-Server (S2S)</a> measurement, Sandbox works
-        differently – there is no browser redirect. You copy the token from Event Management and pass it
-        directly in the S2S payload as the <code>sandbox</code> parameter.
-      </p>
-
-      <ol class="steps">
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Copy the sandbox token</h3>
-            <p>Go to <a href="https://www.sklik.cz/event-management/sandbox" target="_blank">Sandbox in Event Management</a>
-            and copy the generated token. The token is valid for 24 hours.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Add the token to the S2S payload</h3>
-            <p>Pass the token as a top-level <code>sandbox</code> parameter in the request body. All other parameters remain the same as in live measurement.</p>
-            <div class="code-block">
-              <div class="code-block-header">
-                <span class="code-block-lang">JSON – S2S hit with sandbox token</span>
-                <button class="copy-btn"></button>
-              </div>
-              <pre><code>{
-  <span class="tok-property">"schema_version"</span>: <span class="tok-string">"v2"</span>,
-  <span class="tok-property">"sandbox"</span>: <span class="tok-string">"your-test-token-123"</span>,
-  <span class="tok-property">"event_name"</span>: <span class="tok-string">"Purchase"</span>,
-  <span class="tok-property">"event_type"</span>: <span class="tok-string">"rtgconv"</span>,
-  <span class="tok-property">"event_time"</span>: <span class="tok-number">1712745193000</span>,
-  <span class="tok-property">"event_data"</span>: {
-    <span class="tok-property">"sem_id"</span>: <span class="tok-string">"abc123def456ghi789jkl012"</span>,
-    <span class="tok-property">"order_id"</span>: <span class="tok-string">"OBJ-2024-001"</span>,
-    <span class="tok-property">"value"</span>: <span class="tok-number">1500.0</span>,
-    <span class="tok-property">"currency"</span>: <span class="tok-string">"CZK"</span>
-  }
-}</code></pre>
-            </div>
-          </div>
-        </li>
-        <li class="step">
-          <div class="step-number"></div>
-          <div class="step-body">
-            <h3>Review the captured events in Sandbox</h3>
-            <p>Submitted hits appear in the Sandbox table just like during frontend testing.
-            Click a row to verify the detailed parameters.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </main>
-</div>
-<footer class="site-footer">
-  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
-  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
-  <span>Sklik · napoveda.sklik.cz</span>
-  <span><a href="mailto:sem@firma.seznam.cz">sem@firma.seznam.cz</a></span>
-</footer>
-<script src="assets/main.js"></script>
+  <h1>Dokumentace SEM se přesunula</h1>
+  <p>Pokud nejste přesměrováni automaticky, pokračujte zde:</p>
+  <p><a href="https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/zaciname-se-sem/testovani-sandbox/">https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/zaciname-se-sem/testovani-sandbox/</a></p>
+  <hr>
+  <h1 style="font-size:1.15rem">SEM documentation has moved</h1>
+  <p><small>English version:</small></p>
+  <p><a href="https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/getting-started/testing-sandbox/">https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/getting-started/testing-sandbox/</a></p>
 </body>
 </html>

@@ -1,367 +1,41 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Správa konverzí – SEM | Sklik</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dokumentace SEM se přesunula | SEM documentation moved</title>
+<link rel="canonical" href="https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/konfigurace-sem/sprava-konverzi/">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/konfigurace-sem/sprava-konverzi/">
+<script>
+(function() {
+  var lang = null;
+  try { lang = localStorage.getItem('sem-lang'); } catch (e) {}
+  if (!lang) {
+    var nav = (navigator.language || '').toLowerCase();
+    lang = (nav.indexOf('cs') === 0 || nav.indexOf('sk') === 0) ? 'cs' : 'en';
+  }
+  var target = lang === 'en' ? "https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/configuration-sem/conversion-management/" : "https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/konfigurace-sem/sprava-konverzi/";
+  location.replace(target);
+})();
+</script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; padding: 4rem 1.5rem; text-align: center; color: #222; line-height: 1.5; }
+  h1 { font-size: 1.5rem; margin: 0 0 1rem; }
+  p { margin: 0.5rem 0; }
+  a { color: #cc0000; font-weight: 600; word-break: break-all; }
+  hr { max-width: 420px; margin: 2rem auto; border: none; border-top: 1px solid #ddd; }
+  small { color: #666; }
+</style>
 </head>
 <body>
-<header class="site-header">
-  <a class="logo" href="index.html">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="6" fill="#cc0000"/>
-      <text x="5" y="20" font-family="Arial Black,sans-serif" font-weight="900" font-size="15" fill="white">S</text>
-    </svg>
-    Sklik
-  </a>
-  <div class="header-divider"></div>
-  <span class="header-title">SEM – Event Measurement</span>
-  <div class="lang-switch">
-    <button class="lang-btn" data-lang="cs">CS</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
-  <span class="header-badge"><span class="lang-cs">⚡ Beta dokumentace</span><span class="lang-en">⚡ Beta documentation</span></span>
-<button class="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-
-<div class="layout">
-<div class="nav-overlay"></div>
-
-
-  <nav class="sidebar">
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Začínáme</span><span class="lang-en">Getting started</span></span>
-      <a class="nav-link" href="index.html"><span class="lang-cs">Co je SEM</span><span class="lang-en">What is SEM</span></a>
-      <a class="nav-link" href="sem-id.html"><span class="lang-cs">Kde najdu SEM ID?</span><span class="lang-en">Where to find SEM ID?</span></a>
-      <a class="nav-link" href="jak-nasadit.html"><span class="lang-cs">Nasazení a přechod na SEM</span><span class="lang-en">Deployment &amp; migration</span></a>
-      <a class="nav-link" href="sandbox.html"><span class="lang-cs">Testování (Sandbox)</span><span class="lang-en">Testing (Sandbox)</span></a>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Implementace</span><span class="lang-en">Implementation</span></span>
-      <a class="nav-link" href="skript.html"><span class="lang-cs">Základní skript</span><span class="lang-en">Basic script</span></a>
-      <a class="nav-link" href="gtm.html">Google Tag Manager</a>
-      <a class="nav-link" href="platformy.html"><span class="lang-cs">E-commerce platformy</span><span class="lang-en">E-commerce platforms</span></a>
-      <a class="nav-link" href="s2s.html">Server-to-Server (S2S)</a>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Reference událostí</span><span class="lang-en">Event reference</span></span>
-      <a class="nav-link" href="events.html"><span class="lang-cs">Přehled událostí</span><span class="lang-en">Event overview</span></a>
-      <div class="nav-sub">
-        <a class="nav-link" href="events.html#pageview">PageView</a>
-        <a class="nav-link" href="events.html#viewcontent">ViewContent</a>
-        <a class="nav-link" href="events.html#addtocart">AddToCart</a>
-        <a class="nav-link" href="events.html#purchase">Purchase</a>
-        <a class="nav-link" href="events.html#lead"><span class="lang-cs">Lead / Registrace</span><span class="lang-en">Lead / Registration</span></a>
-        <a class="nav-link" href="events.html#ostatni"><span class="lang-cs">Ostatní události</span><span class="lang-en">Other events</span></a>
-      </div>
-    </div>
-    <div class="nav-section">
-      <span class="nav-section-label"><span class="lang-cs">Konfigurace</span><span class="lang-en">Configuration</span></span>
-      <a class="nav-link" href="consent.html"><span class="lang-cs">Správa souhlasů</span><span class="lang-en">Consent management</span></a>
-      <a class="nav-link" href="user-data.html"><span class="lang-cs">Uživatelská data</span><span class="lang-en">User data</span></a>
-      <a class="nav-link" href="contents.html"><span class="lang-cs">Objekt produktů – contents</span><span class="lang-en">Product object – contents</span></a>
-      <a class="nav-link" href="drtg.html"><span class="lang-cs">Dynamický retargeting</span><span class="lang-en">Dynamic retargeting</span></a>
-      <a class="nav-link" href="retargeting.html"><span class="lang-cs">Retargetingové seznamy</span><span class="lang-en">Retargeting lists</span></a>
-      <a class="nav-link active" href="konverze.html"><span class="lang-cs">Správa konverzí</span><span class="lang-en">Conversion management</span></a>
-    </div>
-  </nav>
-
-  <main class="main-content">
-
-    <div class="content-wrap lang-cs">
-
-      <div class="page-header">
-        <div class="breadcrumb">
-          <a href="index.html">SEM</a> <span>›</span> <span>Konfigurace</span>
-        </div>
-        <h1>Správa konverzí</h1>
-        <p class="lead">
-          V sekci <a href="https://nas.sklik.cz/event-management?view=conversions" target="_blank">Správa měření → Konverze</a>
-          definujete, které SEM události se mají počítat jako konverzní akce, jakou mají hodnotu a za jakých podmínek.
-        </p>
-      </div>
-
-      <h2 id="konverze">Nastavení konverzí</h2>
-
-      <p>
-        Konverze definujete v kartě <strong>Konverze</strong>. Každá konverze je vázána na konkrétní
-        SEM událost (např. Purchase) a určuje:
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Nastavení</th><th>Popis</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Název konverze</strong></td>
-              <td>Interní název pro přehlednost (např. „Nákup e-shop")</td>
-            </tr>
-            <tr>
-              <td><strong>Událost</strong></td>
-              <td>SEM událost, na které je konverze postavena (Purchase, Lead, CompleteRegistration…)</td>
-            </tr>
-            <tr>
-              <td><strong>Hodnota konverze</strong></td>
-              <td>Pevná částka <strong>bez DPH</strong>, nebo dynamická hodnota z parametru <code>value</code> události (vždy bez DPH)</td>
-            </tr>
-            <tr>
-              <td><strong>Podmínky</strong></td>
-              <td>Volitelné filtry – konverze se počítá pouze při splnění podmínek (viz níže)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <img src="img/sprava-mereni-konverze.png" alt="Správa měření – karta Konverze" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-bottom:32px;">
-
-      <h3 id="podminky-konverzi">Podmínky konverzí</h3>
-
-      <p>
-        Ke každé konverzi lze přidat podmínky, které omezí, kdy se konverze započítá.
-        Podporované podmínky:
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Podmínka</th><th>Příklad</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>URL stránky</td><td>obsahuje <code>/dekujeme/</code></td></tr>
-            <tr><td>Typ obsahu (<code>content_type</code>)</td><td>je <code>product</code></td></tr>
-            <tr><td>Název obsahu (<code>content_name</code>)</td><td>obsahuje <code>Premium</code></td></tr>
-            <tr><td>Kategorie (<code>content_category</code>)</td><td>je <code>Elektronika | Mobilní telefony | Apple</code></td></tr>
-            <tr><td>ID produktu (<code>contents[].id</code>)</td><td>je <code>SKU-001</code></td></tr>
-            <tr><td>Hodnota nákupu (<code>value</code>)</td><td>větší než 500 CZK</td></tr>
-            <tr><td>Pohlaví uživatele</td><td>žena</td></tr>
-            <tr><td>Město</td><td>Praha</td></tr>
-            <tr><td>Stát</td><td>Česká republika</td></tr>
-            <tr><td>Zdroj události</td><td>Web / App</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Logika AND / OR v podmínkách</strong>
-          <p>Podmínky <em>uvnitř jednoho objektu</em> v poli <code>contents</code> platí jako AND.
-          Podmínky <em>přes více objektů</em> v poli fungují jako OR – stačí, aby splnil jeden z nich.</p>
-        </div>
-      </div>
-
-      <p>Přehled parametrů SEM skriptu, které odpovídají jednotlivým podmínkám, najdete v sekci <a href="retargeting.html#parametry-podminek">Retargetingové seznamy – parametry podmínek</a>.</p>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Retargetingové seznamy</strong>
-          <p>Ke každé konverzní události SEM automaticky vytvoří odpovídající retargetingový seznam obsahující uživatele, kteří konverzi dokončili. Přehled typů RTG seznamů a tvorba vlastních viz <a href="retargeting.html">Retargetingové seznamy</a>.</p>
-        </div>
-      </div>
-
-      <h2 id="zbozi">E-shopy napojené na Zboží.cz (provozovny)</h2>
-
-      <p>
-        Pokud provozujete e-shop napojený na Zboží.cz, pro správné odesílání konverzí
-        za účelem získání zpětné vazby (recenze produktů) musíte použít <strong>kombinované SEM ID</strong>
-        příslušné provozovny – ne obecné SEM ID účtu.
-      </p>
-
-      <p>
-        Kombinované SEM ID obsahuje identifikátor účtu i provozovny a zajišťuje správné přiřazení
-        zpětné vazby ke konkrétní provozovně. Najdete ho v Správě měření – ke každé provozovně
-        existuje vlastní záznam.
-      </p>
-
-      <div class="callout warning">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Přesun provozovny do jiného účtu</strong>
-          Při přesunu provozovny do jiného Sklik účtu kombinované SEM ID zaniká.
-          Budete na to upozorněni a budete muset aktualizovat SEM ID ve své implementaci.
-        </div>
-      </div>
-
-      <hr class="section-divider">
-
-      <h2 id="dalsi">Další kroky</h2>
-
-      <div class="method-grid">
-        <a class="method-card" href="jak-nasadit.html">
-          <span class="method-card-icon">🔄</span>
-          <span class="method-card-name">Průvodce migrací</span>
-          <span class="method-card-desc">Podrobný postup přechodu ze starých skriptů na SEM ve třech krocích.</span>
-        </a>
-        <a class="method-card" href="drtg.html">
-          <span class="method-card-icon">🎯</span>
-          <span class="method-card-name">Dynamický retargeting</span>
-          <span class="method-card-desc">Jak implementovat DRTG pro produkty a kategorie.</span>
-        </a>
-        <a class="method-card" href="events.html#purchase">
-          <span class="method-card-icon">🛒</span>
-          <span class="method-card-name">Událost Purchase</span>
-          <span class="method-card-desc">Parametry a kódové příklady pro konverzní událost Purchase.</span>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="content-wrap lang-en">
-
-      <div class="page-header">
-        <div class="breadcrumb">
-          <a href="index.html">SEM</a> <span>›</span> <span>Configuration</span>
-        </div>
-        <h1>Conversion management</h1>
-        <p class="lead">
-          In the <a href="https://nas.sklik.cz/event-management?view=conversions" target="_blank">Event Management → Conversions</a>
-          section you define which SEM events should be counted as conversion actions, what value they have, and under what conditions.
-        </p>
-      </div>
-
-      <h2 id="konverze-en">Conversion setup</h2>
-
-      <p>
-        You define conversions in the <strong>Conversions</strong> tab. Each conversion is linked to a specific
-        SEM event (e.g. Purchase) and determines:
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Setting</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Conversion name</strong></td>
-              <td>Internal name for clarity (e.g. "E-shop purchase")</td>
-            </tr>
-            <tr>
-              <td><strong>Event</strong></td>
-              <td>The SEM event the conversion is based on (Purchase, Lead, CompleteRegistration…)</td>
-            </tr>
-            <tr>
-              <td><strong>Conversion value</strong></td>
-              <td>A fixed amount <strong>excl. VAT</strong>, or a dynamic value from the event's <code>value</code> parameter (always excl. VAT)</td>
-            </tr>
-            <tr>
-              <td><strong>Conditions</strong></td>
-              <td>Optional filters – the conversion is counted only when conditions are met (see below)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <img src="img/sprava-mereni-konverze.png" alt="Event Management – Conversions tab" style="max-width:100%; border-radius:8px; border:1px solid #e4e4e7; margin-bottom:32px;">
-
-      <h3 id="podminky-konverzi-en">Conversion conditions</h3>
-
-      <p>
-        You can add conditions to each conversion that restrict when the conversion is counted.
-        Supported conditions:
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Condition</th><th>Example</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Page URL</td><td>contains <code>/thank-you/</code></td></tr>
-            <tr><td>Content type (<code>content_type</code>)</td><td>is <code>product</code></td></tr>
-            <tr><td>Content name (<code>content_name</code>)</td><td>contains <code>Premium</code></td></tr>
-            <tr><td>Category (<code>content_category</code>)</td><td>is <code>Elektronika | Mobilní telefony | Apple</code></td></tr>
-            <tr><td>Product ID (<code>contents[].id</code>)</td><td>is <code>SKU-001</code></td></tr>
-            <tr><td>Purchase value (<code>value</code>)</td><td>greater than 500 CZK</td></tr>
-            <tr><td>User gender</td><td>female</td></tr>
-            <tr><td>City</td><td>Praha</td></tr>
-            <tr><td>Country</td><td>Czech Republic</td></tr>
-            <tr><td>Event source</td><td>Web / App</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>AND / OR logic in conditions</strong>
-          <p>Conditions <em>within a single object</em> in the <code>contents</code> array act as AND.
-          Conditions <em>across multiple objects</em> in the array work as OR – only one needs to be satisfied.</p>
-        </div>
-      </div>
-
-      <p>For an overview of SEM script parameters corresponding to individual conditions, see <a href="retargeting.html#parametry-podminek">Retargeting lists – condition parameters</a>.</p>
-
-      <div class="callout info">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Retargeting lists</strong>
-          <p>For each conversion event, SEM automatically creates a corresponding retargeting list containing users who completed the conversion. For an overview of retargeting list types and how to create custom ones, see <a href="retargeting.html">Retargeting lists</a>.</p>
-        </div>
-      </div>
-
-      <h2 id="zbozi-en">E-shops linked to Seznam Shopping (store outlets)</h2>
-
-      <p>
-        If you operate an e-shop linked to Seznam Shopping, to correctly send conversions
-        for the purpose of obtaining customer feedback (product reviews) you must use the <strong>combined SEM ID</strong>
-        of the relevant store outlet – not the general account SEM ID.
-      </p>
-
-      <p>
-        The combined SEM ID contains both the account identifier and the store outlet identifier, ensuring
-        that feedback is correctly attributed to the specific store. You can find it in Event Management –
-        each store outlet has its own record.
-      </p>
-
-      <div class="callout warning">
-        <span class="callout-icon"></span>
-        <div class="callout-body">
-          <strong>Moving a store outlet to another account</strong>
-          When a store outlet is moved to a different Sklik account, the combined SEM ID becomes invalid.
-          You will be notified and will need to update the SEM ID in your implementation.
-        </div>
-      </div>
-
-      <hr class="section-divider">
-
-      <h2 id="dalsi-en">Next steps</h2>
-
-      <div class="method-grid">
-        <a class="method-card" href="jak-nasadit.html">
-          <span class="method-card-icon">🔄</span>
-          <span class="method-card-name">Migration guide</span>
-          <span class="method-card-desc">Step-by-step instructions for migrating from old scripts to SEM in three stages.</span>
-        </a>
-        <a class="method-card" href="drtg.html">
-          <span class="method-card-icon">🎯</span>
-          <span class="method-card-name">Dynamic retargeting</span>
-          <span class="method-card-desc">How to implement DRTG for products and categories.</span>
-        </a>
-        <a class="method-card" href="events.html#purchase">
-          <span class="method-card-icon">🛒</span>
-          <span class="method-card-name">Purchase event</span>
-          <span class="method-card-desc">Parameters and code examples for the Purchase conversion event.</span>
-        </a>
-      </div>
-
-    </div>
-
-  </main>
-</div>
-
-<footer class="site-footer">
-  <span class="lang-cs">© 2026 Seznam.cz, a.s. – SEM dokumentace (interní pracovní verze)</span>
-  <span class="lang-en">© 2026 Seznam.cz, a.s. – SEM documentation</span>
-  <span>Sklik · napoveda.sklik.cz</span>
-  <span><a href="mailto:sem@firma.seznam.cz">sem@firma.seznam.cz</a></span>
-</footer>
-<script src="assets/main.js"></script>
+  <h1>Dokumentace SEM se přesunula</h1>
+  <p>Pokud nejste přesměrováni automaticky, pokračujte zde:</p>
+  <p><a href="https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/konfigurace-sem/sprava-konverzi/">https://napoveda.sklik.cz/merici-skripty/seznam-event-measurement/konfigurace-sem/sprava-konverzi/</a></p>
+  <hr>
+  <h1 style="font-size:1.15rem">SEM documentation has moved</h1>
+  <p><small>English version:</small></p>
+  <p><a href="https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/configuration-sem/conversion-management/">https://napoveda.sklik.cz/en/tracking-scripts/seznam-event-measurement-sem/configuration-sem/conversion-management/</a></p>
 </body>
 </html>
